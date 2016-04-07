@@ -30,4 +30,6 @@ google_api_key:
 markdown: kramdown
 
 # Set pagination
+gems: [jekyll-paginate]
 paginate: 5
+paginate_path: "page:num"
