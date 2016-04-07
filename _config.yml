@@ -28,3 +28,6 @@ google_api_key:
 
 # Markdown (gituhub only uses kramdown)
 markdown: kramdown
+
+# Set pagination
+paginate: 5
