@@ -1,2 +1,3 @@
-# herebyaccident
-Just a blog
+# Here by accident
+
+The name says it all
