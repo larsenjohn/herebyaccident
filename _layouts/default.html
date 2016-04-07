@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- FB -->
+  	<meta property="og:title" content="..." />
+  	<meta property="og:site_name" content="..."/>
+  	<meta property="og:url" content="http://..." />
+  	<meta property="og:description" content="..." />
+  	<meta property="og:type" content="article" />
+  	<meta property="og:image" content="http://..." />
+  	<meta property="og:image:type" content="/images/jpeg" />
+  	<meta property="og:image:width" content="1200" />
+  	<meta property="og:image:height" content="650" />
+
+  	<!-- FB alt translations -->
+  	<meta property="og:locale" content="en_US" />
+
+    <title>
+      {% if page.title %}
+        {{ page.title }}
+      {% else %}
+        Default Page Title
+      {% endif %}
+    </title>
+
+    <!-- fav and touch -->
+  	<link rel="shortcut icon" href="/images/favicon.ico">
+  	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114-precomposed.png">
+  	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72-precomposed.png">
+  	<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-57-precomposed.png">
+
+    <!-- CSS -->
+    <link href="/css/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    {% include nav.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    {% include scripts.html %}
+
+</body>
+
+</html>

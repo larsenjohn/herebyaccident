@@ -1,0 +1,259 @@
+
+/*** Microframe Starter Template ***/
+
+/** a outline bug **/
+
+a {
+  outline: 0;
+}
+
+a:hover, a:active, a:focus {
+  outline: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+/** Vimeo fluid iframe method **/
+
+.video-block {
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+  margin-top: -5%;
+  /** set cover img **/
+  background-color: #aaa;
+}
+
+.hero-mask {
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 999;
+  position: absolute;
+  top: 60px;
+}
+
+.hero-mask h1 {
+  margin-top: 200px;
+  color: #fff;
+  display: block;
+}
+
+/** Fluid video embed **/
+
+.video-wrapper {
+  position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+
+.video-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/** Basic fixed background "Parallax" **/
+
+section.module:last-child {
+  margin-bottom: 0;
+}
+
+section.module h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+section.module p:last-child {
+  margin-bottom: 0;
+}
+
+section.module.content {
+  padding: 40px 0;
+}
+
+section.module.parallax {
+  height: 600px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  /** Set to 100% before cover **/
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  position: inherit;
+}
+
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 80px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+section.module.parallax-1 {
+  background-image: url("../images/1.jpg");
+}
+
+section.module.parallax-2 {
+  background-image: url("../images/2.jpg");
+}
+
+section.module.parallax-3 {
+  background-image: url("../images/3.jpg");
+}
+
+/** ==== TYP ============================================================ **/
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=3.0.1');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+    url('../fonts/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+    url('../fonts/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*** === RESPONSIVE ======================================================== **/
+
+/*** === Mobile First Method === ***/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+  /** TYP **/
+
+  section.project h1 {
+    font-size: 42px;
+  }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+
+}
+
+/*** === Non-Mobile First Method === ***/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+  /* video embed */
+
+  .video-block {
+    height: 500px;
+  }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+  /* video embed */
+
+  .video-block {
+    height: 375px;
+  }
+
+  .hero-mask {
+    top: 100px;
+  }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+  .video-block {
+    /** set height based on hero here **/
+    height: 500px;
+    /** set cover image here **/
+    background-color: #aaa;
+  }
+
+  .hero-mask {
+    position: static;
+    top: 0;
+    padding: 90px 0 40px 0;
+  }
+
+  /** Fixed bg h1 **/
+
+  section.module.parallax h1 {
+    font-size: 60px;
+  }
+
+}
+
+/* Ipad Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px) {
+
+    section.module.parallax {
+      /** Fixed bg override **/
+      background-attachment: scroll;
+    }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+  section.module.parallax {
+    /** Fixed bg override **/
+    background-attachment: scroll;
+  }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+  section.module.parallax {
+    /** Fixed bg override **/
+    background-attachment: scroll;
+  }
+
+}
+
+/** Retina specific **/
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+}
