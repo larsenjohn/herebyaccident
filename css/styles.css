@@ -129,6 +129,9 @@ section.module.parallax-3 {
 
 ol, ul {
   padding-left: 20px;
+}
+
+ul {
   list-style-type: circle;
 }
 
