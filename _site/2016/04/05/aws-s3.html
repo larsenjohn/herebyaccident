@@ -68,7 +68,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">I swear did this before</a>
+      <a class="navbar-brand" href="/">Wait, what?</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -83,13 +83,13 @@
 </nav>
 
 
-  <div class="container push">
-    <div class="row">
+  <div class="post">
 
-      <div class="col-sm-9">
-        <h1 id="configure-a-static-site-through-aws-s3">Configure a static site through AWS S3</h1>
+    <div class="container push">
+      <div class="row">
 
-<hr />
+        <div class="col-sm-9">
+          <h1 id="configure-a-static-site-through-aws-s3">Configure a static site through AWS S3</h1>
 
 <p>I heard you can host a static site on Amazon S3. Not only is this unnecessary and convoluted to adopt, but you have to go through and learn the special “Amazon way” of doing it. There are also super dense third party tools to automate this process because they want it to be infinitely more complicated.</p>
 
@@ -99,11 +99,10 @@
 
 <p>So let’s get going shall we?</p>
 
-<p><br /></p>
-
 <hr />
+<hr class="rule" />
 
-<h2 id="make-three-buckets">Make Three Buckets</h2>
+<h2 id="create-three-buckets">Create three buckets</h2>
 
 <p>The site will need three instances. root, www, and logs. Create a bucket for each with the exact domain name.</p>
 
@@ -115,8 +114,6 @@
   <li>logs.fucktheweb.com</li>
 </ul>
 
-<p><br /></p>
-
 <p>Enable the root site <em>fucktheweb.com</em> for web hosting. Go to the <strong>Properties</strong> panel, click <strong>Static Website Hosting</strong>, and do the following:</p>
 
 <ol>
@@ -125,7 +122,7 @@
   <li>In the <strong>Error Document</strong> box, add 404.html.</li>
 </ol>
 
-<p><br /></p>
+<hr />
 
 <h2 id="make-the-root-public">Make the root public</h2>
 
@@ -151,7 +148,7 @@
 }
 </pre>
 
-<p><br /></p>
+<hr />
 
 <h2 id="set-up-the-redirect">Set up the redirect</h2>
 
@@ -162,7 +159,7 @@
   <li><strong>Redirect all requests to:</strong> fucktheweb.com</li>
 </ol>
 
-<p><br /></p>
+<hr />
 
 <h2 id="set-up-logging">Set up logging</h2>
 
@@ -177,18 +174,19 @@
 </ol>
 
 <hr />
+<hr />
 
 <h1 id="point-the-domain">Point the domain</h1>
 
 <p>Well, that was fun. Now we get to go through another super groovy interface that costs more money. It’s Amazon’s signature “Route 53” and we need to set up a “hosted zone”.</p>
 
-<p><br /></p>
+<hr />
 
 <h2 id="create-a-new-hosted-zone">Create a new hosted zone</h2>
 
 <p>In Route 53, go to <strong>Hosted zones</strong> and <strong>create a new hosted zone</strong> called fucktheweb.com. This will generate the namesevers. These nameservers are not consistent when generated, so if you botch it and start over, make sure to check them again before you point. You’ll also need to <strong>config two new A records in Route 53</strong> because simple nameservers would be too easy.</p>
 
-<p><br /></p>
+<hr />
 
 <h2 id="create-a-root-a-record">Create a root A record</h2>
 
@@ -201,6 +199,8 @@
   <li><strong>Routing Policy:</strong> Simple</li>
 </ol>
 
+<hr />
+
 <h2 id="create-a-www-a-record">Create a www. A record</h2>
 
 <ol>
@@ -210,37 +210,46 @@
   <li><strong>Routing Policy:</strong> Simple</li>
 </ol>
 
-<p><br /></p>
+<hr />
+<hr />
 
-<p>Now go to the registrar and use the Route 53 Nameservers to point the domain to S3.</p>
+<h1 id="change-nameservers">Change Nameservers</h1>
+
+<p>Now go to the registrar and use the Route 53 generated Nameservers to point the domain to S3.</p>
+
+        </div>
+
+        <div class="col-sm-3" style="padding-top: 8px;">
+          <h3>Failures</h3>
+          <hr class="heading">
+          <ul>
+            
+            <li>
+              <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/basic-linux-commands.html">Common Linux Commands</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">Common OSX Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
+            </li>
+            
+          </ul>
+        </div>
 
       </div>
-
-      <div class="col-sm-3">
-        <h3>Failures</h3>
-        <hr>
-        <ul>
-          
-          <li>
-            <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
-          </li>
-          
-          <li>
-            <a href="/2016/04/05/basic-linux-commands.html">Common Linux Commands</a>
-          </li>
-          
-          <li>
-            <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
-          </li>
-          
-          <li>
-            <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
-          </li>
-          
-        </ul>
-      </div>
-
     </div>
+
   </div>
 
   

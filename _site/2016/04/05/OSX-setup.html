@@ -24,7 +24,7 @@
 
     <title>
       
-        Markdown / Kramdown
+        Common OSX Setup
       
     </title>
 
@@ -89,134 +89,46 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="markdown-and-kramdown">Markdown and Kramdown</h1>
+          <h1 id="common-osx-setup">Common OSX Setup</h1>
 
-<p>Here come the warm jets.</p>
-
-<p>Hey, you might say “why on earth should I learn another language that will just do the same thing as HTML?” Or, “won’t this just be a waste of time on an abstracted language no one will adopt?” Well fuck, you are absolutely right.</p>
-
-<p>Let’s get going.</p>
-
-<p>This is all just a bastardized version of <a href="http://daringfireball.net/projects/markdown/syntax">this link</a> from Daring Fireball.</p>
-
-<p>Github pages only supports <a href="http://kramdown.gettalong.org/syntax.html">Kramdown</a> if you even care. But if you are using a jekyll specific site this will probably need to be mentioned in the <code class="highlighter-rouge">_config.yml</code> file like so:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># Markdown
-markdown: kramdown
-</code></pre>
-</div>
+<p>So, you blew up another system and you forgot about all the crazy shit you did to it. It’s happened enough times to warrant this pathetic post. Seriously, just google it.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="headings">Headings</h2>
+<h2 id="change-mouse-scroll">Change Mouse Scroll</h2>
 
-<p># h1</p>
-<p>## h2</p>
-<p>### h3</p>
-<p>#### h4</p>
-<p>##### h5</p>
-<p>###### h6</p>
-
-<hr />
-
-<h2 id="emphasis">Emphasis</h2>
-
-<p>*em*</p>
-<p>**strong**</p>
-
-<p><br /></p>
-
-<p><em>em</em></p>
-
-<p><strong>strong</strong></p>
-
-<hr />
-
-<h2 id="lists">Lists</h2>
-
-<p>+ li</p>
-<p>&nbsp; &nbsp; + li</p>
-
-<p>1. ol</p>
-
-<p><br /></p>
-
-<ul>
-  <li>li
-    <ul>
-      <li>li</li>
-    </ul>
-  </li>
-</ul>
+<p>Whomever came up with this <em>feature</em> should shot in the fucking teeth.</p>
 
 <ol>
-  <li>ol</li>
+  <li>System Preferences &gt;</li>
+  <li>Mouse &gt;</li>
+  <li>Uncheck <strong>Scroll direction: natural</strong></li>
 </ol>
 
-<hr />
-
-<h2 id="links">Links</h2>
-
-<p>[I'm an inline-style link](https://www.google.com)</p>
-<p>[I'm an inline-style link with title](https://www.google.com "Google's Homepage")</p>
-<p>[I'm a relative reference to a repository file in the root](/images/russell.jpg)</p>
+<p><img src="/images/ref/mouse-scroll.png" alt="OSX mouse scroll" /></p>
 
 <p><br /></p>
 
-<p><a href="https://www.google.com">I’m an inline-style link</a></p>
+<h2 id="command-line-tools-without-xcode">Command Line Tools without Xcode</h2>
 
-<p><a href="https://www.google.com" title="Google's Homepage">I’m an inline-style link with title</a></p>
-
-<p><a href="/images/russell.jpg">I’m a relative reference to a to a repository file in the root</a></p>
-
-<p><br /></p>
-
-<p>![jack in coat](/images/russell.jpg "Jack in coat title")</p>
-<p><img src="/images/russell.jpg" alt="jack in coat" title="Jack in coat title" /></p>
-
-<p>You can also just do it the old fashioned way if you want classes</p>
-
-<p><img class="img-responsive" src="/images/russell.jpg" /></p>
+<pre>
+xcode-select --install
+</pre>
 
 <hr />
 
-<h2 id="code">Code</h2>
+<h2 id="show-hidden-files">Show hidden files</h2>
 
-<p>`code in an inline block` with basic backticks</p>
+<pre>
+$ defaults write com.apple.finder AppleShowAllFiles YES
+</pre>
 
-<p><code class="highlighter-rouge">code in a block</code></p>
+<p>Relaunch finder if it borks</p>
 
-<p>Drop this all 4 spaces in for a code block</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script&gt;
-var s = "JavaScript syntax highlighting";
-alert(s);
-&lt;/script&gt;
-</code></pre>
-</div>
-
-<hr />
-
-<h2 id="blockquotes">Blockquotes</h2>
-
-<p>&gt;I'm a blockquote and I can use *markdown*</p>
-
-<blockquote>
-  <p>I’m a blockquote and I can use <em>markdown</em></p>
-</blockquote>
-
-<hr />
-
-<h2 id="line-breaks">Line Breaks</h2>
-
-<p>There is a totally weird way to use line breaks by double spacing right after a paragraph.</p>
-
-<p>Like this<br />
-I’m surpirsed this works<br />
-Am I an idiot<br />
-or is trailing white space a bad<br />
-habit to get into?</p>
+<pre>
+$ killall finder
+</pre>
 
         </div>
 

@@ -3,19 +3,18 @@ layout: post
 title: Common Linux Commands
 ---
 
-# Ubuntu Linux cheat sheet
+# Ubuntu Linux basics
 
 Hey, want to learn some Linux commands? Me neither.
 
-<hr>
+***
+<hr class="rule">
 
-Remove foler and all files with no prompt
+Remove folder and all files with no prompt
 
 <pre>
 rm -rf folder-name
 </pre>
-
-<br>
 
 Rename folder or files
 
@@ -23,15 +22,11 @@ Rename folder or files
 mv old-name new-name
 </pre>
 
-<br>
-
 Move file somewhere else
 
 <pre>
 mv file-name /somewhere-else
 </pre>
-
-<br>
 
 Move folder somewhere else
 

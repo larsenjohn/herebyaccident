@@ -58,26 +58,30 @@
 
   {% include nav.html %}
 
-  <div class="container push">
-    <div class="row">
+  <div class="post">
 
-      <div class="col-sm-9">
-        {{ content }}
+    <div class="container push">
+      <div class="row">
+
+        <div class="col-sm-9">
+          {{ content }}
+        </div>
+
+        <div class="col-sm-3" style="padding-top: 8px;">
+          <h3>Failures</h3>
+          <hr class="heading">
+          <ul>
+            {% for post in site.posts %}
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
       </div>
-
-      <div class="col-sm-3">
-        <h3>Failures</h3>
-        <hr>
-        <ul>
-          {% for post in site.posts %}
-          <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-
     </div>
+
   </div>
 
   {% include footer.html %}

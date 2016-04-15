@@ -68,7 +68,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">I swear did this before</a>
+      <a class="navbar-brand" href="/">Wait, what?</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -83,23 +83,26 @@
 </nav>
 
 
-  <div class="container push">
-    <div class="row">
+  <div class="post">
 
-      <div class="col-sm-9">
-        <h1 id="global-gitignore">Global .gitignore</h1>
+    <div class="container push">
+      <div class="row">
 
-<p>Some smartypants said I have been serving up .DS_Store files all over the interweb tubes. Well, I guess it was McAffee, so there is no accounting for how crazy this advice is. It’s sort of like Gary Busy giving you pointers. However these files are the fucking herpes of OSX.</p>
+        <div class="col-sm-9">
+          <h1 id="global-gitignore">Global .gitignore</h1>
+
+<p>Some smartypants said I have been serving up .DS_Store files all over the interweb tubes. Well, I guess it was McAffee, so there is no accounting for how crazy this advice is. It’s sort of like Gary Busy giving you pointers. However, these files are the fucking herpes of OSX.</p>
 
 <p>I’m <em>all for</em> ignoring things, so this is right up my alley.</p>
 
 <hr />
+<hr class="rule" />
+
+<p>Make a new .gitignore file.</p>
 
 <pre>
 sudo nano ~/.gitignore_global
 </pre>
-
-<p><br /></p>
 
 <p>.gitignore_global</p>
 
@@ -149,15 +152,11 @@ Thumbs.db
 config.codekit
 </pre>
 
-<p><br /></p>
-
 <p>Assign it.</p>
 
 <pre>
 git config --global core.excludesfile '~/.gitignore_global'
 </pre>
-
-<hr />
 
 <p>Check config if you get nervous.</p>
 
@@ -165,33 +164,39 @@ git config --global core.excludesfile '~/.gitignore_global'
 git config --list
 </pre>
 
-      </div>
+        </div>
 
-      <div class="col-sm-3">
-        <h3>Failures</h3>
-        <hr>
-        <ul>
-          
-          <li>
-            <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
-          </li>
-          
-          <li>
-            <a href="/2016/04/05/basic-linux-commands.html">Common Linux Commands</a>
-          </li>
-          
-          <li>
-            <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
-          </li>
-          
-          <li>
-            <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
-          </li>
-          
-        </ul>
-      </div>
+        <div class="col-sm-3" style="padding-top: 8px;">
+          <h3>Failures</h3>
+          <hr class="heading">
+          <ul>
+            
+            <li>
+              <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/basic-linux-commands.html">Common Linux Commands</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">Common OSX Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
+            </li>
+            
+          </ul>
+        </div>
 
+      </div>
     </div>
+
   </div>
 
   
