@@ -108,7 +108,7 @@
 
 <p><img src="/images/ref/mouse-scroll.png" alt="OSX mouse scroll" /></p>
 
-<p><br /></p>
+<hr class="rule" />
 
 <h2 id="command-line-tools-without-xcode">Command Line Tools without Xcode</h2>
 
@@ -116,7 +116,7 @@
 xcode-select --install
 </pre>
 
-<hr />
+<hr class="rule" />
 
 <h2 id="show-hidden-files">Show hidden files</h2>
 
@@ -128,6 +128,32 @@ $ defaults write com.apple.finder AppleShowAllFiles YES
 
 <pre>
 $ killall finder
+</pre>
+
+<hr class="rule" />
+
+<h2 id="homebrew">Homebrew</h2>
+
+<p>If it isn’t <a href="http://brew.sh/">out of date.</a></p>
+
+<pre>
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</pre>
+
+<p>Update it</p>
+
+<pre>
+$ brew update
+$ brew doctor
+</pre>
+
+<hr class="rule" />
+
+<h2 id="node">Node</h2>
+
+<pre>
+$ brew install node
+$ node -v
 </pre>
 
         </div>
