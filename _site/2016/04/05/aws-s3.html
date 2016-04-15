@@ -24,7 +24,7 @@
 
     <title>
       
-        AWS S3
+        AWS S3 Static
       
     </title>
 
@@ -86,11 +86,100 @@
     <div class="row">
 
       <div class="col-sm-9">
-        <h2 id="string-up-a-static-site-through-aws-s3">String up a static site through AWS S3</h2>
+        <h1 id="configure-a-static-site-through-aws-s3">Configure a static site through AWS S3</h1>
 
 <hr />
 
-<p>Here we go.</p>
+<p>I heard you can host a static site on Amazon S3. Not only is this unnecessary and convoluted to adopt, but you have to go through and learn the special “Amazon way” of doing it. There are also super dense third party tools to automate this process because they want it to be infinitely more complicated.</p>
+
+<p>It’s super cheap though. That is until you get a bill that says it isn’t. Doesn’t matter, since Amazon already has your credit card on file so you will pay either way.</p>
+
+<p>The whole <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html">sad state of affairs is here to read.</a></p>
+
+<p>So let’s get going shall we?</p>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="make-three-buckets">Make Three Buckets</h2>
+
+<p>The site will need three instances. root, www, and logs. Create a bucket for each with the exact domain name.</p>
+
+<p>For instance:</p>
+
+<ul>
+  <li>fucktheweb.com</li>
+  <li>www.fucktheweb.com</li>
+  <li>logs.fucktheweb.com</li>
+</ul>
+
+<p><br /></p>
+
+<p>Enable the root site <em>fucktheweb.com</em> for web hosting. Go to the <strong>Properties</strong> panel, click <strong>Static Website Hosting</strong>, and do the following:</p>
+
+<ol>
+  <li>Select the <strong>Enable website hosting</strong>.</li>
+  <li>In the <strong>Index Document</strong> box, add index.html.</li>
+  <li>In the <strong>Error Document</strong> box, add 404.html.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="make-the-root-public">Make the root public</h2>
+
+<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click the <strong>Permissions</strong>.</p>
+
+<ol>
+  <li>Click Add <strong>Bucket Policy</strong>.</li>
+  <li>Drop this puppy in</li>
+</ol>
+
+<pre>
+{
+  "Version":"2012-10-17",
+  "Statement":[{
+	"Sid":"PublicReadForGetBucketObjects",
+        "Effect":"Allow",
+	  "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::fucktheweb.com/*"
+      ]
+    }
+  ]
+}
+</pre>
+
+<p><br /></p>
+
+<h2 id="set-up-the-redirect">Set up the redirect</h2>
+
+<p>In the <em>www.fucktheweb.com</em> bucket <strong>Properties</strong> go to <strong>Static Website Hosting</strong>.</p>
+
+<ol>
+  <li>Select <strong>Redirect all requests to another host name</strong></li>
+  <li><strong>Redirect all requests to:</strong> fucktheweb.com</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="set-up-logging">Set up logging</h2>
+
+<p>In the <em>logs.fucktheweb.com</em> bucket, create a folder named “root”.</p>
+
+<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click the <strong>Logging</strong>.</p>
+
+<ol>
+  <li>Check <strong>Enable logging</strong>.</li>
+  <li><strong>Target bucket:</strong> logs.fucktheweb.com</li>
+  <li><strong>Target prefix:</strong> root/</li>
+</ol>
+
+<hr />
+
+<h1 id="set-up-the-domain">Set up the domain</h1>
+
+<p>Well, that was fun. Now we get to go through another super groovy interface that costs more money. It’s Amazon’s signature “Route 53” and we need to set up a “hosted zone”.</p>
 
       </div>
 
@@ -100,7 +189,7 @@
         <ul>
           
           <li>
-            <a href="/2016/04/05/aws-s3.html">AWS S3</a>
+            <a href="/2016/04/05/aws-s3.html">AWS S3 Static</a>
           </li>
           
           <li>

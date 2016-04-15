@@ -92,6 +92,10 @@
 
 <p>Here come the warm jets.</p>
 
+<p>Hey, you might say “why on earth should I learn another language that will just do the same thing as HTML?” Or, “won’t this just be a waste of time on an abstracted language no one will adopt?” Well fuck, you are absolutely right.</p>
+
+<p>Let’s get going.</p>
+
 <p>This is all just a bastardized version of <a href="http://daringfireball.net/projects/markdown/syntax">this link</a> from Daring Fireball.</p>
 
 <p>Github pages only supports <a href="http://kramdown.gettalong.org/syntax.html">Kramdown</a> if you even care. But if you are using a jekyll specific site this will probably need to be mentioned in the <code class="highlighter-rouge">_config.yml</code> file like so:</p>
@@ -122,13 +126,12 @@ markdown: kramdown
 
 <p>*em*</p>
 <p>**strong**</p>
-<p>~strikethrough~</p>
+
+<p><br /></p>
 
 <p><em>em</em></p>
 
-<p><strong>stong</strong></p>
-
-<p>~strikethrough~</p>
+<p><strong>strong</strong></p>
 
 <p><br /></p>
 
@@ -140,6 +143,8 @@ markdown: kramdown
 <p>&nbsp; &nbsp; + li</p>
 
 <p>1. ol</p>
+
+<p><br /></p>
 
 <ul>
   <li>li
@@ -163,16 +168,22 @@ markdown: kramdown
 <p>[I'm an inline-style link with title](https://www.google.com "Google's Homepage")</p>
 <p>[I'm a relative reference to a repository file in the root](/images/russell.jpg)</p>
 
+<p><br /></p>
+
 <p><a href="https://www.google.com">I’m an inline-style link</a></p>
 
 <p><a href="https://www.google.com" title="Google's Homepage">I’m an inline-style link with title</a></p>
 
 <p><a href="/images/russell.jpg">I’m a relative reference to a to a repository file in the root</a></p>
 
+<p><br /></p>
+
 <p>![jack in coat](/images/russell.jpg "Jack in coat title")</p>
 <p><img src="/images/russell.jpg" alt="jack in coat" title="Jack in coat title" /></p>
 
-<p>you can also jus do it the old fashioned way if you want classes</p>
+<p><br /></p>
+
+<p>You can also just do it the old fashioned way if you want classes</p>
 
 <p><img class="img-responsive" src="/images/russell.jpg" /></p>
 
@@ -207,6 +218,20 @@ alert(s);
   <p>I’m a blockquote and I can use <em>markdown</em></p>
 </blockquote>
 
+<p><br /></p>
+
+<h2 id="line-breaks">Line Breaks</h2>
+
+<hr />
+
+<p>There is a totally weird way to use line breaks by double spacing right after a paragraph.</p>
+
+<p>Like this<br />
+I’m surpirsed this works<br />
+Am I an idiot<br />
+or is trailing white space a bad<br />
+habit to get into?</p>
+
       </div>
 
       <div class="col-sm-3">
@@ -215,7 +240,7 @@ alert(s);
         <ul>
           
           <li>
-            <a href="/2016/04/05/aws-s3.html">AWS S3</a>
+            <a href="/2016/04/05/aws-s3.html">AWS S3 Static</a>
           </li>
           
           <li>
