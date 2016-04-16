@@ -94,17 +94,39 @@ hr.heading {
   border-top: 1px solid #999;
 }
 
+code {
+  color: #000;
+  background-color: #f5f5f5;
+}
+
 /** ==== Helpers ============================================================ **/
 
 .push {
   padding-top: 80px;
 }
 
+/** ==== Nav ============================================================ **/
+
+.navbar-default {
+  background: #E0FF40;
+}
+
+.navbar-default .navbar-brand {
+  color: #000;
+}
+
+/** ==== Nav ============================================================ **/
+
 .post img {
   height: auto;
   padding: 20px 0;
   max-width: 100%;
 }
+
+.post a {
+  color: #FF39BE;
+}
+
 
 /*** === RESPONSIVE ======================================================== **/
 
