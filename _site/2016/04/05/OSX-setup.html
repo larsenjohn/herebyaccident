@@ -123,13 +123,30 @@ xcode-select --install
 <h2 id="show-hidden-files">Show hidden files</h2>
 
 <pre>
-$ defaults write com.apple.finder AppleShowAllFiles YES
+defaults write com.apple.finder AppleShowAllFiles YES
 </pre>
 
-<p>Relaunch finder if it borks</p>
+<p>Relaunch finder if it doesn’t stick.</p>
 
 <pre>
-$ killall finder
+killall finder
+</pre>
+
+<hr class="rule" />
+
+<h2 id="scotchbox">Scotchbox</h2>
+
+<p>If it’s <a href="https://box.scotch.io/">still alive</a>. Once you get <a href="https://www.vagrantup.com/">Vagrant</a> all set up, remember the bork in the <code>.vagrant</code> file.</p>
+
+<pre>
+config.ssh.username = "vagrant"
+config.ssh.password = "vagrant"
+</pre>
+
+<p>Then set up the port forwarding to whatever works.</p>
+
+<pre>
+config.vm.network :forwarded_port, guest: 80, host: 8080
 </pre>
 
 <hr class="rule" />
