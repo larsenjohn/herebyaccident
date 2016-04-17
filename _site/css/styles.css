@@ -44,6 +44,7 @@ input::-moz-focus-inner {
 /** ==== TYP ============================================================ **/
 
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:400,300,500);
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,600);
 
 @font-face {
   font-family: 'FontAwesome';
@@ -56,11 +57,12 @@ input::-moz-focus-inner {
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 p {
@@ -68,7 +70,7 @@ p {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 footer p {
@@ -131,6 +133,7 @@ i {
 
 .navbar-default {
   background: #E0FF40;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar-default .navbar-nav>li>a {
