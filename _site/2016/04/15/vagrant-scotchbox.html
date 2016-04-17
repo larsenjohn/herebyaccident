@@ -24,7 +24,7 @@
 
     <title>
       
-        Common OSX Setup
+        Vagrant Scotchbox LAMP stack
       
     </title>
 
@@ -91,72 +91,36 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="common-osx-setup">Common OSX Setup</h1>
+          <h1 id="vagrant-amp-scotchbox-lamp-stack">Vagrant &amp; Scotchbox LAMP stack</h1>
 
-<p>So, you blew up another system and you forgot about all the crazy shit you did to it. It’s happened enough times to warrant this pathetic post. Seriously, just google it.</p>
+<p>I’m pretty lazy as lazy people go. The nice folks over at <a href="https://scotch.io/">scotch</a> have done a lot of work for me. Maybe someday I’ll buy them something nice.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="change-mouse-scroll">Change Mouse Scroll</h2>
+<h2 id="vagrant">Vagrant</h2>
 
-<p>Whomever came up with this <em>feature</em> should shot in the fucking teeth.</p>
-
-<ol>
-  <li>System Preferences &gt;</li>
-  <li>Mouse &gt;</li>
-  <li>Uncheck <strong>Scroll direction: natural</strong></li>
-</ol>
-
-<p><img src="/images/ref/mouse-scroll.png" alt="OSX mouse scroll" /></p>
+<p>Go get it again. <a href="https://www.vagrantup.com/downloads.html">You know the drill</a>.</p>
 
 <hr class="rule" />
 
-<h2 id="command-line-tools-without-xcode">Command Line Tools without Xcode</h2>
+<h2 id="scotchbox">Scotchbox</h2>
+
+<p>As always, check if it’s <a href="https://box.scotch.io/">still alive</a>. Since version 2.5 you should remember the bork, and drop this in the <code>.vagrant</code> file.</p>
 
 <pre>
-xcode-select --install
+config.ssh.username = "vagrant"
+config.ssh.password = "vagrant"
 </pre>
 
-<hr class="rule" />
-
-<h2 id="show-hidden-files">Show hidden files</h2>
+<p>Then set up the port forwarding to whatever works.</p>
 
 <pre>
-defaults write com.apple.finder AppleShowAllFiles YES
-</pre>
-
-<p>Relaunch finder if it doesn’t stick.</p>
-
-<pre>
-killall finder
+config.vm.network :forwarded_port, guest: 80, host: 8080
 </pre>
 
 <hr class="rule" />
 
-<h2 id="homebrew">Homebrew</h2>
-
-<p>If it isn’t <a href="http://brew.sh/">out of date.</a></p>
-
-<pre>
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-</pre>
-
-<p>Update it</p>
-
-<pre>
-$ brew update
-$ brew doctor
-</pre>
-
-<hr class="rule" />
-
-<h2 id="node">Node</h2>
-
-<pre>
-$ brew install node
-$ node -v
-</pre>
 
         </div>
 

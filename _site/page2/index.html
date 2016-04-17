@@ -24,7 +24,7 @@
 
     <title>
       
-        Common OSX Setup
+        You are here by accident
       
     </title>
 
@@ -56,7 +56,7 @@
 
 <body>
 
-  
+    
 <!-- Basic nav -->
 
 <nav id="mainnav" class="navbar navbar-default navbar-fixed-top">
@@ -85,119 +85,24 @@
 </nav>
 
 
-  <div class="post">
-
     <div class="container push">
-      <div class="row">
 
-        <div class="col-sm-9">
-          <h1 id="common-osx-setup">Common OSX Setup</h1>
+  <div class="row">
+    <div class="col-sm-12">
 
-<p>So, you blew up another system and you forgot about all the crazy shit you did to it. It’s happened enough times to warrant this pathetic post. Seriously, just google it.</p>
-
-<hr />
-<hr class="rule" />
-
-<h2 id="change-mouse-scroll">Change Mouse Scroll</h2>
-
-<p>Whomever came up with this <em>feature</em> should shot in the fucking teeth.</p>
-
-<ol>
-  <li>System Preferences &gt;</li>
-  <li>Mouse &gt;</li>
-  <li>Uncheck <strong>Scroll direction: natural</strong></li>
-</ol>
-
-<p><img src="/images/ref/mouse-scroll.png" alt="OSX mouse scroll" /></p>
-
-<hr class="rule" />
-
-<h2 id="command-line-tools-without-xcode">Command Line Tools without Xcode</h2>
-
-<pre>
-xcode-select --install
-</pre>
-
-<hr class="rule" />
-
-<h2 id="show-hidden-files">Show hidden files</h2>
-
-<pre>
-defaults write com.apple.finder AppleShowAllFiles YES
-</pre>
-
-<p>Relaunch finder if it doesn’t stick.</p>
-
-<pre>
-killall finder
-</pre>
-
-<hr class="rule" />
-
-<h2 id="homebrew">Homebrew</h2>
-
-<p>If it isn’t <a href="http://brew.sh/">out of date.</a></p>
-
-<pre>
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-</pre>
-
-<p>Update it</p>
-
-<pre>
-$ brew update
-$ brew doctor
-</pre>
-
-<hr class="rule" />
-
-<h2 id="node">Node</h2>
-
-<pre>
-$ brew install node
-$ node -v
-</pre>
-
-        </div>
-
-        <div class="col-sm-3 sidenav">
-          <h3>Failures</h3>
-          <hr class="heading">
-          <ul>
-            
-            <li>
-              <a href="/2016/04/15/vagrant-scotchbox.html">Vagrant Scotchbox LAMP stack</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/basic-linux-commands.html">Common Linux Commands</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/OSX-setup.html">Common OSX Setup</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
-            </li>
-            
-          </ul>
-        </div>
-
+      <div class="text-center">
+        <p style="font-size: 250px;"><i class="fa fa-bomb" aria-hidden="true"></i></p>
       </div>
-    </div>
 
+      <p class="jumbo text-center">It's morning, this is out of date.</p>
+
+    </div>
   </div>
 
-  
+</div>
+
+
+    
 <footer>
 
   <div class="container">
@@ -214,7 +119,9 @@ $ node -v
 </footer><!-- footer -->
 
 
-  <!-- JS -->
+    <!-- JS -->
 
 
 </body>
+
+</html>
