@@ -98,10 +98,9 @@
 <hr />
 <hr class="rule" />
 
-<p>Remove Firefox a outline</p>
+<p>Remove Firefox <code class="highlighter-rouge">&lt;a&gt;</code> outline</p>
 
-<pre>
-a {
+<div class="highlighter-rouge"><pre class="highlight"><code>a {
   outline: 0;
 }
 
@@ -112,32 +111,52 @@ a:hover, a:active, a:focus {
 input::-moz-focus-inner {
   border: 0;
 }
-</pre>
+</code></pre>
+</div>
 
 <p>Opacity with IE legacy</p>
 
-<pre>
-opacity: 0.5;
+<div class="highlighter-rouge"><pre class="highlight"><code>opacity: 0.5;
 -moz-opacity: 0.5;
 -webkit-opacity: 0.5;
 -o-opacity: 0.5;
 filter: alpha(opacity=50);
 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-</pre>
+</code></pre>
+</div>
 
 <p>Simple vanilla CSS3 ease</p>
 
-<pre>
-transition: all 0.15s ease-in-out;
+<div class="highlighter-rouge"><pre class="highlight"><code>transition: all 0.15s ease-in-out;
 -webkit-transition: all 0.15s ease-in-out;
 -moz-transition: all 0.15s ease-in-out;
 -o-transition: all 0.15s ease-in-out;
-</pre>
+</code></pre>
+</div>
 
-<p>Fluid video iframe embed</p>
+<p>Wrap an <code class="highlighter-rouge">&lt;a&gt;</code> tag around a div.</p>
 
-<pre>
-.video-wrapper {
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div&gt;
+  &lt;a class="link-full-div" href="#"&gt;&lt;/a&gt;
+    &lt;h1&gt;Link the entire div&lt;/h1&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+&lt;/div&gt;
+
+a.link-full-div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 999;
+}
+</code></pre>
+</div>
+
+<p>Fluid video <code class="highlighter-rouge">iframe</code> embed.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.video-wrapper {
   position: relative;
   /** 16:9 **/
   padding-bottom: 56.25%;
@@ -152,12 +171,12 @@ transition: all 0.15s ease-in-out;
   width: 100%;
   height: 100%;
 }
-</pre>
+</code></pre>
+</div>
 
-<p>Blank Bootstrap vanilla responsive styles</p>
+<p>Bootstrap vanilla media queries</p>
 
-<pre>
-/*** === Mobile First Method === ***/
+<div class="highlighter-rouge"><pre class="highlight"><code>/*** === Mobile First Method === ***/
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
@@ -228,7 +247,152 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 
 }
-</pre>
+</code></pre>
+</div>
+
+<p>Jotform reset to 100% width. Good starting place for simple forms w/Google fonts.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/** Jotform Reset **/
+
+/** import fonts @top or pull them for default **/
+@import ... Google font
+
+.form-all {
+  /* Define font family */
+  font-family: 'Google font', serif;
+  font-weight: 400;
+  color: #4d4d4d;
+  padding-top: 0;
+}
+
+input,
+textarea {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+  width: 100%;
+  min-width: 100%;
+  padding: 8px !important;
+  /* box sizing */
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  -o-box-sizing: border-box !important;
+  /* cut border radius */
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+  /* Appearance */
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -o-appearance: none !important;
+  /* Cut box shadow */
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  background: #ffffff !important;
+  outline: none !important;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.form-line-error {
+  background: none;
+}
+
+.form-line {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+.form-input .form-error-message,
+.form-input-wide .form-error-message {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  /* cut border radius */
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  /* cut box-shadow */
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+}
+
+.form-input .form-error-message img,
+.form-input-wide .form-error-message img {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background: #ffffff;
+}
+
+.form-line-active {
+  background: none;
+}
+
+/* Redundant text overrides */
+.form-textarea {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+}
+
+input,
+textarea {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #aaaaaa !important;
+}
+
+.form-input .form-error-message,
+.form-input-wide .form-error-message,
+.form-button-error {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+}
+
+label {
+  font-family: 'Google font', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.form-submit-button,
+.form-submit-reset,
+.form-submit-print,
+.form-screen-button {
+  padding: 10px;
+  width: 100%;
+  font-family: 'Google font', sans-serif;
+  font-weight: 600;
+  background: #000000;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #aaaaaa;
+}
+</code></pre>
+</div>
 
         </div>
 
@@ -250,6 +414,10 @@ only screen and (                min-resolution: 2dppx) {
             </li>
             
             <li>
+              <a href="/2016/04/05/osx-setup.html">Common OSX Setup</a>
+            </li>
+            
+            <li>
               <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
             </li>
             
@@ -259,10 +427,6 @@ only screen and (                min-resolution: 2dppx) {
             
             <li>
               <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/OSX-setup.html">Common OSX Setup</a>
             </li>
             
             <li>
