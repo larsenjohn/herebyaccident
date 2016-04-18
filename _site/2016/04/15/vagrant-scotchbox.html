@@ -93,20 +93,20 @@
         <div class="col-sm-9">
           <h1 id="vagrant-amp-scotchbox-lamp-stack">Vagrant &amp; Scotchbox LAMP stack</h1>
 
-<p>I’m pretty lazy as lazy people go. The nice folks over at <a href="https://scotch.io/">scotch</a> have done a lot of work for me. Maybe someday I’ll buy them something nice.</p>
+<p>Scotchbox 2.5 Open LAMP stack, by the generous folks at <a href="https://scotch.io/">scotch.io</a>.</p>
 
 <hr />
 <hr class="rule" />
 
 <h2 id="vagrant">Vagrant</h2>
 
-<p>Go get it again. <a href="https://www.vagrantup.com/downloads.html">You know the drill</a>.</p>
+<p>Download the <a href="https://www.vagrantup.com/downloads.html">latest and greatest</a>.</p>
 
 <hr class="rule" />
 
 <h2 id="scotchbox">Scotchbox</h2>
 
-<p>As always, check if it’s <a href="https://box.scotch.io/">still alive</a>. Since version 2.5 you should remember the bork, and drop this in the <code>.vagrant</code> file.</p>
+<p>Get the lastest <a href="https://box.scotch.io/">Scotchbox</a>. Since version 2.5 there is a connection bork, so drop this in the <code>.vagrant</code> file.</p>
 
 <pre>
 config.ssh.username = "vagrant"
@@ -117,6 +117,12 @@ config.ssh.password = "vagrant"
 
 <pre>
 config.vm.network :forwarded_port, guest: 80, host: 8080
+</pre>
+
+<p>Reload it if it doesn’t fire the first time.</p>
+
+<pre>
+vagrant reload
 </pre>
 
 <hr class="rule" />

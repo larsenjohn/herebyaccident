@@ -5,9 +5,7 @@ title: Global Git Ignore
 
 # Global .gitignore
 
-Some smartypants said I have been serving up .DS_Store files all over the interweb tubes. Well, I guess it was McAffee, so there is no accounting for how crazy this advice is. It's sort of like Gary Busy giving you pointers. However, these files are the fucking herpes of OSX.
-
-I'm *all for* ignoring things, so this is right up my alley.
+Some smartypants said I have been serving up .DS_Store files all over the interweb tubes. Well, I guess it was McAffee, so there is no accounting for how crazy this advice is. It's sort of like Gary Busy giving you pointers. However, these files are the herpes of OSX.
 
 ***
 <hr class="rule">

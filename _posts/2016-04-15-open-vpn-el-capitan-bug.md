@@ -3,7 +3,7 @@ layout: post
 title: Open VPN El Capitan bug
 ---
 
-# Open VPN &amp; OSX El Capitan connection bug.
+# Open VPN &amp; OSX El Capitan connection bug
 
 This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? We'll here's a total cludge for your amusement.
 
