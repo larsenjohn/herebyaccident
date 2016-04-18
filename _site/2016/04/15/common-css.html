@@ -24,7 +24,7 @@
 
     <title>
       
-        Markdown / Kramdown
+        Common CSS
       
     </title>
 
@@ -91,107 +91,123 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="markdown-and-kramdown">Markdown and Kramdown</h1>
+          <h1 id="css-styles-im-always-repeating">CSS styles I’m always repeating</h1>
 
-<p>This is all just a bastardized version of <a href="http://daringfireball.net/projects/markdown/syntax">this</a> from Daring Fireball.</p>
-
-<p>Github pages only supports <a href="http://kramdown.gettalong.org/syntax.html">Kramdown</a> if you even care. But if you are using a jekyll specific site this will probably need to be mentioned in the <code class="highlighter-rouge">_config.yml</code> file like so:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># Markdown
-markdown: kramdown
-</code></pre>
-</div>
+<p>I know I have done this a hundred times and have it in all of my basic custom sheets, but for some reason I have to look up this stuff every month or so. Mostly a bunch of Bootstrap stuff and split up for easy chewing.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="headings">Headings</h2>
+<p>Remove Firefox a outline</p>
 
-<p># h1</p>
-<p>## h2</p>
-<p>### h3</p>
-<p>#### h4</p>
-<p>##### h5</p>
-<p>###### h6</p>
+<pre>
+a {
+  outline: 0;
+}
 
-<hr class="rule" />
+a:hover, a:active, a:focus {
+  outline: 0;
+}
 
-<h2 id="emphasis">Emphasis</h2>
+input::-moz-focus-inner {
+  border: 0;
+}
+</pre>
 
-<p>*em*</p>
-<p>**strong**</p>
+<p>Fluid video iframe embed</p>
 
-<p><br /></p>
+<pre>
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /** 16:9 **/
+  padding-top: 25px;
+  height: 0;
+}
 
-<p><em>em</em></p>
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</pre>
 
-<p><strong>strong</strong></p>
+<p>Blank Bootstrap vanilla responsive styles</p>
 
-<hr class="rule" />
+<pre>
+/*** === Mobile First Method === ***/
 
-<h2 id="lists">Lists</h2>
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
 
-<p>+ li</p>
-<p>&nbsp; &nbsp; + li</p>
+}
 
-<p>1. ol</p>
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
 
-<p><br /></p>
+}
 
-<ul>
-  <li>li
-    <ul>
-      <li>li</li>
-    </ul>
-  </li>
-</ul>
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
 
-<ol>
-  <li>ol</li>
-</ol>
+}
 
-<hr class="rule" />
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
 
-<h2 id="links">Links</h2>
+}
 
-<p>[I'm an inline-style link](https://www.google.com)</p>
-<p>[I'm an inline-style link with title](https://www.google.com "Google's Homepage")</p>
-<p>[I'm a relative reference to a repository file in the root](/images/russell.jpg)</p>
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
 
-<p><br /></p>
+}
 
-<p><a href="https://www.google.com">I’m an inline-style link</a></p>
+/*** === Non-Mobile First Method === ***/
 
-<p><a href="https://www.google.com" title="Google's Homepage">I’m an inline-style link with title</a></p>
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
 
-<p><a href="/images/russell.jpg">I’m a relative reference to a to a repository file in the root</a></p>
+}
 
-<p><br /></p>
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
 
-<p>![jack in coat](/images/russell.jpg "Jack in coat title")</p>
-<p><img src="/images/russell.jpg" alt="jack in coat" title="Jack in coat title" /></p>
+}
 
-<p>You can also just do it the old fashioned way if you want classes</p>
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
 
-<p><img class="img-responsive" src="/images/russell.jpg" /></p>
+}
 
-<hr class="rule" />
+/* ipad Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px) {
 
-<h2 id="code">Code</h2>
+}
 
-<p>`code in an inline block` with basic backticks</p>
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
 
-<p><code class="highlighter-rouge">code in a block</code></p>
+}
 
-<hr class="rule" />
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
 
-<h2 id="blockquotes">Blockquotes</h2>
+}
 
-<p>&gt;I'm a blockquote and I can use *markdown*</p>
+/** Retina specific **/
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
 
-<blockquote>
-  <p>I’m a blockquote and I can use <em>markdown</em></p>
-</blockquote>
+}
+</pre>
 
         </div>
 
