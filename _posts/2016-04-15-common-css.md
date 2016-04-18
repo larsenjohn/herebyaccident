@@ -26,12 +26,24 @@ input::-moz-focus-inner {
 }
 </pre>
 
+Opacity with IE legacy
+
+<pre>
+opacity: 0.5;
+-moz-opacity: 0.5;
+-webkit-opacity: 0.5;
+-o-opacity: 0.5;
+filter: alpha(opacity=50);
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+</pre>
+
 Fluid video iframe embed
 
 <pre>
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /** 16:9 **/
+  /** 16:9 **/
+  padding-bottom: 56.25%;
   padding-top: 25px;
   height: 0;
 }
