@@ -33,3 +33,15 @@ Move folder somewhere else
 <pre>
 mv -R folder-name /somewhere-else
 </pre>
+
+List all with attributes and permissions
+
+<pre>
+ls -la
+</pre>
+
+List files with size
+
+<pre>
+ls -h
+</pre>

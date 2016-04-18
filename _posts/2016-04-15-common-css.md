@@ -37,6 +37,15 @@ filter: alpha(opacity=50);
 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 </pre>
 
+Simple vanilla CSS3 ease
+
+<pre>
+transition: all 0.15s ease-in-out;
+-webkit-transition: all 0.15s ease-in-out;
+-moz-transition: all 0.15s ease-in-out;
+-o-transition: all 0.15s ease-in-out;
+</pre>
+
 Fluid video iframe embed
 
 <pre>
