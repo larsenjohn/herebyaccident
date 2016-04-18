@@ -136,11 +136,15 @@ filter: alpha(opacity=50);
 
 <p>Wrap an <code class="highlighter-rouge">&lt;a&gt;</code> tag around a div.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="wrap"&gt;
   &lt;a class="link-full-div" href="#"&gt;&lt;/a&gt;
     &lt;h1&gt;Link the entire div&lt;/h1&gt;
     &lt;p&gt;Content&lt;/p&gt;
 &lt;/div&gt;
+
+.wrap {
+  position: relative;
+}
 
 a.link-full-div {
   position: absolute;

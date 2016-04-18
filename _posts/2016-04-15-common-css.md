@@ -43,11 +43,15 @@ Simple vanilla CSS3 ease
 Wrap an `<a>` tag around a div.
 
 
-    <div>
+    <div class="wrap">
       <a class="link-full-div" href="#"></a>
         <h1>Link the entire div</h1>
         <p>Content</p>
     </div>
+
+    .wrap {
+      position: relative;
+    }
 
     a.link-full-div {
       position: absolute;
