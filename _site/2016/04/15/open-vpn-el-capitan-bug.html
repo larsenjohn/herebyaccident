@@ -24,7 +24,7 @@
 
     <title>
       
-        Blog
+        Open VPN El Capitan bug
       
     </title>
 
@@ -91,11 +91,29 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1>Where all of the tragic happens</h1>
+          <h1 id="open-vpn-amp-osx-el-capitan-connection-bug">Open VPN &amp; OSX El Capitan connection bug.</h1>
 
-<p class="lead">Seriously, you have taken a wrong turn. This isn't where you want to be. None of this is useful, interesting, or something you couldn't find on Google.</p>
+<p>This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? We’ll here’s a total cludge for your amusement.</p>
 
-<p class="lead">Honestly, you should just pay someone to do this for you. Go outside.</p>
+<hr />
+<hr class="rule" />
+
+<h2 id="csrutil-disable">csrutil disable</h2>
+
+<ol>
+  <li>Restart to recovery mode: CMD+R.</li>
+  <li>In terminal run:</li>
+</ol>
+
+<pre>
+csrutil disable; reboot
+</pre>
+
+<p>Do your dirty work, and when it’s all clear, you’ll need to reboot in recovery once more to zip it back up.</p>
+
+<pre>
+csrutil enable
+</pre>
 
         </div>
 
