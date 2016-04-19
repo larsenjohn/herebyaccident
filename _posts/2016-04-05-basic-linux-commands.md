@@ -10,38 +10,32 @@ Hey, want to learn some Linux commands? Me neither.
 ***
 <hr class="rule">
 
-Remove folder and all files with no prompt
-
-<pre>
-rm -rf folder-name
-</pre>
-
-Rename folder or files
-
-<pre>
-mv old-name new-name
-</pre>
-
-Move file somewhere else
-
-<pre>
-mv file-name /somewhere-else
-</pre>
-
-Move folder somewhere else
-
-<pre>
-mv -R folder-name /somewhere-else
-</pre>
+## Looking around
 
 List all with attributes and permissions
 
-<pre>
-ls -la
-</pre>
+    ls -la
 
 List files with size
 
-<pre>
-ls -h
-</pre>
+    ls -h
+
+***
+
+## Moving around
+
+Remove folder and all files with no prompt
+
+    rm -rf folder-name
+
+Rename folder or files
+
+    mv old-name new-name
+
+Move file somewhere else
+
+    mv file-name /somewhere-else
+
+Move folder somewhere else
+
+    mv -R folder-name /somewhere-else

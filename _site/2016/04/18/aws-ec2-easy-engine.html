@@ -24,7 +24,7 @@
 
     <title>
       
-        Global Git Ignore
+        AWS EC2 LEMP stack
       
     </title>
 
@@ -91,78 +91,111 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="global-gitignore">Global .gitignore</h1>
+          <h1 id="aws-ec2-lemp-stack-with-easyengineio">AWS EC2 LEMP stack with easyengine.io</h1>
 
-<p>Some smartypants said I have been serving up .DS_Store files all over the interweb tubes. Well, I guess it was McAffee, so there is no accounting for how crazy this advice is. It’s sort of like Gary Busy giving you pointers. However, these files are the herpes of OSX.</p>
+<p>The <a href="https://easyengine.io/">easyengine</a> setup is so simple it’s kind of scary. I really have no idea what to do if I got into trouble with it, but for now it’s a magical little rainbow.</p>
 
 <hr />
 <hr class="rule" />
 
-<p>Make a new .gitignore file.</p>
+<h2 id="spin-up-an-ec2-instance">Spin up an EC2 instance</h2>
 
-<pre>
-sudo nano ~/.gitignore_global
-</pre>
+<p>Launch an Ubuntu Server 14.04 LTS instance. When you get to the security groups add these custom rules after the auto populated ssh.</p>
 
-<p>.gitignore_global</p>
+<ol>
+  <li>HTTP, TCP, 80, anywhere</li>
+  <li>HTTPS, TCP, 443, anywhere</li>
+  <li>Custom TCP rule, TCP, 2222, anywhere</li>
+  <li>Custom ICMP rule, Echo Reply, N/A, anywhere</li>
+</ol>
 
-<pre>
-#compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+<p>Change the permissions on the <code class="highlighter-rouge">.pem</code> file</p>
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+<div class="highlighter-rouge"><pre class="highlight"><code>chmod 600 key.pem
+</code></pre>
+</div>
 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
+<hr class="rule" />
 
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+<h2 id="install-easyengine">Install easyengine</h2>
 
-# codekit #
-###########
-.sass-cache/
-.codekit-config.json
-config.codekit
-</pre>
+<p>Connect to the instance and run</p>
 
-<p>Assign it.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>wget -qO ee rt.cx/ee &amp;&amp; sudo bash ee
+</code></pre>
+</div>
 
-<pre>
-git config --global core.excludesfile '~/.gitignore_global'
-</pre>
+<hr class="rule" />
 
-<p>Check config if you get nervous.</p>
+<h2 id="create-a-site">Create a site</h2>
 
-<pre>
-git config --list
-</pre>
+<p>This will roll a site and configure the virtual host in one swoop.</p>
+
+<p>Static</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --html
+</code></pre>
+</div>
+
+<p>PHP+MySQL.</p>
+
+<p>MySQL database details will be in the <code class="highlighter-rouge">ee-config.php</code> file.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --mysql
+</code></pre>
+</div>
+
+<p>Standard Wordpress</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --wp # install wordpress without any page caching
+ee site create example.com --w3tc # install wordpress with w3-total-cache plugin
+ee site create example.com --wpsc # install wordpress with whisp-super-cache plugin
+ee site create example.com --wpfc # install wordpress + nginx fastcgi_cache
+ee site create example.com --wpredis # install wordpress + nginx redis_cache
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="delete-a-site">Delete a site</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com
+</code></pre>
+</div>
+
+<p>Delete webroot only</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com --files
+</code></pre>
+</div>
+
+<p>Delete db only</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com --db
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="restart">Restart</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee stack restart
+</code></pre>
+</div>
+
+<p>and reload</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee stack reload
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="update">Update</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ee update
+</code></pre>
+</div>
 
         </div>
 
