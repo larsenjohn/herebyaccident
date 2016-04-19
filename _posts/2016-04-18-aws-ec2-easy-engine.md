@@ -12,12 +12,13 @@ The [easyengine](https://easyengine.io/) setup is so simple it's kind of scary. 
 
 ## Spin up an EC2 instance
 
-Launch an Ubuntu Server 14.04 LTS instance. When you get to the security groups add these custom rules after the auto populated ssh.
+Launch an Ubuntu Server 14.04 LTS instance. Use all of the default settings. When you get to the **security groups** add these custom rules after the auto populated ssh.
 
-1. HTTP, TCP, 80, anywhere
-2. HTTPS, TCP, 443, anywhere
-3. Custom TCP rule, TCP, 2222, anywhere
-4. Custom ICMP rule, Echo Reply, N/A, anywhere
+1. SSH, TCP, 22, anywhere
+2. HTTP, TCP, 80, anywhere
+3. HTTPS, TCP, 443, anywhere
+4. Custom TCP rule, TCP, 2222, anywhere
+5. Custom ICMP rule, Echo Reply, N/A, anywhere
 
 Change the permissions on the `.pem` file
 

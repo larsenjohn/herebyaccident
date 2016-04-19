@@ -100,9 +100,10 @@
 
 <h2 id="spin-up-an-ec2-instance">Spin up an EC2 instance</h2>
 
-<p>Launch an Ubuntu Server 14.04 LTS instance. When you get to the security groups add these custom rules after the auto populated ssh.</p>
+<p>Launch an Ubuntu Server 14.04 LTS instance. Use all of the default settings. When you get to the <strong>security groups</strong> add these custom rules after the auto populated ssh.</p>
 
 <ol>
+  <li>SSH, TCP, 22, anywhere</li>
   <li>HTTP, TCP, 80, anywhere</li>
   <li>HTTPS, TCP, 443, anywhere</li>
   <li>Custom TCP rule, TCP, 2222, anywhere</li>
