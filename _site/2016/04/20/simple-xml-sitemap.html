@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- FB -->
+  	<meta property="og:title" content="..." />
+  	<meta property="og:site_name" content="..."/>
+  	<meta property="og:url" content="http://..." />
+  	<meta property="og:description" content="..." />
+  	<meta property="og:type" content="article" />
+  	<meta property="og:image" content="http://..." />
+  	<meta property="og:image:type" content="/images/jpeg" />
+  	<meta property="og:image:width" content="1200" />
+  	<meta property="og:image:height" content="650" />
+
+  	<!-- FB alt translations -->
+  	<meta property="og:locale" content="en_US" />
+
+    <title>
+      
+        Simple XML sitemap
+      
+    </title>
+
+    <!-- fav and touch -->
+  	<link rel="shortcut icon" href="/images/favicon.ico">
+  	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114-precomposed.png">
+  	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72-precomposed.png">
+  	<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-57-precomposed.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    <link href="/css/libs/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  
+<!-- Basic nav -->
+
+<nav id="mainnav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <p><a class="navbar-brand" href="/index.html"><i class="fa fa-bug" aria-hidden="true"></i> This incident will be reported</a></p>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/blog.html">Adventures in bullshit <i class="fa fa-terminal" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+  </div>
+</nav>
+
+
+  <div class="post">
+
+    <div class="container push">
+      <div class="row">
+
+        <div class="col-sm-9">
+          <h1 id="simple-xml-sitemap">Simple XML sitemap</h1>
+
+<p>Still working on this one, so don’t take it too seriously. Typically this is needed for large sites, or stuff that isn’t linked properly. Still, they say it’s good for newer sites with few links. So, worth sending up the flagpole.</p>
+
+<p>A bit <a href="http://www.sitemaps.org/protocol.html">here</a></p>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="xml-from-scratch">XML from scratch</h2>
+
+<p>There are some paid for services and plugins, but for a smaller site you can roll your own.</p>
+
+<p>Basic sample from siteground:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://www.domain.com /<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;lastmod&gt;</span>2008-01-01<span class="nt">&lt;/lastmod&gt;</span>
+<span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+<span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://www.domain.com/catalog?item=vacation_hawaii<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://www.domain.com/catalog?item=vacation_new_zealand<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;lastmod&gt;</span>2008-12-23<span class="nt">&lt;/lastmod&gt;</span>
+<span class="nt">&lt;changefreq&gt;</span>weekly<span class="nt">&lt;/changefreq&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://www.domain.com/catalog?item=vacation_newfoundland<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;lastmod&gt;</span>2008-12-23T18:00:15+00:00<span class="nt">&lt;/lastmod&gt;</span>
+<span class="nt">&lt;priority&gt;</span>0.3<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://www.domain.com/catalog?item=vacation_usa<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;lastmod&gt;</span>2008-11-23<span class="nt">&lt;/lastmod&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;/urlset&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="about-the-attributes">About the attributes</h2>
+
+<p><code class="highlighter-rouge">&lt;lastmod&gt;</code>, <code class="highlighter-rouge">&lt;changefreq&gt;</code> and <code class="highlighter-rouge">&lt;priority&gt;</code> are optional. There are several more in regards to images and media for higher level focus.</p>
+
+<hr />
+
+<h3 id="lastmod">lastmod</h3>
+
+<p>The date of last modification of the file. This date should be in W3C Datetime format. This format allows you to omit the time portion, if desired, and use YYYY-MM-DD.</p>
+
+<h3 id="changefreq">changefreq</h3>
+
+<p>How frequently the page is likely to change. This value provides general information to search engines and may not correlate exactly to how often they crawl the page. Valid values are:</p>
+
+<ul>
+  <li>always</li>
+  <li>hourly</li>
+  <li>daily</li>
+  <li>weekly</li>
+  <li>monthly</li>
+  <li>yearly</li>
+  <li>never</li>
+</ul>
+
+<p>The value “always” should be used to describe documents that change each time they are accessed. The value “never” should be used to describe archived URLs.</p>
+
+<p>The value of this tag is considered a hint and not a command. Crawlers may periodically crawl pages marked “never”. Use a <code class="highlighter-rouge">&lt;meta name="robots" content="index, follow"&gt;</code> instead of “never” for strict purposes.</p>
+
+<h3 id="priority">priority</h3>
+
+<p>The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This lets the search engines know which pages you deem most important for the crawlers.</p>
+
+<p>Priority scale from top to bottom:</p>
+
+<ul>
+  <li>1.0</li>
+  <li>0.9</li>
+  <li>0.8</li>
+  <li>0.7</li>
+  <li>0.6</li>
+  <li>0.5 <em>(default)</em></li>
+  <li>…</li>
+  <li>0.0</li>
+</ul>
+
+<p>The priority you assign to a page is not likely to influence the position of your URLs in a search engine’s result pages. Search engines may use this information when selecting between URLs on the same site.</p>
+
+<p>Also, note that assigning a high priority to all of the URLs on your site is not likely to help.</p>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="straight-url-xml">Straight url XML</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;urlset</span> <span class="na">xmlns=</span><span class="s">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://fucktheweb.com/<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;priority&gt;</span>1.0<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://fucktheweb.com/contact.html<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;priority&gt;</span>0.9<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://fucktheweb.com/faq.html<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;priority&gt;</span>0.8<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;url&gt;</span>
+<span class="nt">&lt;loc&gt;</span>http://fucktheweb.com/some-page.html<span class="nt">&lt;/loc&gt;</span>
+<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;/urlset&gt;</span>
+</code></pre>
+</div>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="create-a-robotstxt-file">Create a robots.txt file</h2>
+
+<p>After your sitemap is built you need to show Google where it is. Drop this <code class="highlighter-rouge">robots.txt</code> file in the root to show the path.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Sitemap: http://fucktheweb.com/sitemap.xml
+</code></pre>
+</div>
+
+<h2 id="submit-the-sitemap">Submit the sitemap</h2>
+
+<p>Log into the webmaster tools console and navigate to your domain.</p>
+
+<ol>
+  <li><strong>Navigate to:</strong> Crawler</li>
+  <li><strong>Navigate to:</strong> sitemaps</li>
+  <li><strong>Select:</strong> Add/Test Sitemaps</li>
+</ol>
+
+<p>Run through the “robots.txt” and “Fetch as Google” tools to verify that the sitemap has been submitted properly.</p>
+
+        </div>
+
+        <div class="col-sm-3 sidenav">
+          <h3>Failures</h3>
+          <hr class="heading">
+          <ul>
+            
+            <li>
+              <a href="/2016/04/20/simple-xml-sitemap.html">Simple XML sitemap</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/18/youtube-custom-transcriptions.html">Youtube custom transcriptions</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/18/aws-ec2-easy-engine.html">AWS EC2 LEMP stack</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/15/vagrant-scotchbox.html">Vagrant Scotchbox LAMP stack</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/15/open-vpn-el-capitan-bug.html">Open VPN El Capitan bug</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/15/common-css.html">Common CSS</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/osx-setup.html">OSX Common setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/global-git-ignore.html">Global Git Ignore</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/basic-linux-commands.html">Linux Common Commands</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
+            </li>
+            
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+      <hr>
+      <p class="text-center">It's 2016 in case you live on the moon.</p>
+
+      </div>
+    </div>
+  </div>
+
+</footer><!-- footer -->
+
+
+  <!-- JS -->
+
+
+</body>
