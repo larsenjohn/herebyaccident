@@ -26,7 +26,7 @@ Once you are in the CC settings, you can set your default language to english. T
 4. Paste in your plain text of the transcription
 5. **Select:** Set Timings
 
-It will take a few moments to chew on the transcription and sync the timing. Wait a few moments and click on your new CC setting.
+It will take a few to chew on the transcription and sync the timing. Wait moment and then click on your new CC setting.
 
 Review your transcription and **Select: Publish**.
 
