@@ -5,7 +5,7 @@ title: Simple XML sitemap
 
 # Simple XML sitemap
 
-Still working on this one, so don't take it too seriously. Typically this is needed for large sites or stuff that isn't linked properly. Still, they say it's good for newer sites. So it's worth sending up the flagpole.
+Typically this is needed for very large sites or stuff that isn't linked properly. Still, they say it's good for newer sites without many incoming links. So it's worth sending up the flagpole.
 
 A bit about protocol [here](http://www.sitemaps.org/protocol.html) and submitting to Google [here](https://support.google.com/sites/answer/100283?hl=en).
 

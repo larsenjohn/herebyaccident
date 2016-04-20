@@ -140,6 +140,14 @@
 </code></pre>
 </div>
 
+<hr class="rule" />
+
+<hr />
+
+<h1 id="server-settings">Server settings</h1>
+
+<p>Based on a typical <a href="https://www.digitalocean.com/help/getting-started/setting-up-your-server/">digitalocean</a> Ubuntu droplet. There are also some good resources to look into at <a href="https://www.linode.com/docs/security/securing-your-server">Linode</a>, depending on how each is deployed.</p>
+
 <hr />
 
 <h2 id="add-a-new-user-with-root-privileges">Add a new user with root privileges</h2>
@@ -160,7 +168,7 @@
 
 <h2 id="configure-ssh-daemon">Configure SSH Daemon</h2>
 
-<p>Modify the SSH daemon configuration (the program that allows remote login) to disallow remote SSH access to the root account. Based on a typical <a href="https://www.digitalocean.com/help/getting-started/setting-up-your-server/">digital ocean</a> setup.</p>
+<p>Modify the SSH daemon configuration (the program that allows remote login) to disallow remote SSH access to the root account.</p>
 
 <p>Open the configuration file:</p>
 
@@ -183,6 +191,50 @@
 <p><strong>Reload SSH</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>service ssh restart
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="configure-uncomplicated-firewall-ufw">Configure Uncomplicated Firewall (ufw)</h2>
+
+<p>This sets up the bare minimum without SSL/TLS or SMTP opened. Full config docs from digitalocean is over <a href="https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server">here</a>.</p>
+
+<p>Create an exception for SSH connections so that we can maintain access for remote administration.</p>
+
+<p>The SSH daemon runs on port 22 by default and <code class="highlighter-rouge">ufw</code> can implement a rule by name if the default has not been changed. So if you have not modified SSH port, you can enable the exception by typing:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ufw allow ssh
+</code></pre>
+</div>
+
+<p>Allow only specific IP addresses if you want:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ufw allow from 192.168.255.255
+</code></pre>
+</div>
+
+<p>Allow access to port 80 for a HTTP web server:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ufw allow 80/tcp
+</code></pre>
+</div>
+
+<p>Review selections:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ufw show added
+</code></pre>
+</div>
+
+<p>Enable firewall:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ufw enable
+</code></pre>
+</div>
+
+<p>Check status:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ufw status verbose
 </code></pre>
 </div>
 
