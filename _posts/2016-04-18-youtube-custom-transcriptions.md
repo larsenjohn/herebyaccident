@@ -25,10 +25,13 @@ Once you are in the CC settings, you can set your default language to english. T
 3. **Choose:** Transcribe and auto-sync
 4. Paste in your plain text of the transcription
 5. **Select:** Set Timings
-6. **Select:** Publish
+
+It will take a few moments to chew on the transcription and sync the timing. Wait a few moments and click on your new CC setting.
+
+Review your transcription and **Select: Publish**.
 
 ***
 
 ## Check settings
 
-Play the video with the CC captions on. It should now default to your "English" title. If you need to edit the transcriptions, click on your new CC setting and select the "Edit" button. In each table will be split up based on the automated time settings.
+Play the video with the CC captions on. It should now default to your "English" title. If you need to edit the transcriptions based on the timing, click on your new CC setting and select the "Edit" button. In each table will be split up based on the automated time settings.
