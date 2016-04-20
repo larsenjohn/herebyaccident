@@ -7,7 +7,7 @@ title: Simple XML sitemap
 
 Still working on this one, so don't take it too seriously. Typically this is needed for large sites, or stuff that isn't linked properly. Still, they say it's good for newer sites with few links. So, worth sending up the flagpole.
 
-A bit [here](http://www.sitemaps.org/protocol.html)
+A bit about protocal [here](http://www.sitemaps.org/protocol.html) and submitting to Google [here](https://support.google.com/sites/answer/100283?hl=en).
 
 ***
 <hr class="rule">
@@ -52,7 +52,7 @@ Basic sample from siteground:
 
     </urlset>
 
-From Google
+From Google:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
