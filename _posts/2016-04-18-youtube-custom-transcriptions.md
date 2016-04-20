@@ -16,15 +16,15 @@ You can also upload a full blow transcription file with best practices, but this
 
 The easiest way to get there is to navigate to your public (or private) video url and click the "CC" icon in the control bar under the video.
 
-1. Add new subtitles or CC
-2. Choose: English
-3. Choose: Transcribe and auto-sync
-4. Select: Set Timings
-5. Let it propigate for a minute
-6. Select: publish
+1. **Select:** Add new subtitles or CC
+2. **Choose:** English
+3. **Choose:** Transcribe and auto-sync
+4. Paste in your plain text of the transcription
+5. **Select:** Set Timings
+6. **Select:** publish
 
 ***
 
 ## Check settings
 
-It should now default to your "English" title. If you need to edit the transcriptions, click on your new CC and select the "Edit" button. In each table will be split up based on the automated time settings.
+Play the video with the CC captions on. It should now default to your "English" title. If you need to edit the transcriptions, click on your new CC setting and select the "Edit" button. In each table will be split up based on the automated time settings.
