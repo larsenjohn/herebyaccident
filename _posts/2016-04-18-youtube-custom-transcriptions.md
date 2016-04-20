@@ -18,20 +18,31 @@ The easiest way to get there is to login, navigate to your public (or private) v
 
 ![Youtube CC icon](/images/ref/youtube-cc-icon.png)
 
+## Add new subtitles
+
 Once you are in the CC settings, you can set your default language to english. Then go through the following steps.
 
-1. **Select:** Add new subtitles or CC
-2. **Choose:** English
-3. **Choose:** Transcribe and auto-sync
-4. Paste in your plain text of the transcription
-5. **Select:** Set Timings
++ **Select:** Add new subtitles or CC
 
-It will take a few to chew on the transcription and sync the timing. Wait moment and then click on your new CC setting.
+![Youtube add new subtitle](/images/ref/youtube-cc-1.png)
 
-Review your transcription and **Select: Publish**.
++ **Choose:** English
++ **Choose:** Transcribe and auto-sync
+
+![Youtube choose transcribe](/images/ref/youtube-cc-2.png)
+
++ Paste in your plain text of the transcription
++ **Select:** Set Timings
+
+![Youtube choose transcribe](/images/ref/youtube-cc-3.png)
+
+It will take a few seconds to chew on the transcription and sync the timing. Wait a moment and then click on your new CC setting.
+
++ Review your transcription
++ **Select:** Publish
 
 ***
 
 ## Check settings
 
-Play the video with the CC captions on. It should now default to your "English" title. If you need to edit the transcriptions based on the timing, click on your new CC setting and select the "Edit" button. In each table will be split up based on the automated time settings.
+Play the video with the CC captions on. It should now default to your "English" title. If you need to edit the transcriptions based on the timing, click on your new CC setting and select the "Edit" button. Each table will be split up based on the automated time settings.
