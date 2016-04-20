@@ -130,12 +130,12 @@ Priority scale from top to bottom:
 
 The priority you assign to a page is not likely to influence the position of your URLs in a search engine's result pages. Search engines may use this information when selecting between URLs on the same site.
 
-Also, note that assigning a high priority to all of the URLs on your site is not likely to help.
+Also, note that **assigning a high priority to all of the URLs on your site is not likely to help**.
 
 ***
 <hr class="rule">
 
-## Straight url XML
+## Basic url XML
 
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
