@@ -16,12 +16,16 @@ You can also upload a full blown transcription file with best practices, but thi
 
 The easiest way to get there is to login, navigate to your public (or private) video url, and **click the "CC" icon in the control bar under the video**.
 
+![Youtube CC icon](/images/ref/youtube-cc-icon.png)
+
+Once you are in the CC settings, you can set your default language to english. Then go through the following steps.
+
 1. **Select:** Add new subtitles or CC
 2. **Choose:** English
 3. **Choose:** Transcribe and auto-sync
 4. Paste in your plain text of the transcription
 5. **Select:** Set Timings
-6. **Select:** publish
+6. **Select:** Publish
 
 ***
 
