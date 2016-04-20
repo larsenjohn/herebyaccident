@@ -18,36 +18,71 @@ There are some paid for services and plugins, but for a smaller site you can rol
 
 Basic sample from siteground:
 
-    <?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <url>
-    <loc>http://www.domain.com /</loc>
-    <lastmod>2008-01-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    </url>
+      <url>
+        <loc>http://www.domain.com /</loc>
+          <lastmod>2008-01-01</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.8</priority>
+      </url>
 
-    <url>
-    <loc>http://www.domain.com/catalog?item=vacation_hawaii</loc>
-    <changefreq>weekly</changefreq>
-    </url>
+      <url>
+        <loc>http://www.domain.com/catalog?item=vacation_hawaii</loc>
+          <changefreq>weekly</changefreq>
+      </url>
 
-    <url>
-    <loc>http://www.domain.com/catalog?item=vacation_new_zealand</loc>
-    <lastmod>2008-12-23</lastmod>
-    <changefreq>weekly</changefreq>
-    </url>
+      <url>
+        <loc>http://www.domain.com/catalog?item=vacation_new_zealand</loc>
+          <lastmod>2008-12-23</lastmod>
+          <changefreq>weekly</changefreq>
+      </url>
 
-    <url>
-    <loc>http://www.domain.com/catalog?item=vacation_newfoundland</loc>
-    <lastmod>2008-12-23T18:00:15+00:00</lastmod>
-    <priority>0.3</priority>
-    </url>
+      <url>
+        <loc>http://www.domain.com/catalog?item=vacation_newfoundland</loc>
+          <lastmod>2008-12-23T18:00:15+00:00</lastmod>
+          <priority>0.3</priority>
+      </url>
 
-    <url>
-    <loc>http://www.domain.com/catalog?item=vacation_usa</loc>
-    <lastmod>2008-11-23</lastmod>
-    </url>
+      <url>
+        <loc>http://www.domain.com/catalog?item=vacation_usa</loc>
+          <lastmod>2008-11-23</lastmod>
+      </url>
+
+    </urlset>
+
+From Google
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+      xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+      <url>
+        <loc>http://www.example.com/foo.html</loc>
+
+        <image:image>
+           <image:loc>http://example.com/image.jpg</image:loc>
+           <image:caption>Dogs playing poker</image:caption>
+        </image:image>
+
+        <video:video>
+          <video:content_loc>
+            http://www.example.com/video123.flv
+          </video:content_loc>
+          <video:player_loc allow_embed="yes" autoplay="ap=1">
+            http://www.example.com/videoplayer.swf?video=123
+          </video:player_loc>
+          <video:thumbnail_loc>
+            http://www.example.com/thumbs/123.jpg
+          </video:thumbnail_loc>
+          <video:title>Grilling steaks for summer</video:title>  
+          <video:description>
+            Cook the perfect steak every time.
+          </video:description>
+        </video:video>
+      </url>
 
     </urlset>
 
@@ -104,24 +139,25 @@ Also, note that assigning a high priority to all of the URLs on your site is not
 
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-    <loc>http://fucktheweb.com/</loc>
-    <priority>1.0</priority>
-    </url>
 
-    <url>
-    <loc>http://fucktheweb.com/contact.html</loc>
-    <priority>0.9</priority>
-    </url>
+      <url>
+        <loc>http://fucktheweb.com/</loc>
+          <priority>1.0</priority>
+      </url>
 
-    <url>
-    <loc>http://fucktheweb.com/faq.html</loc>
-    <priority>0.8</priority>
-    </url>
+      <url>
+        <loc>http://fucktheweb.com/contact.html</loc>
+          <priority>0.9</priority>
+      </url>
 
-    <url>
-    <loc>http://fucktheweb.com/some-page.html</loc>
-    </url>
+      <url>
+        <loc>http://fucktheweb.com/faq.html</loc>
+          <priority>0.8</priority>
+      </url>
+
+      <url>
+        <loc>http://fucktheweb.com/some-page.html</loc>
+      </url>
 
     </urlset>
 
