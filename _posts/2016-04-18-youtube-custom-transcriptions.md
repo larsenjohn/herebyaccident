@@ -7,14 +7,14 @@ title: Youtube custom transcriptions
 
 Youtube has a really fancy auto detect for closed captioning, but if you have a bunch of proprietary branding things go a little haywire. Simplest way to go about this is to transcribe everything in a plain text document beforehand.
 
-You can also upload a full blow transcription file with best practices, but this works in a pinch.
+You can also upload a full blown transcription file with best practices, but this works in a pinch.
 
 ***
 <hr class="rule">
 
 ## Navigate to the CC settings
 
-The easiest way to get there is to navigate to your public (or private) video url and click the "CC" icon in the control bar under the video.
+The easiest way to get there is to login, navigate to your public (or private) video url, and click the "CC" icon in the control bar under the video.
 
 1. **Select:** Add new subtitles or CC
 2. **Choose:** English
