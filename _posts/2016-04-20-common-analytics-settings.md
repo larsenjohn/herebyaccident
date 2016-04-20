@@ -12,8 +12,10 @@ Basic checklist to go through before all your analytics reports go off the rails
 
 ## Set up filtering
 
+Locate your Property url from the list and navigate to:
+
 1. Admin >
-2. View >
+2. Under *View* Section
 3. Filters >
 
 ### Exclude localhost
@@ -43,7 +45,7 @@ Use this exact snippet `^www\.`
 Remove third party services and authors for destination url's.
 
 1. Admin >
-2. Property >
+2. Under *Property* Section
 3. Tracking Info >
 4. Referral Exclusion list >
 5. **Select:** Add Referral Exclusion
@@ -57,7 +59,7 @@ Typical exclusion url: submit.jotformpro.com
 This is a basic destination goal. For example, an "order now" or form "submit" verification url.
 
 1. Admin >
-2. View >
+2. Under *View* Section
 3. Goals >
 4. **Select:** New Goal
 
