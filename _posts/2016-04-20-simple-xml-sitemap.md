@@ -5,9 +5,9 @@ title: Simple XML sitemap
 
 # Simple XML sitemap
 
-Still working on this one, so don't take it too seriously. Typically this is needed for large sites, or stuff that isn't linked properly. Still, they say it's good for newer sites. So, it's worth sending up the flagpole.
+Still working on this one, so don't take it too seriously. Typically this is needed for large sites or stuff that isn't linked properly. Still, they say it's good for newer sites. So it's worth sending up the flagpole.
 
-A bit about protocol [here](http://www.sitemaps.org/protocol.html), and submitting to Google [here](https://support.google.com/sites/answer/100283?hl=en).
+A bit about protocol [here](http://www.sitemaps.org/protocol.html) and submitting to Google [here](https://support.google.com/sites/answer/100283?hl=en).
 
 ***
 <hr class="rule">
@@ -88,7 +88,7 @@ From Google:
 
 ## About the attributes
 
-`<lastmod>`, `<changefreq>` and `<priority>` are optional. There are several more in regards to images and media for higher level focus.
+`<lastmod>`, `<changefreq>` and `<priority>` are optional. Look to the Google example for images and media for a higher level focus.
 
 ***
 
