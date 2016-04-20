@@ -52,7 +52,7 @@ Typical exclusion url: submit.jotformpro.com
 
 <hr class="rule">
 
-## Set up a custom goal
+## Set up goals
 
 This is a basic destination goal. For example, an "order now" or form "submit" verification url.
 
