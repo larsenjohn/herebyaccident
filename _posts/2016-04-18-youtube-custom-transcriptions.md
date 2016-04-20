@@ -14,7 +14,7 @@ You can also upload a full blown transcription file with best practices, but thi
 
 ## Navigate to the CC settings
 
-The easiest way to get there is to login, navigate to your public (or private) video url, and click the "CC" icon in the control bar under the video.
+The easiest way to get there is to login, navigate to your public (or private) video url, and **click the "CC" icon in the control bar under the video**.
 
 1. **Select:** Add new subtitles or CC
 2. **Choose:** English
