@@ -189,6 +189,14 @@ i {
     font-weight: 300;
   }
 
+  .navbar-brand {
+    font-size: 14px;
+  }
+
+  .navbar-nav>li>a {
+    text-align: center;
+  }
+
 }
 
 /* Extra Small Devices, Phones */
@@ -206,6 +214,10 @@ i {
 
   p.jumbo {
     font-size: 42px;
+  }
+
+  .navbar-brand {
+    font-size: 18px;
   }
 
 }
