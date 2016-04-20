@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Global Git Ignore
+title: Global .gitignore
 ---
 
 # Global .gitignore

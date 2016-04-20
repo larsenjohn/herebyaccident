@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Common Commands
+title: Linux basics
 ---
 
 # Ubuntu Linux basics

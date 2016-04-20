@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Simple XML sitemap
+title: XML simple sitemap
 ---
 
 # Simple XML sitemap

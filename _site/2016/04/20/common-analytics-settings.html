@@ -24,7 +24,7 @@
 
     <title>
       
-        Blog
+        Analytics starter settings
       
     </title>
 
@@ -91,11 +91,94 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1>Where all of the tragic happens</h1>
+          <h1 id="common-google-analytics-settings">Common Google Analytics settings</h1>
 
-<p class="lead">Seriously, this isn't where you want to be. None of this is useful, interesting, or something you couldn't find on Google.</p>
+<p>Basic checklist to go through before all your analytics reports go off the rails.</p>
 
-<p class="lead">Honestly, you should just pay someone to do this for you. Go outside, live a little.</p>
+<hr />
+<hr class="rule" />
+
+<h2 id="set-up-filtering">Set up filtering</h2>
+
+<ol>
+  <li>Admin &gt;</li>
+  <li>View &gt;</li>
+  <li>Filters &gt;</li>
+</ol>
+
+<h3 id="exclude-localhost">Exclude localhost</h3>
+
+<ol>
+  <li>Add filter</li>
+  <li><strong>Filter Name:</strong> Localhost</li>
+  <li><strong>Filter type:</strong> Custom &gt; Exclude</li>
+  <li><strong>Filter Field:</strong> IP Address</li>
+  <li><strong>Filter Pattern:</strong> <code class="highlighter-rouge">192\.168\.2\.114</code></li>
+</ol>
+
+<p>You will need to use the <code class="highlighter-rouge">\.</code> between your development IP address like the example.</p>
+
+<h3 id="eliminate-redundant-www-search-and-replace">Eliminate redundant www. (search and replace)</h3>
+
+<ol>
+  <li>Add filter</li>
+  <li><strong>Filter Name:</strong> Search and replace</li>
+  <li><strong>Filter Type:</strong> Custom &gt; Search and Replace</li>
+  <li><strong>Filter Field:</strong> Hostname</li>
+  <li><strong>Search String:</strong> <code class="highlighter-rouge">^www\.</code></li>
+</ol>
+
+<p>Use this exact snippet <code class="highlighter-rouge">^www\.</code></p>
+
+<hr class="rule" />
+
+<h2 id="set-up-an-exclusion-list">Set up an exclusion list</h2>
+
+<p>Remove third party services and authors for destination url’s.</p>
+
+<ol>
+  <li>Admin &gt;</li>
+  <li>Property &gt;</li>
+  <li>Tracking Info &gt;</li>
+  <li>Referral Exclusion list &gt;</li>
+  <li><strong>Select:</strong> Add Referral Exclusion</li>
+</ol>
+
+<p>Typical exclusion url: submit.jotformpro.com</p>
+
+<hr class="rule" />
+
+<h2 id="set-up-a-custom-goal">Set up a custom goal</h2>
+
+<p>This is a basic destination goal. For example, an “order now” or form “submit” verification url.</p>
+
+<ol>
+  <li>Admin &gt;</li>
+  <li>View &gt;</li>
+  <li>Goals &gt;</li>
+  <li><strong>Select:</strong> New Goal</li>
+</ol>
+
+<h3 id="goal-setup">Goal Setup:</h3>
+
+<ol>
+  <li><strong>Select:</strong> Custom</li>
+</ol>
+
+<h3 id="goal-description">Goal Description</h3>
+
+<ol>
+  <li><strong>Name:</strong> <em>Goal Name</em></li>
+  <li><strong>Type:</strong> Destination</li>
+</ol>
+
+<h3 id="goal-details">Goal Details</h3>
+
+<ol>
+  <li><strong>Destination:</strong> Equals to: /my-destination.html</li>
+</ol>
+
+<p>Save goal and verify that <strong>recording is on</strong>.</p>
 
         </div>
 
