@@ -24,7 +24,7 @@
 
     <title>
       
-        Vagrant Scotchbox LAMP stack
+        Github pages hosting
       
     </title>
 
@@ -88,42 +88,71 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="vagrant-amp-scotchbox-lamp-stack">Vagrant &amp; Scotchbox LAMP stack</h1>
+          <h1 id="host-a-jekyll-site-on-github">Host a Jekyll site on Github</h1>
 
-<p>Scotchbox 2.5 Open LAMP stack, by the generous folks at <a href="https://scotch.io/">scotch.io</a>.</p>
+<p>This is a super condensed version of <a href="https://help.github.com/articles/creating-project-pages-manually/">these docs</a>. All things below are referencing a site already manually set up for jekyll development. You can also just use the <strong>automatic generator</strong> for simple informational projects.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="vagrant">Vagrant</h2>
+<h2 id="make-a-fresh-repository">Make a fresh repository</h2>
 
-<p>Download the <a href="https://www.vagrantup.com/downloads.html">latest and greatest</a>.</p>
+<p>Create a fresh repository and clone it.</p>
 
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone .../fresh-clone
+</code></pre>
+</div>
+
+<h2 id="create-a-gh-pages-branch">Create a gh-pages branch</h2>
+
+<p>Then create a new gh-pages branch and remove all content.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cd fresh-clone
+$ git checkout --orphan gh-pages
+$ git rm -rf
+</code></pre>
+</div>
+
+<h2 id="add-content-and-push">Add content and push</h2>
+
+<p>Drop your files into the repo, add, commit and push the origin to github.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git add -A
+$ git commit -m "first gh-pages commit"
+$ git push origin gh-pages
+</code></pre>
+</div>
+
+<h2 id="check-your-githubio-url">Check your github.io url</h2>
+
+<p>You can check the public url by going to http://yourgithubaccount.github.io to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.</p>
+
+<hr />
 <hr class="rule" />
 
-<h2 id="scotchbox">Scotchbox</h2>
+<h2 id="configure-the-dns">Configure the DNS</h2>
 
-<p>Get the lastest <a href="https://box.scotch.io/">Scotchbox</a>. Since version 2.5 there is a connection bork, so drop this in the <code>.vagrant</code> file.</p>
+<p>Go to the new repository on github and create a <strong>new file</strong>. Title it <strong>CNAME</strong> and drop the domain name in it. This should be <strong>done first</strong> before changing any settings at the domain host.</p>
 
-<pre>
-config.ssh.username = "vagrant"
-config.ssh.password = "vagrant"
-</pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>fucktheweb.com
+</code></pre>
+</div>
 
-<p>Then set up the port forwarding to whatever works.</p>
+<p>In this case the canonical name will be fucktheweb.com. You can also use <em>www.fucktheweb.com</em> if necessary, but the records will need reflect that through the domain registrar.</p>
 
-<pre>
-config.vm.network :forwarded_port, guest: 80, host: 8080
-</pre>
+<hr />
 
-<p>Reload it if it doesn’t fire the first time.</p>
+<h2 id="change-the-dns-at-the-registrar">Change the DNS at the registrar</h2>
 
-<pre>
-vagrant reload
-</pre>
+<p>I’ll be using hover, but this should be <em>approximately</em> the same for other registrars.</p>
 
-<hr class="rule" />
+<ol>
+  <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.153</li>
+  <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.154</li>
+  <li>Create one www <strong>CNAME record</strong> for: yourgithubaccount.github.io</li>
+</ol>
 
+<p>The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/fuckthisproject</p>
 
         </div>
 
