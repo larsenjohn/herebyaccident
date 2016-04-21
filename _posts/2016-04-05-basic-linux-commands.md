@@ -24,7 +24,11 @@ List files with size
 
 ## Moving around
 
-Remove folder and all files with no prompt
+Remove folder
+
+    rm -r folder-name
+
+Remove folder with no prompt. Be **Extremely** careful with the `rm -rf` command because you can wipe out the whole system with it.
 
     rm -rf folder-name
 

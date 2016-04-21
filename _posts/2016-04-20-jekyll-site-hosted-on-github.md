@@ -5,7 +5,7 @@ title: Github pages hosting
 
 # Host a Jekyll site on Github
 
-This is a super condensed version of [these docs](https://help.github.com/articles/creating-project-pages-manually/). All things below are referencing a site already manually set up for jekyll development. You can also just use the **automatic generator** for simple informational projects. Or generate one and clone the source to build off of it.
+This is a super condensed version of [these docs](https://help.github.com/articles/creating-project-pages-manually/). All things below are referencing a site already manually set up for jekyll development. You can also just use the **automatic generator** for simple startup projects.
 
 ***
 <hr class="rule">
@@ -19,11 +19,12 @@ Create a fresh repository and clone it.
 
 ## Create a gh-pages branch
 
-Create a new gh-pages branch and remove all content.
+Create a new gh-pages branch.
 
     $ cd fresh-clone
     $ git checkout --orphan gh-pages
-    $ git rm -rf
+
+Now empty out the folder in the new branch.
 
 ## Add content and push
 
@@ -35,7 +36,7 @@ Drop your files into the repo, add, commit and push the origin to github.
 
 ## Check your github.io url
 
-You can check the public url by going to http://yourgithubaccount.github.io to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.
+You can check the public url by going to http://yourgithubaccount.github.io/rep-name to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.
 
 ***
 <hr class="rule">
@@ -56,4 +57,4 @@ In this case the canonical name will be fucktheweb.com. You can also use *www.fu
 2. Create one **A record** *(@)* for: 192.30.252.154
 3. Create one www **CNAME record** for: yourgithubaccount.github.io
 
-The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/fucktheweb
+The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/repo-name
