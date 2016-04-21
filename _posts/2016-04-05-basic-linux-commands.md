@@ -28,7 +28,7 @@ Remove folder
 
     rm -r folder-name
 
-Remove folder with no prompt. Be **Extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **Deadly commands**
+Remove folder with no prompt. Be **extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **deadly commands**
 
     rm -rf folder-name
 
