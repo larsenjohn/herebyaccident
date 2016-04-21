@@ -5,7 +5,7 @@ title: Github pages hosting
 
 # Host a Jekyll site on Github
 
-This is a super condensed version of [these docs](https://help.github.com/articles/creating-project-pages-manually/). All things below are referencing a site already manually set up for jekyll development. You can also just use the **automatic generator** for simple informational projects.
+This is a super condensed version of [these docs](https://help.github.com/articles/creating-project-pages-manually/). All things below are referencing a site already manually set up for jekyll development. You can also just use the **automatic generator** for simple informational projects. Or generate one and clone the source to build off of it.
 
 ***
 <hr class="rule">
@@ -19,7 +19,7 @@ Create a fresh repository and clone it.
 
 ## Create a gh-pages branch
 
-Then create a new gh-pages branch and remove all content.
+Create a new gh-pages branch and remove all content.
 
     $ cd fresh-clone
     $ git checkout --orphan gh-pages
@@ -52,10 +52,8 @@ In this case the canonical name will be fucktheweb.com. You can also use *www.fu
 
 ## Change the DNS at the registrar
 
-I'll be using hover, but this should be *approximately* the same for other registrars.
-
 1. Create one **A record** *(@)* for: 192.30.252.153
 2. Create one **A record** *(@)* for: 192.30.252.154
 3. Create one www **CNAME record** for: yourgithubaccount.github.io
 
-The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/fuckthisproject
+The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/fucktheweb

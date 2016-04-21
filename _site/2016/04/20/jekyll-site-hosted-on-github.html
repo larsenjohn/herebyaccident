@@ -90,7 +90,7 @@
         <div class="col-sm-9">
           <h1 id="host-a-jekyll-site-on-github">Host a Jekyll site on Github</h1>
 
-<p>This is a super condensed version of <a href="https://help.github.com/articles/creating-project-pages-manually/">these docs</a>. All things below are referencing a site already manually set up for jekyll development. You can also just use the <strong>automatic generator</strong> for simple informational projects.</p>
+<p>This is a super condensed version of <a href="https://help.github.com/articles/creating-project-pages-manually/">these docs</a>. All things below are referencing a site already manually set up for jekyll development. You can also just use the <strong>automatic generator</strong> for simple informational projects. Or generate one and clone the source to build off of it.</p>
 
 <hr />
 <hr class="rule" />
@@ -105,7 +105,7 @@
 
 <h2 id="create-a-gh-pages-branch">Create a gh-pages branch</h2>
 
-<p>Then create a new gh-pages branch and remove all content.</p>
+<p>Create a new gh-pages branch and remove all content.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$ cd fresh-clone
 $ git checkout --orphan gh-pages
@@ -144,15 +144,13 @@ $ git push origin gh-pages
 
 <h2 id="change-the-dns-at-the-registrar">Change the DNS at the registrar</h2>
 
-<p>I’ll be using hover, but this should be <em>approximately</em> the same for other registrars.</p>
-
 <ol>
   <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.153</li>
   <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.154</li>
   <li>Create one www <strong>CNAME record</strong> for: yourgithubaccount.github.io</li>
 </ol>
 
-<p>The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/fuckthisproject</p>
+<p>The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/fucktheweb</p>
 
         </div>
 
