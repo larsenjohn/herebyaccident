@@ -14,7 +14,7 @@ This is a super condensed version of [these docs](https://help.github.com/articl
 
 Create a fresh repository and clone it.
 
-    git clone .../fresh-clone
+    git clone .../repo-name
 
 
 ## Create a gh-pages branch
@@ -36,7 +36,7 @@ Drop your files into the repo, add, commit and push the origin to github.
 
 ## Check your github.io url
 
-You can check the public url by going to http://yourgithubaccount.github.io/rep-name to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.
+You can check the public url by going to http://yourgithubaccount.github.io/repo-name to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.
 
 ***
 <hr class="rule">
