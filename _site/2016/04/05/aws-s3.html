@@ -119,6 +119,8 @@
   <li>In the <strong>Error Document</strong> box, add 404.html.</li>
 </ol>
 
+<p><img src="/images/ref/aws-enable-website-hosting.jpg" alt="Enable website hosting" /></p>
+
 <hr />
 
 <h2 id="make-the-root-public">Make the root public</h2>
@@ -156,21 +158,24 @@
   <li><strong>Redirect all requests to:</strong> fucktheweb.com</li>
 </ol>
 
+<p><img src="/images/ref/aws-redirect.jpg" alt="Set up redirect" /></p>
+
 <hr />
 
-<h2 id="set-up-logging">Set up logging</h2>
+<h2 id="enable-logging">Enable logging</h2>
 
 <p>In the <em>logs.fucktheweb.com</em> bucket, create a folder named “root”.</p>
 
 <p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click <strong>Logging</strong>.</p>
 
 <ol>
-  <li>Check <strong>Enable logging</strong>.</li>
+  <li>Check <strong>Enabled</strong>.</li>
   <li><strong>Target bucket:</strong> logs.fucktheweb.com</li>
   <li><strong>Target prefix:</strong> root/</li>
 </ol>
 
-<hr />
+<p><img src="/images/ref/aws-enable-logging.jpg" alt="Enable logging" /></p>
+
 <hr />
 
 <h1 id="point-the-domain">Point the domain</h1>

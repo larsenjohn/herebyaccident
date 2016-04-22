@@ -103,24 +103,30 @@
 
 <h2 id="scotchbox">Scotchbox</h2>
 
-<p>Get the lastest <a href="https://box.scotch.io/">Scotchbox</a>. Since version 2.5 there is a connection bork, so drop this in the <code>.vagrant</code> file.</p>
+<p>Get the lastest <a href="https://box.scotch.io/">Scotchbox</a>. Since version 2.5 there is a connection bork, so drop this in the <code class="highlighter-rouge">.vagrant</code>file.</p>
 
-<pre>
-config.ssh.username = "vagrant"
+<div class="highlighter-rouge"><pre class="highlight"><code>config.ssh.username = "vagrant"
 config.ssh.password = "vagrant"
-</pre>
+</code></pre>
+</div>
 
-<p>Then set up the port forwarding to whatever works.</p>
+<p>Then set up the port forwarding in the <code class="highlighter-rouge">.vagrant</code> file to whatever works. For example host: 9999, if 8080 is occupied.</p>
 
-<pre>
-config.vm.network :forwarded_port, guest: 80, host: 8080
-</pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>config.vm.network :forwarded_port, guest: 80, host: 8080
+</code></pre>
+</div>
+
+<p>Start it up.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vagrant up
+</code></pre>
+</div>
 
 <p>Reload it if it doesn’t fire the first time.</p>
 
-<pre>
-vagrant reload
-</pre>
+<div class="highlighter-rouge"><pre class="highlight"><code>vagrant reload
+</code></pre>
+</div>
 
 <hr class="rule" />
 

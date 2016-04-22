@@ -18,23 +18,21 @@ Download the [latest and greatest](https://www.vagrantup.com/downloads.html).
 
 ## Scotchbox
 
-Get the lastest [Scotchbox](https://box.scotch.io/). Since version 2.5 there is a connection bork, so drop this in the <code>.vagrant</code> file.
+Get the lastest [Scotchbox](https://box.scotch.io/). Since version 2.5 there is a connection bork, so drop this in the `.vagrant`file.
 
-<pre>
-config.ssh.username = "vagrant"
-config.ssh.password = "vagrant"
-</pre>
+    config.ssh.username = "vagrant"
+    config.ssh.password = "vagrant"
 
-Then set up the port forwarding to whatever works.
+Then set up the port forwarding in the `.vagrant` file to whatever works. For example host: 9999, if 8080 is occupied.
 
-<pre>
-config.vm.network :forwarded_port, guest: 80, host: 8080
-</pre>
+    config.vm.network :forwarded_port, guest: 80, host: 8080
+
+Start it up.
+
+    vagrant up
 
 Reload it if it doesn't fire the first time.
 
-<pre>
-vagrant reload
-</pre>
+    vagrant reload
 
 <hr class="rule">
