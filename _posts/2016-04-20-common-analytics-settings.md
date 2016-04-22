@@ -24,9 +24,11 @@ Locate your Property url from the list and navigate to:
 2. **Filter Name:** Localhost
 3. **Filter type:** Custom > Exclude
 4. **Filter Field:** IP Address
-5. **Filter Pattern:** `192\.168\.2\.114`
+5. **Filter Pattern:** `192\.168\.2\.100` (whatever your IP is)
 
 You will need to use the `\.` between your development IP address like the example.
+
+![Filter localhost](/images/ref/ga-filter-localhost.jpg)
 
 ### Eliminate redundant www. (search and replace)
 
@@ -36,7 +38,7 @@ You will need to use the `\.` between your development IP address like the examp
 4. **Filter Field:** Hostname
 5. **Search String:** `^www\.`
 
-Use this exact snippet `^www\.`
+![Filter localhost](/images/ref/ga-filter-search-and-replace.jpg)
 
 <hr class="rule">
 
@@ -51,6 +53,8 @@ Remove third party services and authors for destination url's.
 5. **Select:** Add Referral Exclusion
 
 Typical exclusion url: submit.jotformpro.com
+
+![Filter localhost](/images/ref/ga-exclusion-list.jpg)
 
 <hr class="rule">
 
