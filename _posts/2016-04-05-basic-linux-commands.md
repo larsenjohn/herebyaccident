@@ -28,7 +28,11 @@ Remove folder
 
     rm -r folder-name
 
+<<<<<<< HEAD
 Remove folder with no prompt. Be **extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **deadly commands** *
+=======
+Remove folder with no prompt. Be **extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **deadly commands**.
+>>>>>>> c23512af38420d848659ca8a9085d72680dce402
 
     rm -rf folder-name
 
@@ -122,7 +126,7 @@ Check status:
 
 # Deadly commands *
 
-Someday, some asshole on a forum my try to ruin your life by tricking you into using these commands. Take a hard look and remember them. **Never** run any of the following:
+Someday, some asshole on a forum may try to ruin your life by tricking you into using these commands. Take a hard look and remember them. **Never** run any of the following:
 
 ***
 
@@ -146,6 +150,7 @@ There is "hidden" hex of this as well that looks like this.
     “cp -p /bin/sh /tmp/.beyond; chmod 4755
     /tmp/.beyond;”;
 
+***
 
 ## Reformat Data on device
 
@@ -154,6 +159,8 @@ There is "hidden" hex of this as well that looks like this.
     mkfs.anything
 
 Whatever follows the mkfs command will be destroyed and replaced with a blank filesystem.
+
+***
 
 ## Block device manipulation
 
@@ -166,12 +173,15 @@ Another similar command would be to drop all files into a black hole.
 
     mv ~ /dev/null
 
+***
+
 ## Fork bomb
 
     :(){:|:&};:
 
 This short line defines a shell function that creates new copies of itself until the system freezes, forcing a hard reset of the computer. Basically an internal DDOS attack.
 
+***
 
 ## Malicious code in Shell scripts
 
