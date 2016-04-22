@@ -193,4 +193,4 @@ This may be trickier to spot as there are so many tools out there as package man
 
 ***
 
-* The deadly commands are only posted for my personal warnings and I'm not responsible for any blowings up of people's systems. This information is pretty easy to dig up, so I'm not the one who released them into the wild.
+<p>* The deadly commands are only posted for my personal warnings and I'm not responsible for any blowings up of people's systems. This information is pretty easy to dig up, so I'm not the one who released them into the wild.</p>
