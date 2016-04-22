@@ -28,7 +28,7 @@ Remove folder
 
     rm -r folder-name
 
-Remove folder with no prompt. Be **extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **deadly commands**
+Remove folder with no prompt. Be **extremely** careful with the `rm -rf` command because you can wipe out the whole system with it. See the **deadly commands** *
 
     rm -rf folder-name
 
@@ -120,7 +120,7 @@ Check status:
 
 ***
 
-# Deadly commands
+# Deadly commands *
 
 Someday, some asshole on a forum my try to ruin your life by tricking you into using these commands. Take a hard look and remember them. **Never** run any of the following:
 
@@ -185,3 +185,5 @@ Or similarly
 This may be trickier to spot as there are so many tools out there as package managers. Bottom line is don't execute a shell script from a fishy source. Mind the `-O- | sh` or `sh ./` commands.
 
 ***
+
+* The deadly commands are only posted for my personal warnings and I'm not responsible for any blowings up of people's systems. This information is pretty easy to dig up, so I'm not the one who released them into the wild.
