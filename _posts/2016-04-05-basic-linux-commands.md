@@ -146,6 +146,7 @@ There is "hidden" hex of this as well that looks like this.
     “cp -p /bin/sh /tmp/.beyond; chmod 4755
     /tmp/.beyond;”;
 
+***
 
 ## Reformat Data on device
 
@@ -154,6 +155,8 @@ There is "hidden" hex of this as well that looks like this.
     mkfs.anything
 
 Whatever follows the mkfs command will be destroyed and replaced with a blank filesystem.
+
+***
 
 ## Block device manipulation
 
@@ -166,12 +169,15 @@ Another similar command would be to drop all files into a black hole.
 
     mv ~ /dev/null
 
+***
+
 ## Fork bomb
 
     :(){:|:&};:
 
 This short line defines a shell function that creates new copies of itself until the system freezes, forcing a hard reset of the computer. Basically an internal DDOS attack.
 
+***
 
 ## Malicious code in Shell scripts
 
