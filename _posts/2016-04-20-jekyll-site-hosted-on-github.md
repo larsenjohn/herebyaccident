@@ -43,7 +43,7 @@ You can check the public url by going to http://yourgithubaccount.github.io/repo
 
 ## Configure the DNS
 
-Go to the new repository on github and create a **new file**. Title it **CNAME** and drop the domain name in it. This should be **done first** before changing any settings at the domain host.
+Go to the new repository on github and create a **new file**. Title it ""**CNAME**"" and drop the domain name in it. This should be **done first** before changing any settings at the domain host.
 
     fucktheweb.com
 
