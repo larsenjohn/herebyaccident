@@ -153,6 +153,36 @@ $ git push origin gh-pages
 
 <p>The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/repo-name</p>
 
+<hr />
+<hr class="rule" />
+
+<h2 id="using-the-the-githubio-domain">Using the the github.io domain</h2>
+
+<p>The links will bork out unless you utilize the liquid tag {{ site.baseurl }} statement throughout. For instance:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
+</code></pre>
+</div>
+
+<p>The baseurl path needs to be defined in the <code class="highlighter-rouge">config.yml</code> file like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Site settings
+baseurl: "/repo-name"
+</code></pre>
+</div>
+
+<p>This will render the path to the github repository name. For example http://yourgithubaccount.github.io/repo-name.</p>
+
+<p>Ala <code class="highlighter-rouge">&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;</code> compiles to <code class="highlighter-rouge">&lt;link href="/repo-name/css/styles.css" rel="stylesheet"&gt;</code>.</p>
+
+<p>This will also clear up any links in the dev <code class="highlighter-rouge">jekyll serve</code> environment. This applies to all linked files like images as well.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;img class="img-responsive full" src="{{ site.baseurl }}/images/lame-shit.jpg" alt="baseurl lame shit"&gt;
+</code></pre>
+</div>
+
+<hr />
+
         </div>
 
         <div class="col-sm-3 sidenav">

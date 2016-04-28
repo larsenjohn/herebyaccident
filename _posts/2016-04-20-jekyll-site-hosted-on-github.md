@@ -58,3 +58,27 @@ In this case the canonical name will be fucktheweb.com. You can also use *www.fu
 3. Create one www **CNAME record** for: yourgithubaccount.github.io
 
 The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/repo-name
+
+***
+<hr class="rule">
+
+## Using the the github.io domain
+
+The links will bork out unless you utilize the liquid tag {{ "{{ site.baseurl " }}}} statement throughout. For instance:
+
+    <link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">
+
+The baseurl path needs to be defined in the `config.yml` file like so:
+
+    # Site settings
+    baseurl: "/repo-name"
+
+This will render the path to the github repository name. For example http://yourgithubaccount.github.io/repo-name.
+
+Ala `<link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">` compiles to `<link href="/repo-name/css/styles.css" rel="stylesheet">`.
+
+This will also clear up any links in the dev `jekyll serve` environment. This applies to all linked files like images as well.
+
+    <img class="img-responsive full" src="{{ "{{ site.baseurl " }}}}/images/lame-shit.jpg" alt="baseurl lame shit">
+
+***
