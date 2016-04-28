@@ -64,7 +64,7 @@ The CNAME can also be pointed to your particular repository, for instance yourgi
 
 ## Using the the github.io domain
 
-The links will bork out unless you utilize the liquid tag {{ "{{ site.baseurl " }}}} statement throughout. For instance:
+The links will bork out unless you utilize the liquid tag {{ "{{ site.baseurl " }}}} throughout. For instance:
 
     <link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">
 
