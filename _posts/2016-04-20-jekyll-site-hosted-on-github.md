@@ -57,8 +57,6 @@ In this case the canonical name will be fucktheweb.com. You can also use *www.fu
 2. Create one **A record** *(@)* for: 192.30.252.154
 3. Create one www **CNAME record** for: yourgithubaccount.github.io/repo-name
 
-The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/repo-name
-
 ***
 <hr class="rule">
 
