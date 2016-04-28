@@ -77,6 +77,6 @@ Ala `<link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">` c
 
 This will also clear up any links in the dev `jekyll serve` environment. This applies to all linked files like images as well.
 
-    <img class="img-responsive full" src="{{ "{{ site.baseurl " }}}}/images/lame-shit.jpg" alt="baseurl lame shit">
+    <img src="{{ "{{ site.baseurl " }}}}/images/lame-shit.jpg" alt="baseurl lame shit">
 
 ***
