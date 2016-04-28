@@ -21,7 +21,7 @@ Create a fresh repository and clone it.
 
 Create a new gh-pages branch.
 
-    $ cd fresh-clone
+    $ cd repo-name
     $ git checkout --orphan gh-pages
 
 Now empty out the folder in the new branch.
@@ -55,7 +55,7 @@ In this case the canonical name will be fucktheweb.com. You can also use *www.fu
 
 1. Create one **A record** *(@)* for: 192.30.252.153
 2. Create one **A record** *(@)* for: 192.30.252.154
-3. Create one www **CNAME record** for: yourgithubaccount.github.io
+3. Create one www **CNAME record** for: yourgithubaccount.github.io/repo-name
 
 The CNAME can also be pointed to your particular repository, for instance yourgithubaccount.github.io/repo-name
 
