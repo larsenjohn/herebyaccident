@@ -24,7 +24,7 @@
 
     <title>
       
-        Markdown / Kramdown
+        Jekyll + LESS
       
     </title>
 
@@ -88,91 +88,51 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="markdown-and-kramdown">Markdown and Kramdown</h1>
+          <h1 id="jekyll--less">Jekyll + LESS</h1>
 
-<p>This is all just a bastardized version of <a href="http://daringfireball.net/projects/markdown/syntax">this</a> from Daring Fireball.</p>
+<p>I’m late to the compiler game. Generally speaking, you can pry the vanilla from my cold dead hands. I’m always afraid some tool on another tool will break and all I want to do is change a couple of styles. I have <em>no idea</em> where all of these gem installs go.</p>
 
-<p>Github pages only supports <a href="http://kramdown.gettalong.org/syntax.html">Kramdown</a> if you even care. But if you are using a jekyll specific site this will probably need to be mentioned in the <code class="highlighter-rouge">_config.yml</code> file like so:</p>
+<p>Either way, you can’t stay stagnant on the internets, so here we go with adding LESS support to jekyll. See you in the forums when I’m crying at my desk.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Markdown
-markdown: kramdown
+<hr />
+<hr class="rule" />
+
+<h2 id="install-less">Install LESS</h2>
+
+<p>Easiest is using npm, which is probably dangerous.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install -g less
+</code></pre>
+</div>
+
+<h2 id="install-the-gem">Install the gem</h2>
+
+<p>It took me a couple of tries here. There is a link ref <a href="https://rubygems.org/gems/jekyll-less/versions/0.0.4">here</a>, and another repo <a href="https://github.com/zroger/jekyll-less">here</a>. In either case you do this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll-less
+</code></pre>
+</div>
+
+<h2 id="add-the-gem-to-the-configyml">Add the gem to the config.yml</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gems: ['jekyll-less']
 </code></pre>
 </div>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="headings">Headings</h2>
+<h2 id="wonk">Wonk?</h2>
 
-<p># h1<br />
-## h2<br />
-### h3<br />
-#### h4<br />
-##### h5<br />
-###### h6</p>
+<p>In both instances this borked out on me and I needed to install <em>another</em> gemfile called <a href="https://rubygems.org/gems/therubyracer/versions/0.12.2"><strong>therubyracer</strong></a>.</p>
 
-<hr class="rule" />
-
-<h2 id="emphasis">Emphasis</h2>
-
-<p>*em*</p>
-<p>**strong**</p>
-
-<hr class="rule" />
-
-<h2 id="lists">Lists</h2>
-
-<p>+ li</p>
-<p>&nbsp; &nbsp; + li</p>
-
-<p>1. ol</p>
-
-<hr class="rule" />
-
-<h2 id="links">Links</h2>
-
-<p>[I'm an inline-style link](https://www.google.com)</p>
-<p>[I'm an inline-style link with title](https://www.google.com "Google's Homepage")</p>
-<p>[I'm a relative reference to a repository file in the root](/images/russell.jpg)</p>
-
-<hr />
-
-<p><a href="https://www.google.com">I’m an inline-style link</a></p>
-
-<p><a href="https://www.google.com" title="Google's Homepage">I’m an inline-style link with title</a></p>
-
-<p><a href="/images/russell.jpg">I’m a relative reference to a to a repository file in the root</a></p>
-
-<hr />
-
-<p>![jack in coat](/images/russell.jpg "Jack in coat title")</p>
-<p><img src="/images/russell.jpg" alt="jack in coat" title="Jack in coat title" /></p>
-
-<p>You can also just do it the old fashioned way if you want classes</p>
-
-<p><img class="img-responsive" src="/images/russell.jpg" /></p>
-
-<hr class="rule" />
-
-<h2 id="code">Code</h2>
-
-<p>`code in an inline block` with basic backticks</p>
-
-<p><code class="highlighter-rouge">code in a block</code></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Or you can indent 4 spaces / tab twice for a block
+<div class="highlighter-rouge"><pre class="highlight"><code>gem install therubyracer
 </code></pre>
 </div>
 
-<hr class="rule" />
+<p>After that, running <code class="highlighter-rouge">jekyll build</code> and <code class="highlighter-rouge">jekyll serve</code> started the magic.</p>
 
-<h2 id="blockquotes">Blockquotes</h2>
-
-<p>&gt;I'm a blockquote and I can use *markdown*</p>
-
-<blockquote>
-  <p>I’m a blockquote and I can use <em>markdown</em></p>
-</blockquote>
+<hr />
 
         </div>
 
