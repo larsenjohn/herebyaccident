@@ -34,7 +34,8 @@ You will need to use the `\.` between your development IP address like the examp
 
 1. Add filter
 2. **Filter Name:** Search and replace
-3. **Filter Type:** Custom > Search and Replace
+3. **Filter Type:** Custom > 
+4. **Select** Advanced > Search and Replace
 4. **Filter Field:** Hostname
 5. **Search String:** `^www\.`
 

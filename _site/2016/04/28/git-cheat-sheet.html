@@ -24,7 +24,7 @@
 
     <title>
       
-        Markdown / Kramdown
+        git cheat sheet
       
     </title>
 
@@ -88,91 +88,71 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="markdown-and-kramdown">Markdown and Kramdown</h1>
+          <h1 id="git-reference-for-the-feeble">git reference for the feeble</h1>
 
-<p>This is all just a bastardized version of <a href="http://daringfireball.net/projects/markdown/syntax">this</a> from Daring Fireball.</p>
+<p>Hoorah, git commands. Another exiting day at the races.</p>
 
-<p>Github pages only supports <a href="http://kramdown.gettalong.org/syntax.html">Kramdown</a> if you even care. But if you are using a jekyll specific site this will probably need to be mentioned in the <code class="highlighter-rouge">_config.yml</code> file like so:</p>
+<hr />
+<hr class="rule" />
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Markdown
-markdown: kramdown
+<h2 id="branching">Branching</h2>
+
+<p>Checkout a new branch</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b branch-name
+</code></pre>
+</div>
+
+<p>Delete branch</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git branch -d branch-name
+</code></pre>
+</div>
+
+<p>Push branch</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push origin branch-name
+</code></pre>
+</div>
+
+<p>Or alternately the master</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push origin master
+</code></pre>
+</div>
+
+<h2 id="updating">Updating</h2>
+
+<p>Basic update (pull)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git pull
+</code></pre>
+</div>
+
+<p>Merge branch to master</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git merge branch-name
+</code></pre>
+</div>
+
+<h2 id="logging">Logging</h2>
+
+<p>Check the history Log</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git log
+</code></pre>
+</div>
+
+<p>Get <strong>out of the Log type “q”</strong>.</p>
+
+<p>Drop all local changes and commits, fetch the latest history from the server and point your local master branch at it like this.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git fetch origin
+$ git reset --hard origin/master
 </code></pre>
 </div>
 
 <hr />
-<hr class="rule" />
-
-<h2 id="headings">Headings</h2>
-
-<p># h1<br />
-## h2<br />
-### h3<br />
-#### h4<br />
-##### h5<br />
-###### h6</p>
-
-<hr class="rule" />
-
-<h2 id="emphasis">Emphasis</h2>
-
-<p>*em*</p>
-<p>**strong**</p>
-
-<hr class="rule" />
-
-<h2 id="lists">Lists</h2>
-
-<p>+ li</p>
-<p>&nbsp; &nbsp; + li</p>
-
-<p>1. ol</p>
-
-<hr class="rule" />
-
-<h2 id="links">Links</h2>
-
-<p>[I'm an inline-style link](https://www.google.com)</p>
-<p>[I'm an inline-style link with title](https://www.google.com "Google's Homepage")</p>
-<p>[I'm a relative reference to a repository file in the root](/images/russell.jpg)</p>
-
-<hr />
-
-<p><a href="https://www.google.com">I’m an inline-style link</a></p>
-
-<p><a href="https://www.google.com" title="Google's Homepage">I’m an inline-style link with title</a></p>
-
-<p><a href="/images/russell.jpg">I’m a relative reference to a to a repository file in the root</a></p>
-
-<hr />
-
-<p>![jack in coat](/images/russell.jpg "Jack in coat title")</p>
-<p><img src="/images/russell.jpg" alt="jack in coat" title="Jack in coat title" /></p>
-
-<p>You can also just do it the old fashioned way if you want classes</p>
-
-<p><img class="img-responsive" src="/images/russell.jpg" /></p>
-
-<hr class="rule" />
-
-<h2 id="code">Code</h2>
-
-<p>`code in an inline block` with basic backticks</p>
-
-<p><code class="highlighter-rouge">code in a block</code></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Or you can indent 4 spaces / tab twice for a block
-</code></pre>
-</div>
-
-<hr class="rule" />
-
-<h2 id="blockquotes">Blockquotes</h2>
-
-<p>&gt;I'm a blockquote and I can use *markdown*</p>
-
-<blockquote>
-  <p>I’m a blockquote and I can use <em>markdown</em></p>
-</blockquote>
 
         </div>
 
