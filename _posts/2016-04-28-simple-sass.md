@@ -5,11 +5,9 @@ title: Basic SCSS
 
 # Simple SASS (SCSS)
 
-So I'm late to the complier game. Generally speaking you can pry the vanilla from my cold dead hand. But that's neither here nor there, since in the interwebs you can't stay stagnant for too long.
+So, I'm late to the complier game. Generally speaking, you can pry the vanilla from my cold dead hands. But that's neither here nor there since in the interwebs you can't stay stagnant for too long.
 
-And, since jekyll is [SASS](http://sass-lang.com/guide) ready right out of the box, it fits my lazy edge.
-
-For starters...
+Since jekyll is [SASS](http://sass-lang.com/guide) ready right out of the box, it fits my lazy edginess.
 
 ***
 <hr class="rule">
