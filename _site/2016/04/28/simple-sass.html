@@ -24,7 +24,7 @@
 
     <title>
       
-        AWS S3 Static Setup
+        Basic SCSS
       
     </title>
 
@@ -88,136 +88,119 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="configure-a-static-site-through-aws-s3">Configure a static site through AWS S3</h1>
+          <h1 id="simple-sass-scss">Simple SASS (SCSS)</h1>
 
-<p>It’s super cheap. That is until you get a bill that says it isn’t. Doesn’t matter, since Amazon already has your credit card on file so you will pay either way.</p>
+<p>So I’m late to the complier game. Generally speaking you can pry the vanilla from my cold dead hand. But that’s neither here nor there, since in the interwebs you can’t stay stagnant for too long.</p>
 
-<p>The whole <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html">sad state of affairs is here to read.</a></p>
+<p>And, since jekyll is <a href="http://sass-lang.com/guide">SASS</a> ready right out of the box, it fits my lazy edge.</p>
 
-<p>So let’s get going shall we?</p>
+<p>For starters…</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="create-three-buckets">Create three buckets</h2>
+<p>So, I needed to choose my own adventure. In this case it’s SCSS. Probably a mistake.</p>
 
-<p>The site will need three instances. root, www, and logs. Create a bucket for each with the exact domain name.</p>
+<h2 id="variables">Variables</h2>
 
-<p>For instance:</p>
+<p>Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you think you’ll want to reuse. Sass uses the $ symbol to make something a variable.</p>
 
-<ul>
-  <li>fucktheweb.com</li>
-  <li>www.fucktheweb.com</li>
-  <li>logs.fucktheweb.com</li>
-</ul>
+<div class="highlighter-rouge"><pre class="highlight"><code>$font-stack: "Helvetica", sans-serif;
+$primary-color: #333;
 
-<p>Enable the root site <em>fucktheweb.com</em> for web hosting. Go to the <strong>Properties</strong> panel, click <strong>Static Website Hosting</strong>, and do the following:</p>
 
-<ol>
-  <li>Select the <strong>Enable website hosting</strong>.</li>
-  <li>In the <strong>Index Document</strong> box, add index.html.</li>
-  <li>In the <strong>Error Document</strong> box, add 404.html.</li>
-</ol>
-
-<p><img src="/images/ref/aws-enable-website-hosting.jpg" alt="Enable website hosting" /></p>
-
-<hr />
-
-<h2 id="make-the-root-public">Make the root public</h2>
-
-<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click the <strong>Permissions</strong>.</p>
-
-<ol>
-  <li>Click Add <strong>Bucket Policy</strong>.</li>
-  <li>Drop this puppy in</li>
-</ol>
-
-<pre>
-{
-  "Version":"2012-10-17",
-  "Statement":[{
-	"Sid":"PublicReadForGetBucketObjects",
-        "Effect":"Allow",
-	  "Principal": "*",
-      "Action":["s3:GetObject"],
-      "Resource":["arn:aws:s3:::fucktheweb.com/*"
-      ]
-    }
-  ]
+body {
+  font: $font-stack;
+  color: $primary-color;
 }
-</pre>
+</code></pre>
+</div>
 
-<hr />
+<p>Processes to:</p>
 
-<h2 id="set-up-the-redirect">Set up the redirect</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>body {
+  font: "Helvetica", sans-serif;
+  color: #333;
+}
+</code></pre>
+</div>
 
-<p>In the <em>www.fucktheweb.com</em> bucket <strong>Properties</strong> go to <strong>Static Website Hosting</strong>.</p>
+<h2 id="mixins">Mixins</h2>
 
-<ol>
-  <li>Select <strong>Redirect all requests to another host name</strong></li>
-  <li><strong>Redirect all requests to:</strong> fucktheweb.com</li>
-</ol>
+<p>A mixin lets you make groups of CSS declarations that you want to reuse throughout your site. You can pass in values to make your mixin more flexible. A good use of a mixin is for vendor prefixes.</p>
 
-<p><img src="/images/ref/aws-redirect.jpg" alt="Set up redirect" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
 
-<hr />
+.box {
+  @include border-radius(10px);
+}
+</code></pre>
+</div>
 
-<h2 id="enable-logging">Enable logging</h2>
+<p>Processes to:</p>
 
-<p>In the <em>logs.fucktheweb.com</em> bucket, create a folder named “root”.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>.box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+</code></pre>
+</div>
 
-<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click <strong>Logging</strong>.</p>
+<h2 id="extendinheritance">Extend/Inheritance</h2>
 
-<ol>
-  <li>Check <strong>Enabled</strong>.</li>
-  <li><strong>Target bucket:</strong> logs.fucktheweb.com</li>
-  <li><strong>Target prefix:</strong> root/</li>
-</ol>
+<p>Using <code class="highlighter-rouge">@extend</code> lets you share a set of CSS properties from one selector to another. This example creates a simple series of messaging for errors, warnings and successes.</p>
 
-<p><img src="/images/ref/aws-enable-logging.jpg" alt="Enable logging" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
 
-<hr />
+.success {
+  @extend .message;
+  border-color: green;
+}
 
-<h1 id="point-the-domain">Point the domain</h1>
+.error {
+  @extend .message;
+  border-color: red;
+}
 
-<p>Well, that was fun. Now we get to go through another super groovy interface that costs more money. It’s Amazon’s signature “Route 53” and we need to set up a “hosted zone”.</p>
+.warning {
+  @extend .message;
+  border-color: yellow;
+}
+</code></pre>
+</div>
 
-<hr />
+<p>Processes to:</p>
 
-<h2 id="create-a-new-hosted-zone">Create a new hosted zone</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>.message, .success, .error, .warning {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  color: #333;
+}
 
-<p>In Route 53, go to <strong>Hosted zones</strong> and <strong>create a new hosted zone</strong> called fucktheweb.com. This will generate the namesevers. These nameservers are not consistent when generated, so if you botch it and start over, make sure to check them again before you point. You’ll also need to <strong>config two new A records in Route 53</strong> because simple nameservers would be too easy.</p>
+.success {
+  border-color: green;
+}
 
-<hr />
+.error {
+  border-color: red;
+}
 
-<h2 id="create-a-root-a-record">Create a root A record</h2>
-
-<p>In the new fucktheweb.com hosted zone, <strong>create a record set</strong>.</p>
-
-<ol>
-  <li><strong>Name:</strong> leave blank</li>
-  <li><strong>Type:</strong> A - IPv4 address</li>
-  <li><strong>Alias:</strong> <em>- S3 website endpoints -</em> fucktheweb.com (s3-website-…)</li>
-  <li><strong>Routing Policy:</strong> Simple</li>
-</ol>
-
-<hr />
-
-<h2 id="create-a-www-a-record">Create a www. A record</h2>
-
-<ol>
-  <li><strong>Name:</strong> www</li>
-  <li><strong>Type:</strong> A - IPv4 address</li>
-  <li><strong>Alias:</strong> <em>- S3 website endpoints -</em> fucktheweb.com (s3-website-…)</li>
-  <li><strong>Routing Policy:</strong> Simple</li>
-</ol>
-
-<hr />
-<hr />
-
-<h1 id="change-nameservers">Change Nameservers</h1>
-
-<p>Now go to the registrar and use the Route 53 generated Nameservers to point the domain to S3.</p>
+.warning {
+  border-color: yellow;
+}
+</code></pre>
+</div>
 
         </div>
 
