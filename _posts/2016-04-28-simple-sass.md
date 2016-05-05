@@ -7,12 +7,12 @@ title: Basic SCSS
 
 So, I'm late to the complier game. Generally speaking, you can pry the vanilla from my cold dead hands. But that's neither here nor there since in the interwebs you can't stay stagnant for too long.
 
-Since jekyll is [SASS](http://sass-lang.com/guide) ready right out of the box, it fits my lazy edginess.
+Since [jekyll](https://jekyllrb.com/) is [SASS](http://sass-lang.com/guide) ready right out of the box, it fits my lazy edginess.
 
 ***
 <hr class="rule">
 
-So, I needed to choose my own adventure. In this case it's SCSS. Probably a mistake.
+I needed to choose my own adventure. In this case it's SCSS. Probably a mistake.
 
 ## Variables
 
