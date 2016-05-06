@@ -24,7 +24,7 @@
 
     <title>
       
-        AWS EC2 LEMP stack
+        Using Wercker to deploy to S3
       
     </title>
 
@@ -88,110 +88,62 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="aws-ec2-lemp-stack-with-easyengineio">AWS EC2 LEMP stack with easyengine.io</h1>
+          <h1 id="deploy-a-jekyll-site-to-s3-using-wercker">Deploy a Jekyll site to S3 using Wercker</h1>
 
-<p>The <a href="https://easyengine.io/">easyengine</a> setup is so simple it’s kind of scary. I really have no idea what to do if I got into trouble with it, but for now it’s a magical little rainbow.</p>
+<p>In my efforts to make my life infinitely more complicated, there is this mess. I’m not sure when FTP became a dirty word, maybe it’s when the “S” got involved and things just went off the rails.</p>
+
+<p>Anyway, here is a way to make a one page site stupidly verbose.</p>
+
+<p>Before you will be able to deploy you will need to setup a <code class="highlighter-rouge">wercker.yml</code> file and sync it to your account. You will also need to set your AWS SSH keys and bucket urls through your wercker account, thus keeping them secret so you can safely use git to track your <code class="highlighter-rouge">wercker.yml</code> in the root of your repo.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="spin-up-an-ec2-instance">Spin up an EC2 instance</h2>
+<h3 id="box">Box</h3>
 
-<p>Launch an Ubuntu Server 14.04 LTS instance. Use all of the default settings. When you get to the <strong>security groups</strong> add these custom rules after the auto populated ssh.</p>
+<p>In this case it’s ruby, so the scripts will be similar to OSX terminal. There are a bunch available depending on which app you want to deploy.</p>
 
-<ol>
-  <li>SSH, TCP, 22, anywhere</li>
-  <li>HTTP, TCP, 80, anywhere</li>
-  <li>HTTPS, TCP, 443, anywhere</li>
-  <li>Custom TCP rule, TCP, 2222, anywhere</li>
-  <li>Custom ICMP rule, Echo Reply, N/A, anywhere</li>
-</ol>
+<h3 id="install-dependencies">Install dependencies</h3>
 
-<p>Change the permissions on the <code class="highlighter-rouge">.pem</code> file</p>
+<p>Using the build step this will do the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>chmod 600 key.pem
-</code></pre>
-</div>
+<p><strong>build:</strong></p>
 
-<hr class="rule" />
+<ul>
+  <li>Run a bundle-install and verify everything is up to date</li>
+  <li>Run script to build the site, effectively compiling the files to the <code class="highlighter-rouge">_site</code> folder.</li>
+</ul>
 
-<h2 id="install-easyengine">Install easyengine</h2>
+<p><strong>deploy</strong></p>
 
-<p>Connect to the instance and run</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>wget -qO ee rt.cx/ee &amp;&amp; sudo bash ee
-</code></pre>
-</div>
-
-<hr class="rule" />
-
-<h2 id="create-a-site">Create a site</h2>
-
-<p>This will roll a site and configure the virtual host in one swoop.</p>
-
-<p>Static</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --html
-</code></pre>
-</div>
-
-<p>PHP+MySQL.</p>
-
-<p>MySQL database details will be in the <code class="highlighter-rouge">ee-config.php</code> file.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --mysql
-</code></pre>
-</div>
-
-<p>Standard Wordpress</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --wp # install wordpress without any page caching
-ee site create example.com --w3tc # install wordpress with w3-total-cache plugin
-ee site create example.com --wpsc # install wordpress with whisp-super-cache plugin
-ee site create example.com --wpfc # install wordpress + nginx fastcgi_cache
-ee site create example.com --wpredis # install wordpress + nginx redis_cache
-</code></pre>
-</div>
+<ul>
+  <li>s3sync to AWS</li>
+  <li>Check AWS keys</li>
+  <li>Check AWS target bucket</li>
+  <li>Source_dir: <code class="highlighter-rouge">_site</code> folder path</li>
+</ul>
 
 <hr />
 
-<h2 id="delete-a-site">Delete a site</h2>
+<p>wercker.yml</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com
-</code></pre>
-</div>
-
-<p>Delete webroot only</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com --files
-</code></pre>
-</div>
-
-<p>Delete db only</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com --db
-</code></pre>
-</div>
-
-<hr />
-
-<h2 id="restart">Restart</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee stack restart
-</code></pre>
-</div>
-
-<p>and reload</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee stack reload
-</code></pre>
-</div>
-
-<hr />
-
-<h2 id="update">Update</h2>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ee update
+<div class="highlighter-rouge"><pre class="highlight"><code>box: wercker/ruby
+build:
+steps:
+  - bundle-install
+  - script:
+      name: generate site
+      code: bundle exec jekyll build --trace
+deploy:
+steps:
+    - s3sync:
+        key_id: $KEY
+        key_secret: $SECRET
+        bucket_url: $URL
+        source_dir: _site/
+        opts: |
+            --add-header Cache-Control:max-age=60
+            --no-preserve
 </code></pre>
 </div>
 
