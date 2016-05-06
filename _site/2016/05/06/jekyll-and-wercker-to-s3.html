@@ -99,29 +99,23 @@
 <hr />
 <hr class="rule" />
 
-<h2 id="box">Box</h2>
+<h3 id="box">Box</h3>
 
 <p>In this case it’s ruby, so the scripts will be similar to OSX terminal. There are a bunch available depending on which app you want to deploy.</p>
 
-<h2 id="install-dependencies">Install dependencies</h2>
+<h3 id="install-dependencies">Install dependencies</h3>
 
 <p>Using the build step this will do the following:</p>
 
-<p><strong>build:</strong></p>
+<p><strong>build:</strong>
+* Run a bundle-install and verify everything is up to date
+* Run script to build the site, effectively compiling the files to the <code class="highlighter-rouge">_site</code> folder.</p>
 
-<ul>
-  <li>Run a bundle-install and verify everything is up to date</li>
-  <li>Run script to build the site, effectively compiling the files to the <code class="highlighter-rouge">_site</code> folder.</li>
-</ul>
-
-<p><strong>deploy</strong></p>
-
-<ul>
-  <li>s3sync to AWS</li>
-  <li>Check AWS keys</li>
-  <li>Check AWS target bucket</li>
-  <li>Source_dir: <code class="highlighter-rouge">_site</code> folder path</li>
-</ul>
+<p><strong>deploy</strong>
+* s3sync to AWS
+* Check AWS keys
+* Check AWS target bucket
+* Source_dir: <code class="highlighter-rouge">_site</code> folder path</p>
 
 <hr />
 

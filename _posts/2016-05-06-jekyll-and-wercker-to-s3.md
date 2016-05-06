@@ -14,21 +14,19 @@ Before you will be able to deploy you will need to setup a `wercker.yml` file an
 ***
 <hr class="rule">
 
-## Box
+### Box
 
 In this case it's ruby, so the scripts will be similar to OSX terminal. There are a bunch available depending on which app you want to deploy.
 
-## Install dependencies
+### Install dependencies
 
 Using the build step this will do the following:
 
 **build:**
-
 * Run a bundle-install and verify everything is up to date
 * Run script to build the site, effectively compiling the files to the `_site` folder.
 
 **deploy**
-
 * s3sync to AWS
 * Check AWS keys
 * Check AWS target bucket
