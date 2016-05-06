@@ -139,9 +139,12 @@ Square up
       -o-box-shadow: none;
     }
 
-    @include no-radius;
-    @include no-text-shadow;
-    @include no-box-shadow;
+    .flat {
+      @include no-radius;
+      @include no-text-shadow;
+      @include no-box-shadow;
+    }
+
 
 Border radius
 
@@ -152,7 +155,9 @@ Border radius
       -o-border-radius: $radius;
     }
 
-    @include border-radius(0);
+    .box {
+      @include border-radius(4px);
+    }
 
 Text shadow
 
@@ -163,7 +168,9 @@ Text shadow
       -o-text-shadow: $shadow;
     }
 
-    @include text-shadow(0 0 5px #000);
+    p.drop-text {
+      @include text-shadow(0 0 5px #000);
+    }
 
 Box shadow
 
@@ -174,7 +181,9 @@ Box shadow
       -o-box-shadow: $shadow;
     }
 
-    @include box-shadow(5px 5px 5px inset #000);
+    .inset-box {
+      @include box-shadow(5px 5px 5px inset #000);
+    }
 
 Opacity
 
@@ -187,7 +196,9 @@ Opacity
       filter: alpha(opacity=$opacity-ie); //IE8
     }
 
-    @include opacity(0.8);
+    img:hover {
+      @include opacity(0.8);
+    }
 
 Margin 0 auto
 
@@ -196,7 +207,9 @@ Margin 0 auto
       margin: 0 auto;
     }
 
-    @include auto;
+    .img-block {
+      @include auto;
+    }
 
 ***
 
@@ -208,7 +221,7 @@ In case you are combining families
     $sans: "Branded Sans Serif Font", sans-serif;
 
     body {
-      font-family: sans-serif;
+      font-family: $sans-serif;
     }
 
     h1, h2 {
