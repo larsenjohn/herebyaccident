@@ -24,7 +24,7 @@
 
     <title>
       
-        Github pages hosting
+        Jekyll github pages hosting
       
     </title>
 
@@ -180,6 +180,29 @@ baseurl: "/repo-name"
 </div>
 
 <hr />
+<hr class="rule" />
+
+<h2 id="using-sass">Using SASS</h2>
+
+<p>You’ll need to add the front matter markup at the top of any .scss files. It <strong>needs to be right at the top</strong> or it will break because jekyll will read white space. You can comment it if you like, but only the front matter markup is necessary.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+# super happy fun scss
+---
+
+// or
+
+---
+
+---
+</code></pre>
+</div>
+
+<p>Just hook up the styles with a vanilla .css path and Jekyll will process the .scss to the <code class="highlighter-rouge">_site</code> folder. For instance the file <code class="highlighter-rouge">css/styles.scss</code> can be linked in the head like so.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
+</code></pre>
+</div>
 
         </div>
 
@@ -189,7 +212,7 @@ baseurl: "/repo-name"
           <ul>
             
             <li>
-              <a href="/2016/04/28/simple-sass.html">Basic SCSS</a>
+              <a href="/2016/04/28/simple-sass.html">Basic SASS</a>
             </li>
             
             <li>
@@ -201,7 +224,7 @@ baseurl: "/repo-name"
             </li>
             
             <li>
-              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Github pages hosting</a>
+              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
             </li>
             
             <li>

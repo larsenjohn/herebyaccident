@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basic SCSS
+title: Basic SASS
 ---
 
 # Simple SASS

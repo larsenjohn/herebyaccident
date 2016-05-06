@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github pages hosting
+title: Jekyll github pages hosting
 ---
 
 # Host a Jekyll site on Github
@@ -80,3 +80,22 @@ This will also clear up any links in the dev `jekyll serve` environment. This ap
     <img src="{{ "{{ site.baseurl " }}}}/images/lame-shit.jpg" alt="baseurl lame shit">
 
 ***
+<hr class="rule">
+
+## Using SASS
+
+You'll need to add the front matter markup at the top of any .scss files. It **needs to be right at the top** or it will break because jekyll will read white space. You can comment it if you like, but only the front matter markup is necessary.
+
+    ---
+    # super happy fun scss
+    ---
+
+    // or
+
+    ---
+
+    ---
+
+Just hook up the styles with a vanilla .css path and Jekyll will process the .scss to the `_site` folder. For instance the file `css/styles.scss` can be linked in the head like so.
+
+    <link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">
