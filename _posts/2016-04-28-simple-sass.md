@@ -108,7 +108,7 @@ Processes to:
 
 ## Common snippets
 
-Sure, you may say "why don't you just recompile bootstrap (or your favorite library everyone now hates) instead of overriding it? Isn't that just a hack?"
+Sure, you may say "why don't you just recompile bootstrap (or some other library everyone now hates) instead of overriding it? Isn't that just a hack?"
 
 Yes, yes it is.
 
