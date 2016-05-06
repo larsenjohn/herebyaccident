@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Wercker to deploy to S3
+title: Wercker + Jekyll to S3
 ---
 
 # Deploy a Jekyll site to S3 using Wercker
@@ -14,11 +14,11 @@ Before you will be able to deploy you will need to setup a `wercker.yml` file an
 ***
 <hr class="rule">
 
-### Box
+## Box
 
 In this case it's ruby, so the scripts will be similar to OSX terminal. There are a bunch available depending on which app you want to deploy.
 
-### Install dependencies
+## Install dependencies
 
 Using the build step this will do the following:
 
