@@ -23,10 +23,12 @@ In this case it's ruby, so the scripts will be similar to OSX terminal. There ar
 Using the build step this will do the following:
 
 **build:**
+
 * Run a bundle-install and verify everything is up to date
 * Run script to build the site, effectively compiling the files to the `_site` folder.
 
 **deploy**
+
 * s3sync to AWS
 * Check AWS keys
 * Check AWS target bucket
