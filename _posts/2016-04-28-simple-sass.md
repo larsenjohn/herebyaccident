@@ -3,7 +3,7 @@ layout: post
 title: Basic SCSS
 ---
 
-# Simple SASS (SCSS)
+# Simple SASS
 
 So, I'm late to the complier game. Generally speaking, you can pry the vanilla from my cold dead hands. But that's neither here nor there since in the interwebs you can't stay stagnant for too long.
 
@@ -41,7 +41,7 @@ A mixin lets you make groups of CSS declarations that you want to reuse througho
     @mixin border-radius($radius) {
       -webkit-border-radius: $radius;
       -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
+      -o-border-radius: $radius;
       border-radius: $radius;
     }
 
@@ -54,7 +54,7 @@ Processes to:
     .box {
       -webkit-border-radius: 10px;
       -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
       border-radius: 10px;
     }
 
@@ -101,4 +101,116 @@ Processes to:
 
     .warning {
       border-color: yellow;
+    }
+
+***
+<hr class="rule">
+
+## Common snippets
+
+Sure, you may say "why don't you just recompile bootstrap (or your favorite library everyone now hates) instead of overriding it? Isn't that just a hack?"
+
+Yes, yes it is.
+
+***
+
+## Common mixins
+
+Square up
+
+    @mixin no-radius {
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -o-border-radius: 0;
+    }
+
+    @mixin no-text-shadow {
+      text-shadow: none;
+      -webkit-text-shadow: none;
+      -moz-text-shadow: none;
+      -o-text-shadow: none;
+    }
+
+    @mixin no-box-shadow {
+      box-shadow: none;
+      -box-shadow: none;
+      -moz-shadow: none;
+      -o-box-shadow: none;
+    }
+
+    @include no-radius;
+    @include no-text-shadow;
+    @include no-box-shadow;
+
+Border radius
+
+    @mixin border-radius($radius) {
+      border-radius: $radius;
+      -webkit-border-radius: $radius;
+      -moz-border-radius: $radius;
+      -o-border-radius: $radius;
+    }
+
+    @include border-radius(0);
+
+Text shadow
+
+    @mixin text-shadow($shadow) {
+      text-shadow: $shadow;
+      -webkit-text-shadow: $shadow;
+      -moz-text-shadow: $shadow;
+      -o-text-shadow: $shadow;
+    }
+
+    @include text-shadow(0 0 5px #000);
+
+Box shadow
+
+    @mixin box-shadow($shadow) {
+      box-shadow: $shadow;
+      -webkit-box-shadow: $shadow;
+      -moz-box-shadow: $shadow;
+      -o-box-shadow: $shadow;
+    }
+
+    @include box-shadow(5px 5px 5px inset #000);
+
+Opacity
+
+    @mixin opacity($opacity) {
+      opacity: $opacity;
+      -moz-opacity: $opacity;
+      -webkit-opacity: $opacity;
+      -o-opacity: $opacity;
+      $opacity-ie: $opacity * 100;
+      filter: alpha(opacity=$opacity-ie); //IE8
+    }
+
+    @include opacity(0.8);
+
+Margin 0 auto
+
+    @mixin auto {
+      display: block;
+      margin: 0 auto;
+    }
+
+    @include auto;
+
+***
+
+## Common variables
+
+In case you are combining families
+
+    $serif: "Branded Serif Font", serif;
+    $sans: "Branded Sans Serif Font", sans-serif;
+
+    body {
+      font-family: sans-serif;
+    }
+
+    h1, h2 {
+      font-family: $serif;
     }

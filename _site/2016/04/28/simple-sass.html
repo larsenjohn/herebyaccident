@@ -88,7 +88,7 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="simple-sass-scss">Simple SASS (SCSS)</h1>
+          <h1 id="simple-sass">Simple SASS</h1>
 
 <p>So, I’m late to the complier game. Generally speaking, you can pry the vanilla from my cold dead hands. But that’s neither here nor there since in the interwebs you can’t stay stagnant for too long.</p>
 
@@ -130,7 +130,7 @@ body {
 <div class="highlighter-rouge"><pre class="highlight"><code>@mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
   border-radius: $radius;
 }
 
@@ -145,7 +145,7 @@ body {
 <div class="highlighter-rouge"><pre class="highlight"><code>.box {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   border-radius: 10px;
 }
 </code></pre>
@@ -196,6 +196,132 @@ body {
 
 .warning {
   border-color: yellow;
+}
+</code></pre>
+</div>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="common-snippets">Common snippets</h2>
+
+<p>Sure, you may say “why don’t you just recompile bootstrap (or your favorite library everyone now hates) instead of overriding it? Isn’t that just a hack?”</p>
+
+<p>Yes, yes it is.</p>
+
+<hr />
+
+<h2 id="common-mixins">Common mixins</h2>
+
+<p>Square up</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin no-radius {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+@mixin no-text-shadow {
+  text-shadow: none;
+  -webkit-text-shadow: none;
+  -moz-text-shadow: none;
+  -o-text-shadow: none;
+}
+
+@mixin no-box-shadow {
+  box-shadow: none;
+  -box-shadow: none;
+  -moz-shadow: none;
+  -o-box-shadow: none;
+}
+
+@include no-radius;
+@include no-text-shadow;
+@include no-box-shadow;
+</code></pre>
+</div>
+
+<p>Border radius</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+@include border-radius(0);
+</code></pre>
+</div>
+
+<p>Text shadow</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin text-shadow($shadow) {
+  text-shadow: $shadow;
+  -webkit-text-shadow: $shadow;
+  -moz-text-shadow: $shadow;
+  -o-text-shadow: $shadow;
+}
+
+@include text-shadow(0 0 5px #000);
+</code></pre>
+</div>
+
+<p>Box shadow</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+}
+
+@include box-shadow(5px 5px 5px inset #000);
+</code></pre>
+</div>
+
+<p>Opacity</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin opacity($opacity) {
+  opacity: $opacity;
+  -moz-opacity: $opacity;
+  -webkit-opacity: $opacity;
+  -o-opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@include opacity(0.8);
+</code></pre>
+</div>
+
+<p>Margin 0 auto</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin auto {
+  display: block;
+  margin: 0 auto;
+}
+
+@include auto;
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="common-variables">Common variables</h2>
+
+<p>In case you are combining families</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$serif: "Branded Serif Font", serif;
+$sans: "Branded Sans Serif Font", sans-serif;
+
+body {
+  font-family: sans-serif;
+}
+
+h1, h2 {
+  font-family: $serif;
 }
 </code></pre>
 </div>
