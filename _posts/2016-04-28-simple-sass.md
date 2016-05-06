@@ -200,6 +200,19 @@ Opacity
       @include opacity(0.8);
     }
 
+Simple CSS3 global ease transition
+
+    @mixin ease {
+      transition: all 0.15s ease-in-out;
+      -webkit-transition: all 0.15s ease-in-out;
+      -moz-transition: all 0.15s ease-in-out;
+      -o-transition: all 0.15s ease-in-out;
+    }
+
+    a {
+      @include ease;
+    }
+
 Margin 0 auto
 
     @mixin auto {

@@ -306,6 +306,21 @@ img:hover {
 </code></pre>
 </div>
 
+<p>Simple CSS3 global ease transition</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@mixin ease {
+  transition: all 0.15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+}
+
+a {
+  @include ease;
+}
+</code></pre>
+</div>
+
 <p>Margin 0 auto</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>@mixin auto {
