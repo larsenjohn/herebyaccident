@@ -224,6 +224,38 @@ Margin 0 auto
       @include auto;
     }
 
+Basic gradients
+
+    @mixin gradient($start-color, $end-color) {
+        background-color: $start-color;
+        background-image: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color));
+        background-image: -webkit-linear-gradient(top, $start-color, $end-color);
+        background-image: -moz-linear-gradient(top, $start-color, $end-color);
+        background-image: -ms-linear-gradient(top, $start-color, $end-color);
+        background-image: -o-linear-gradient(top, $start-color, $end-color);
+        background-image:linear-gradient(top, $start-color, $end-color);
+        filter: progid:DXImageTransform.Microsoft.gradient(start-colorStr='#{$start-color}', end-colorStr='#{$end-color}');
+    }
+
+    @mixin linear($start-color, $end-color) {
+        background-color: $start-color;
+        background-image: -webkit-gradient(linear, left top, right top, from($start-color), to($end-color));
+        background-image: -webkit-linear-gradient(left, $start-color, $end-color);
+        background-image: -moz-linear-gradient(left, $start-color, $end-color);
+        background-image: -ms-linear-gradient(left, $start-color, $end-color);
+        background-image: -o-linear-gradient(left, $start-color, $end-color);
+        background-image: linear-gradient(left, $start-color, $end-color);
+        filter: progid:DXImageTransform.Microsoft.gradient(start-colorStr='#{$start-color}', end-colorStr='#{$end-color}', gradientType='1');
+    }
+
+    .top-gradient {
+      @include gradient(#aaa, #000);
+    }
+
+    .left-gradient {
+      @include linear(#aaa, #000);
+    }
+
 ***
 
 ## Common variables
