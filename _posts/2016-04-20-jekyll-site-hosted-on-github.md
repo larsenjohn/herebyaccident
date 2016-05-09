@@ -111,3 +111,11 @@ If you have forked or built off of another system, one that uses prose or specif
 In some cases you may need to run:
 
 	bundle exec jekyll serve
+    
+***
+<hr class="rule">
+
+## Using prose.io
+
+I have serious spelling problems, so using prose.io is a nice option to edit your stuff right in the browser complete with upload support as well. Plus you don't have to go and commit/push each time. Just login to [prose.io](http://prose.io) and give access to your repo. Bada-bing bada-boom.
+
