@@ -110,4 +110,4 @@ If you have forked or built off of another system, one that uses prose or specif
 
 In some cases you may need to run:
 
-		bundle exec jekyll serve
+	bundle exec jekyll serve
