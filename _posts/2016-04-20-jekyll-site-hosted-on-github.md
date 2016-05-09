@@ -106,6 +106,8 @@ Just hook up the styles with a vanilla .css path and Jekyll will process the .sc
 
 ## Bundler issues
 
-If you have forked or built off of another system, one that uses prose or specific gem dependencies, sometimes things will wonk if you just run `jekyll serve`. In some cases you may need to run:
+If you have forked or built off of another system, one that uses prose or specific gem dependencies, sometimes things will wonk if you just run `jekyll serve`. 
+
+In some cases you may need to run:
 
 		bundle exec jekyll serve
