@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Jekyll github pages hosting
+published: true
 ---
 
 # Host a Jekyll site on Github
@@ -99,3 +100,12 @@ You'll need to add the front matter markup at the top of any .scss files. It **n
 Just hook up the styles with a vanilla .css path and Jekyll will process the .scss to the `_site` folder. For instance the file `css/styles.scss` can be linked in the head like so.
 
     <link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">
+    
+***
+<hr class="rule">
+
+## Bundler issues
+
+If you have forked or built off of another system, one that uses prose or specific gem dependencies, sometimes things will wonk if you just run `jekyll serve`. In some cases you may need to run"
+
+		bundle exec jekyll serve
