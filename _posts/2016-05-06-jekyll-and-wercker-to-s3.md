@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Wercker + Jekyll to S3
+published: true
 ---
 
 # Deploy a Jekyll site to S3 using Wercker
@@ -10,6 +11,8 @@ In my efforts to make my life infinitely more complicated, there is this mess. I
 Anyway, here is a way to make a one page site stupidly verbose.
 
 Before you will be able to deploy you will need to setup a `wercker.yml` file and sync it to your account. You will also need to set your AWS SSH keys and bucket urls through your wercker account, thus keeping them secret so you can safely use git to track your `wercker.yml` in the root of your repo.
+
+Oh, and if you want to skip all this there is [this baby](https://github.com/laurilehmijoki/s3_website).
 
 ***
 <hr class="rule">
