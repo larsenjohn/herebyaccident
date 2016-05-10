@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Basic SASS
+published: true
 ---
 
 # Simple SASS
@@ -134,7 +135,7 @@ Square up
 
     @mixin no-box-shadow {
       box-shadow: none;
-      -box-shadow: none;
+      -webkit-box-shadow: none;
       -moz-shadow: none;
       -o-box-shadow: none;
     }
