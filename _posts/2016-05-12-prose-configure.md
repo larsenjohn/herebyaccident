@@ -17,31 +17,31 @@ I want to cut the draft feature and go cowboy. Nobody's looking anyway.
     rooturl: '_posts'
     media: 'media'
     metadata:
-     _posts:
-      	- name: "category"
-        	field:
-          	element: "hidden"
-          	value: "post"
-      	- name: "layout"
-        	field:
-          	element: "hidden"
-          	value: "post"
-    - name: "title"
-        	field:
-          	element: "text"
-          	label: "Title"
-          	value: ""
+    _posts:
+      - name: "category"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
     _posts/static:
       - name: "layout"
         field:
           element: "hidden"
           value: "page"
-      	- name: "title"
-      	field:
+      - name: "title"
+        field:
           element: "text"
           label: "Title"
           value: ""
-    - name: "permalink"
+      - name: "permalink"
         field:
           element: "text"
           label: "Permalink"
