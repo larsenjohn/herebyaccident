@@ -4,7 +4,7 @@ category: post
 published: true
 title: Prose configure
 ---
-# Prose.io congfigure
+# Prose.io connfigure
 
 This is a test. Tricky to configure for dummies like me.
 
