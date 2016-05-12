@@ -1,19 +1,6 @@
 # Site settings
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "" # the base hostname & protocol for your site
-
-# User setting
-owner:
-email:
-facebook_username:
-twitter_username:
-github_username:
-address:
-  - line:
-  - line:
-  # Feel free to add more lines here
-telephone:
-copyright:
+baseurl: "" 
+url: ""
 
 # API settings
 google_api_key:
