@@ -1,13 +1,14 @@
 ---
 layout: post
 category: post
-published: true
+published: false
 title: Prose configure
 ---
-#Prose.io congfigure
+# Prose.io congfigure
 
 This is a test. Tricky to configure for dummies like me.
 
 ***
+<hr class="rule">
 
 I want to cut the draft feature and go cowboy. Nobody's looking anyway.
