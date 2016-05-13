@@ -6,12 +6,10 @@ title: Prose configure
 ---
 # Prose.io configure
 
-This is a test. Tricky to configure for dummies like me.
+This is super rough, just getting my head wrapped around all the variables. Most important area for this config is getting the path straight for the front matter template.
 
 ***
 <hr class="rule">
-
-I want to cut the draft feature and go cowboy. Nobody's looking anyway.
 
     prose:
     rooturl: '_posts'
