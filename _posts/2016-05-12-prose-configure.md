@@ -2,9 +2,9 @@
 layout: post
 category: post
 published: true
-title: Github pages prose.io config
+title: Prose configure
 ---
-# Prose.io configure
+# Prose.io config
 
 This is super rough, just getting my head wrapped around all the variables. Most important area for this config is getting the path straight for the front matter template.
 
