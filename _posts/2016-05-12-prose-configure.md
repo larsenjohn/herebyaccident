@@ -2,7 +2,7 @@
 layout: post
 category: post
 published: true
-title: Prose configure
+title: Github pages prose.io config
 ---
 # Prose.io config
 
