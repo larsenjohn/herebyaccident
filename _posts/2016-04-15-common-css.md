@@ -1,6 +1,8 @@
 ---
 layout: post
+category: post
 title: Common CSS
+published: true
 ---
 
 # CSS styles I'm always repeating
@@ -81,6 +83,22 @@ Fluid video `iframe` embed.
       height: 100%;
     }
 
+
+Absolute center fluid container
+
+	.parent {
+  		position: relative;
+	}
+	
+    .child {
+  		position: absolute;
+  		top: 50%;
+  		left: 50%;
+  		transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+	}
 
 Bootstrap vanilla media queries
 
