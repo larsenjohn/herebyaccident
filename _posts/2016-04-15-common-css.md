@@ -14,11 +14,7 @@ I know I have done this a hundred times and have it in all of my basic custom sh
 
 Remove Firefox `<a>` outline
 
-    a {
-      outline: 0;
-    }
-
-    a:hover, a:active, a:focus {
+    a, a:hover, a:active, a:focus {
       outline: 0;
     }
 
