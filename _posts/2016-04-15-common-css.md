@@ -87,17 +87,17 @@ Fluid video `iframe` embed.
 Absolute center fluid container
 
 	.parent {
-	position: relative;
+	  position: relative;
 	}
 	
 	.child {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  -moz-transform: translate(-50%, -50%);
+	  -webkit-transform: translate(-50%, -50%);
+	  -ms-transform: translate(-50%, -50%);
 	}
 
 Bootstrap vanilla media queries
