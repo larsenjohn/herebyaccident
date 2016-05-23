@@ -6,6 +6,8 @@ title: Github pages prose.io config
 ---
 # Prose.io config
 
+Prose is pretty sweet for editing in the browser, but for those who suckk at speling like me it will prove to be a challenge in proof reading.
+
 This is super rough, just getting my head wrapped around all the variables. Most important area for this config is getting the path straight for the front matter template.
 
 ***
