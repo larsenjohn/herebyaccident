@@ -1,6 +1,8 @@
 ---
 layout: post
+category: post
 title: git cheat sheet
+published: true
 ---
 
 # git reference for the feeble
@@ -16,9 +18,9 @@ Checkout a new branch
 
     git checkout -b branch-name
 
-Delete branch
+Delete branch (mind the uppercase -D)
 
-    git branch -d branch-name
+    git branch -D branch-name
 
 Push branch
 
