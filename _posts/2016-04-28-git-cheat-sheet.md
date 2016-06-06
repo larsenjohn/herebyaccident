@@ -17,6 +17,10 @@ Hoorah, git commands. Another exiting day at the races.
 Checkout a new branch
 
     git checkout -b branch-name
+    
+Push upstream new branch
+
+	git push --set-upstream branch-name
 
 Delete branch (mind the uppercase -D)
 
@@ -29,6 +33,10 @@ Push branch
 Or alternately the master
 
     git push origin master
+
+List all branches
+
+	git show-branch -a
 
 ## Updating
 
