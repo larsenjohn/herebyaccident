@@ -26,7 +26,7 @@ Delete branch (mind the uppercase -D)
 
     git branch -D branch-name
 
-Push branch
+Push specific branch
 
     git push origin branch-name
 
