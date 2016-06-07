@@ -1,5 +1,6 @@
 ---
 layout: post
+category: post
 title: Jekyll github pages hosting
 published: true
 ---
@@ -79,6 +80,8 @@ Ala `<link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">` c
 This will also clear up any links in the dev `jekyll serve` environment. This applies to all linked files like images as well.
 
     <img src="{{ "{{ site.baseurl " }}}}/images/lame-shit.jpg" alt="baseurl lame shit">
+    
+When you change the baseurl to `"/repo-name"`, it will change the path on your local server. So to view the local url you'll need to go to 127.0.0.1:4000/repo-name/ instead.
 
 ***
 <hr class="rule">
@@ -118,4 +121,3 @@ In some cases you may need to run:
 ## Using prose.io
 
 I have serious spelling problems, so using prose.io is a nice option to edit your stuff right in the browser complete with upload support as well. Plus you don't have to go and commit/push each time. Just login to [prose.io](http://prose.io) and give access to your repo. Bada-bing bada-boom.
-
