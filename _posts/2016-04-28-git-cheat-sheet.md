@@ -20,7 +20,7 @@ Checkout a new branch
     
 Push upstream new branch
 
-	git push --set-upstream branch-name
+	git push --set-upstream origin branch-name
 
 Delete branch (mind the uppercase -D)
 
