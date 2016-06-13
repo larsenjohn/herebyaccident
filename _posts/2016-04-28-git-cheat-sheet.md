@@ -44,7 +44,7 @@ Basic update (pull)
 
     git pull
 
-Merge branch to master
+Merge branch to master. If you are currently on a branch, switch to master branch first, then run
 
     git merge branch-name
 
