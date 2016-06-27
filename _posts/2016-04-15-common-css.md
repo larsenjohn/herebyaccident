@@ -12,7 +12,7 @@ I know I have done this a hundred times and have it in all of my basic custom sh
 ***
 <hr class="rule">
 
-Remove Firefox `<a>` outline
+Remove Firefox `<a>` outline, (watch out for accessibility on this one though).
 
     a, a:hover, a:active, a:focus {
       outline: 0;
@@ -95,6 +95,15 @@ Absolute center fluid container
 	  -webkit-transform: translate(-50%, -50%);
 	  -ms-transform: translate(-50%, -50%);
 	}
+
+
+Bootstrap offset grid part 
+
+	.col-sm-offset-*
+    .col-md-offset-*
+    .col-ls-offset-*
+    
+    /** .col-sm-offset-4 **/
 
 Bootstrap vanilla media queries
 
