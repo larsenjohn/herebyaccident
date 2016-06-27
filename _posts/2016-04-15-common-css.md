@@ -101,7 +101,7 @@ Bootstrap offset grid part
 
 	.col-sm-offset-*
     .col-md-offset-*
-    .col-ls-offset-*
+    .col-lg-offset-*
     
     <div class="col-sm-6 col-sm-offset-6">
     </div>
