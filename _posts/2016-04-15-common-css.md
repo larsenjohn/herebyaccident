@@ -103,7 +103,8 @@ Bootstrap offset grid part
     .col-md-offset-*
     .col-ls-offset-*
     
-    /** .col-sm-offset-4 **/
+    <div class="col-sm-6 col-sm-offset-6">
+    </div>
 
 Bootstrap vanilla media queries
 
