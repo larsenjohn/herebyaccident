@@ -123,17 +123,34 @@ Check status:
 
 ***
 
-# SQL
+## SQL
 
 If you are getting database connection errors, you might want to check if SQL is even running.
 
-		mysqladmin -u root -p status
+	mysqladmin -u root -p status
+
+Or with
+
+	service mysqld status
         
 If it isn't you'll get a message something like this...
 
-		mysqladmin: connect to server at 'localhost' failed
-		error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
-		Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
+	mysqladmin: connect to server at 'localhost' failed
+	error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
+	Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
+    
+Start it up like so:
+
+	service mysqld start
+
+Or
+
+	service mysqld restart
+
+	service mysql start
+    
+    service mysql restart
+    
 
 # Deadly commands *
 
