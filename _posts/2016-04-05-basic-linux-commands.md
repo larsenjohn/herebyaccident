@@ -151,6 +151,7 @@ Or
     
     service mysql restart
     
+***
 
 # Deadly commands *
 
