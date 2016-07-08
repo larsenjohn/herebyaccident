@@ -1,6 +1,8 @@
 ---
 layout: post
+category: post
 title: Linux basics
+published: true
 ---
 
 # Ubuntu Linux basics
@@ -120,6 +122,18 @@ Check status:
     sudo ufw status verbose
 
 ***
+
+# SQL
+
+If you are getting database connection errors, you might want to check if SQL is even running.
+
+		mysqladmin -u root -p status
+        
+If it isn't you'll get a message something like this...
+
+		mysqladmin: connect to server at 'localhost' failed
+		error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
+		Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
 
 # Deadly commands *
 
