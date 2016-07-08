@@ -125,6 +125,8 @@ Check status:
 
 ## SQL
 
+Where the fuck is this stuff? Typically the path for a basic LAMP setup is located in /var/lib/mysql.
+
 If you are getting database connection errors, you might want to check if SQL is even running.
 
 	mysqladmin -u root -p status
