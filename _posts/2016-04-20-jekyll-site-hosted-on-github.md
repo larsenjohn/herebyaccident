@@ -120,4 +120,4 @@ In some cases you may need to run:
 
 ## Using prose.io
 
-I have serious spelling problems, so using prose.io is a nice option to edit your stuff right in the browser complete with upload support as well. Plus you don't have to go and commit/push each time. Just login to [prose.io](http://prose.io) and give access to your repo. Bada-bing bada-boom.
+Prose.io is a nice option to edit your stuff right in the browser complete with upload support as well. Plus you don't have to go and commit/push each time. Good for simple stuff. Just login to [prose.io](http://prose.io) and give access to your repo. Bada-bing bada-boom.
