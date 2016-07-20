@@ -18,7 +18,7 @@ I needed to choose my own adventure. In this case it's SCSS. Probably a mistake.
 
 ## Indenting
 
-Probably the easiest way to start, and one of the most intuative aspects of SASS is you can indent *any* of your styles just like media queries which is really handy.
+Probably the easiest way to start, and one of the most intuative aspects of SASS is you can indent *any* of your styles just like media queries which is really handy. Like so:
 
 	#new-id {
       .some-class {
@@ -29,7 +29,17 @@ Probably the easiest way to start, and one of the most intuative aspects of SASS
         display: block;
       }
     }
-            
+    
+Processes to:
+
+	#new-id .some-class {
+      text-align: center;
+    }
+    
+    #new-id .another-class {
+      display: block;
+    }
+
 
 ## Variables
 
