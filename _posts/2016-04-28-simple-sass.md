@@ -21,13 +21,13 @@ I needed to choose my own adventure. In this case it's SCSS. Probably a mistake.
 Probably the easiest way to start, and one of the most intuative aspects of SASS is you can indent *any* of your styles just like media queries which is really handy.
 
 	#new-id {
-    	.some-class {
-        	text-align: center;
-        }
+      .some-class {
+        text-align: center;
+      }
         
-        .another-class {
-        	display: block;
-        }
+      .another-class {
+        display: block;
+      }
     }
             
 
