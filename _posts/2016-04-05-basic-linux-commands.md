@@ -131,7 +131,7 @@ If you are getting database connection errors, you might want to check if SQL is
 
 	mysqladmin -u root -p status
 
-Or with this if you are logged in as root already
+Or with this if you are logged in as root already.
 
 	service mysql status
         
@@ -167,7 +167,7 @@ vmstat will give you some more RAM detail of whats and wheres
 
 	vmstat -s
 
-Real time RAN monitoring can be viewed with the top or htop command.
+Real time monitoring can be viewed with the top or htop command.
 
 	top
     htop
