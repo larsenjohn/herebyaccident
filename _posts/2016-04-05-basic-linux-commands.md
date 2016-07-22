@@ -159,7 +159,7 @@ Or if it's already started and you want to restart
 
 If you want to know what's going on with space or RAM usage there are a few options.
 
-The `free` command will give you a bare bones memory usage.
+The `free` command will give you bare bones memory usage.
 
 	free -m
 
