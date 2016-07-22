@@ -159,15 +159,15 @@ Or if it's already started and you want to restart
 
 If you want to know what's going on with space or RAM usage there are a few options.
 
-The free command will give you a bare bones memory usage
+The `free` command will give you a bare bones memory usage.
 
 	free -m
 
-vmstat will give you some more RAM detail of whats and wheres
+`vmstat` will give you some more RAM detail of whats and wheres.
 
 	vmstat -s
 
-Real time monitoring can be viewed with the top or htop command.
+Real time monitoring can be viewed with the `top` or `htop` command.
 
 	top
     htop
