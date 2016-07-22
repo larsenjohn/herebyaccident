@@ -131,9 +131,9 @@ If you are getting database connection errors, you might want to check if SQL is
 
 	mysqladmin -u root -p status
 
-Or with
+Or with this if you are logged in as root already
 
-	service mysqld status
+	service mysql status
         
 If it isn't you'll get a message something like this...
 
@@ -141,17 +141,36 @@ If it isn't you'll get a message something like this...
 	error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
 	Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
     
+Or this...
+
+	mysql stop/waiting
+    
 Start it up like so:
 
-	service mysqld start
-
-Or
-
-	service mysqld restart
-
 	service mysql start
+
+Or if it's already started and you want to restart
     
     service mysql restart
+
+***
+
+## Checking stats
+
+If you want to know what's going on with space or RAM usage there are a few options.
+
+The free command will give you a bare bones memory usage
+
+	free -m
+
+vmstat will give you some more RAM detail of whats and wheres
+
+	vmstat -s
+
+Real time RAN monitoring can be viewed with the top or htop command.
+
+	top
+    htop
     
 ***
 
