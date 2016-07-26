@@ -175,6 +175,10 @@ Real time monitoring can be viewed with the `top` or `htop` command.
 To see what processes are running on your machine, sorted by their memory usage, run:
 
 	ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 15
+
+Look for established connections
+
+	netstat -anp | grep :80 | grep ESTABLISHED | wc -l
     
     
 ***
