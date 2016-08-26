@@ -37,6 +37,19 @@ Now you can just link out to "https://s3.amazonaws.com/fucktheweb.com/lamepost/s
 
 ***
 
+## Font wizardry
+
+Not so fast. Apparently AWS is so damn awesome you can't just serve up your souped up comic sans font you stole from napster in the 90's. Firefox gets all jittery about it. So *now* you have to use some BS called CORS.
+
+So jump through the following hoop:
+
++ Select your "root" bucket
++ Select Settings
+
+
+
+
+
 
 
 
