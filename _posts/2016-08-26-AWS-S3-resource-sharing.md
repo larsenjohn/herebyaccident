@@ -1,7 +1,7 @@
 ---
 layout: post
 category: post
-title: AWS S3 resouce sharing
+title: AWS S3 resource sharing
 published: true
 ---
 
