@@ -59,13 +59,6 @@ So jump through the following hoop:
     		</CORSRule>
 		</CORSConfiguration>
 
-
-
-
-
-
-
-
-
+Generally, you can use the default for this. For my deal I used the `<AllowedOrigin>*</AllowedOrigin>` or the * peramater for all URL's instead of a specific one.
 
 
