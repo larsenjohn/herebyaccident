@@ -5,7 +5,7 @@ title: AWS S3 resource sharing
 published: true
 ---
 
-# Swingin shit through AWS S3
+# Swinging shit through AWS S3
 
 I know all of you are laughing since you have been able to do this since, like Y2K or something. But not me. Here goes.
 
