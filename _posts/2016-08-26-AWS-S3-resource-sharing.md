@@ -63,13 +63,14 @@ Generally, you can use the default for this. For my deal I used the `<AllowedOri
 
 So, now you can upload your fonts to S3 and link fonts like so:
 
-		@font-face {
-  			font-family: IntelProBold;
-  			src: url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.eot');
-  			src: url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.eot?#iefix') format('embedded-opentype'),
-       		url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.woff') format('woff'),
-       		url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.ttf') format('truetype');
-  			font-weight: normal;
-  			font-style: normal;
-		}
-
+<pre>
+@font-face {
+  font-family: IntelProBold;
+  src: url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.eot');
+  src: url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.eot?#iefix') format('embedded-opentype'),
+       url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.woff') format('woff'),
+       url('https://s3.amazonaws.com/dmgaccess.com/vrsweeps/fonts/IntelClearPro_W_Bd.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+</pre>
