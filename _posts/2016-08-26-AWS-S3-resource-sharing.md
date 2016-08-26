@@ -49,8 +49,7 @@ So jump through the following hoop:
 + Select Edit CORS Configuration
 + Check that is says this:
 
-
-	<?xml version="1.0" encoding="UTF-8"?>
+		<?xml version="1.0" encoding="UTF-8"?>
 		<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
     		<CORSRule>
         		<AllowedOrigin>*</AllowedOrigin>
@@ -59,6 +58,8 @@ So jump through the following hoop:
         		<AllowedHeader>Authorization</AllowedHeader>
     		</CORSRule>
 		</CORSConfiguration>
+
+
 
 
 
