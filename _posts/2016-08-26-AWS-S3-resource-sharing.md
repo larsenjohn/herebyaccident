@@ -16,7 +16,7 @@ I know all of you are laughing since you have been able to do this since, like Y
 
 Sure, I guess you can just make a bucket and just open it up to the world. But the higher ups at Amazon says it's a [no-no](https://aws.amazon.com/articles/5050). So, one way to do it is to spin up a "website" and serve your stuff from a public folder.
 
-See the utterly inspiring post [here](http://herebyaccident.com/post/2016/04/05/aws-s3.html) about it. I just work up a whatever.com and use the S3 endpoint once it's all up to speed. I imagine you will be lazy so here is the bucket policy again.
+See the utterly inspiring post [here](http://herebyaccident.com/post/2016/04/05/aws-s3.html) about it. I just work up a whatever.com and use the S3 endpoint once it's all up to speed. You will have to go through the trouble of making a dummy index.html and 404.html page. I know you are lazy, so here is the bucket policy once again.
 
 <pre>
 {
