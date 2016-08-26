@@ -62,7 +62,7 @@ So jump through the following hoop:
 
 Generally, you can use the default for this. For my deal I used the `<AllowedOrigin>*</AllowedOrigin>` or the * setting to use all URL's instead of a specific one.
 
-So, now you can upload your fonts to S3 and link fonts like so:
+So, now you should be able to hook up your fonts like so:
 
 <pre>
 @font-face {
