@@ -44,7 +44,22 @@ Not so fast. Apparently AWS is so damn awesome you can't just serve up your soup
 So jump through the following hoop:
 
 + Select your "root" bucket
-+ Select Settings
++ Select Properties
++ Select Permissions
++ Select Edit CORS Configuration
++ Check that is says this:
+
+<pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <CORSRule>
+        <AllowedOrigin>*</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <AllowedHeader>Authorization</AllowedHeader>
+    </CORSRule>
+</CORSConfiguration>
+</pre>
 
 
 
