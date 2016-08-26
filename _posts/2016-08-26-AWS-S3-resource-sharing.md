@@ -73,4 +73,8 @@ So, now you can upload your fonts to S3 and link fonts like so:
   font-weight: normal;
   font-style: normal;
 }
+
+body {
+  font-family: 'KillerComicSans, sans-serif;
+}
 </pre>
