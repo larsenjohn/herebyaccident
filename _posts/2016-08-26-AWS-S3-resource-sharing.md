@@ -33,7 +33,7 @@ See the utterly inspiring post [here](http://herebyaccident.com/post/2016/04/05/
 }
 </pre>
 
-Now you can just link out to https://s3.amazonaws.com/fucktheweb.com/lamepost/super-cat.jpg.
+Now you can just link out to "https://s3.amazonaws.com/fucktheweb.com/lamepost/super-cat.jpg".
 
 ***
 
