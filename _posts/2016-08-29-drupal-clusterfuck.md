@@ -72,4 +72,4 @@ The hoops:
 + Title it
 + Add CSS
 + Choose Theme to show on
-+ Choose if you want to show on a specific page or Global. ex: single page `node/5`
++ Choose if you want to show on a specific page or Global. ex: specific page `node/5`
