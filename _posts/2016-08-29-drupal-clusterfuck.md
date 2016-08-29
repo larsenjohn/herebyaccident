@@ -14,7 +14,7 @@ Also, none of this may *actually* work.
 <hr class="rule">
 ***
 
-## Allow php formatting to content ##
+## Allow php formatting in content ##
 
 Go to **Modules** and check off **PHP filter**. Edit your content and select **Text format: PHP code**. Most of the crap that follows this will be in **php code** to leverage the Drupal core functions. 
 
