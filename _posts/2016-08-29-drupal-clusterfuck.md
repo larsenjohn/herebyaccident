@@ -20,9 +20,11 @@ Go to **Modules** and check off **PHP filter**. Edit your content and select **T
 
 ***
 
-## Add js to specific page content
+## Add JS to specific page content
 
-On your page for external libraries. This should print in the head.
+These next few snippets use the **drupal core** functions and should print in the head, even though it's marked up in the content editor in the admin section.
+
+For external JS libraries
 
 		<?php
 		drupal_add_js ('https://link-to-external.js', 'external');
