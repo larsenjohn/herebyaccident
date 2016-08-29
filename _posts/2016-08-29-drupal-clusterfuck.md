@@ -57,6 +57,7 @@ The whole shebang might go like this at the top of a page.
 	?>
 
 ***
+<hr class="rule">
 
 ## Inject Custom CSS without altering the theme
 
