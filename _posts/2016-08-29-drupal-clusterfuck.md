@@ -9,5 +9,17 @@ published: true
 
 This is basically a tear stained document of trying to figure out Drupal in a few hours. Feel free to print this, cry on it, then upload to smugmug to reflect on your life.
 
+Also, none of this may *actually* work.
+
 <hr class="rule">
 ***
+
+## Allow php formatting to a content ##
+
+Go to **Modules** and check off **PHP filter**. Edit your content and select **Text format: PHP code**. Most of the crap that follows this will be in **php code** to leverage the Drupal core functions. 
+
+***
+
+## Add js to specific page content
+
+
