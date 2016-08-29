@@ -50,19 +50,15 @@ So jump through the following hoop:
 + Select Edit CORS Configuration
 + Check that is says this:
 
-<pre>
-<code>
-"<?xml version="1.0" encoding="UTF-8"?>
-<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-    	<CORSRule>
-        	<AllowedOrigin>*</AllowedOrigin>
-        	<AllowedMethod>GET</AllowedMethod>
-        	<MaxAgeSeconds>3000</MaxAgeSeconds>
-        	<AllowedHeader>Authorization</AllowedHeader>
-    	</CORSRule>
-</CORSConfiguration>"
-</code>
-</pre>
+	<?xml version="1.0" encoding="UTF-8"?>
+		<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    			<CORSRule>
+        		<AllowedOrigin>*</AllowedOrigin>
+        		<AllowedMethod>GET</AllowedMethod>
+        		<MaxAgeSeconds>3000</MaxAgeSeconds>
+        		<AllowedHeader>Authorization</AllowedHeader>
+    		</CORSRule>
+	</CORSConfiguration>
 
 Generally, you can use the default for this. For my deal I used the `<AllowedOrigin>*</AllowedOrigin>` or the * setting to use all URL's instead of a specific one.
 
