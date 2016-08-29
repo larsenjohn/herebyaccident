@@ -20,7 +20,7 @@ Go to **Modules** and check off **PHP filter**. Edit your content and select **T
 
 ***
 
-## Add JS to specific page content
+## Link JS to specific page content
 
 These next few snippets use the **drupal core** functions and should print in the head, even though it's marked up in the content editor in the admin section.
 
@@ -34,6 +34,14 @@ For inline JS functions. (Mind the 'inline')
 
 	<?php
 	drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+	?>
+    
+***
+
+## Link CSS to specific page content 
+
+	<?php
+	drupal_add_css ('https://link-to-external.css');
 	?>
         
 
