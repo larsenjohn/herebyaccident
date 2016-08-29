@@ -43,6 +43,20 @@ For inline JS functions. (Mind the 'inline')
 	<?php
 	drupal_add_css ('https://link-to-external.css');
 	?>
+    
+## Example
+
+The whole shebang might go like this at the top of a page.
+
+	<?php
+	drupal_add_css ('https://link-to-external.css');
+
+	drupal_add_js ('https://link-to-external.js', 'external');
+	drupal_add_js ('https://link-to-another-external.js', 'external');
+	drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+	?>
+
+***
 
 ## Inject Custom CSS without altering the theme
 
@@ -58,6 +72,3 @@ The hoops:
 + Add CSS
 + Choose Theme to show on
 + Choose if you want to show on a specific page or Global. ex: single page `node/5`
-
-        
-
