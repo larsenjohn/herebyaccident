@@ -61,7 +61,7 @@ So jump through the following hoop:
         	<AllowedHeader>Authorization</AllowedHeader>
     	</CORSRule>
 </CORSConfiguration>
-</code?
+</code>
 </pre>
 
 Generally, you can use the default for this. For my deal I used the `<AllowedOrigin>*</AllowedOrigin>` or the * setting to use all URL's instead of a specific one.
