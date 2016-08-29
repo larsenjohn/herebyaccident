@@ -22,4 +22,8 @@ Go to **Modules** and check off **PHP filter**. Edit your content and select **T
 
 ## Add js to specific page content
 
+On your page for external libraries. This should print in the head.
 
+		<?php
+		drupal_add_js ('https://link-to-external.js', 'external');
+		?>
