@@ -43,5 +43,9 @@ For inline JS functions. (Mind the 'inline')
 	<?php
 	drupal_add_css ('https://link-to-external.css');
 	?>
+
+## Inject Custom CSS without altering the theme
+
+This **module** called the [**CSS Injector**](https://www.drupal.org/project/css_injector) seems to do the trick. 
         
 
