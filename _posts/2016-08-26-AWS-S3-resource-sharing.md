@@ -50,6 +50,7 @@ So jump through the following hoop:
 + Select Edit CORS Configuration
 + Check that is says this:
 
+<div>
 <pre>
 <code>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -63,6 +64,7 @@ So jump through the following hoop:
 </CORSConfiguration>
 </code>
 </pre>
+</div>
 
 Generally, you can use the default for this. For my deal I used the `<AllowedOrigin>*</AllowedOrigin>` or the * setting to use all URL's instead of a specific one.
 
