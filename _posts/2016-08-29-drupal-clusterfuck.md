@@ -27,17 +27,21 @@ These next few snippets use the **drupal core** functions and should print in th
 For external JS libraries. Mind the 'external'
 
 <pre>
+<code>
 <?php
 drupal_add_js ('https://link-to-external.js', 'external');
 ?>
+</code>
 </pre>
         
 For inline JS functions. Mind the 'inline'
 
 <pre>
+<code>
 <?php
 drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";					Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
 ?>
+</code>
 </pre>
         
 
