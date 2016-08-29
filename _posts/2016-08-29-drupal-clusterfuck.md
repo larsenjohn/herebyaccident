@@ -33,7 +33,7 @@ For external JS libraries. Mind the 'external'
 For inline JS functions. Mind the 'inline'
 
 	<?php
-	drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";					Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+	drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
 	?>
         
 
