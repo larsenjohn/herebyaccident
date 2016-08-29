@@ -46,6 +46,18 @@ For inline JS functions. (Mind the 'inline')
 
 ## Inject Custom CSS without altering the theme
 
-This **module** called the [**CSS Injector**](https://www.drupal.org/project/css_injector) seems to do the trick. 
+This **module** called the [**CSS Injector**](https://www.drupal.org/project/css_injector) seems to do the trick. This allows you to create a specific stylesheets based on custom *rules* and will load in the head. It would probably be best to wrap everything in an id if you are getting real specific.
+
+The hoops:
+
++ Install
++ Go to Modules > Enable
++ Click Configure
++ Create a new rule
++ Title it
++ Add CSS
++ Choose Theme to show on
++ Choose if you want to show on a specific page or Global. ex: single page `node/5`
+
         
 
