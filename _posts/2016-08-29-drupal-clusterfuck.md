@@ -24,8 +24,6 @@ Go to **Modules** and check off **PHP filter**. Edit your content and select **T
 
 These next few snippets use the **drupal core** functions and should print in the head, even though it's marked up in the content editor in the admin section.
 
-**Watch out for the space** between the `drupal_add_js('https://link-to-external.js', 'external');`. Doesn't work so hot if you go: `drupal_add_js ('https://link-to-external.js', 'external');`.
-
 For external JS libraries. (Mind the 'external')
 
 	<?php
@@ -37,6 +35,8 @@ For inline JS functions. (Mind the 'inline')
 	<?php
 	drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
 	?>
+    
+**Watch out for the space** between the `drupal_add_js('https://link-to-external.js', 'external');`. Doesn't work so hot if you go: `drupal_add_js ('https://link-to-external.js', 'external');`.
     
 ***
 
