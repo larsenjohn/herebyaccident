@@ -27,13 +27,13 @@ These next few snippets use the **drupal core** functions and should print in th
 For external JS libraries. (Mind the 'external')
 
 	<?php
-	drupal_add_js ('https://link-to-external.js', 'external');
+	drupal_add_js('https://link-to-external.js', 'external');
 	?>
         
 For inline JS functions. (Mind the 'inline')
 
 	<?php
-	drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+	drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
 	?>
     
 ***
@@ -41,7 +41,7 @@ For inline JS functions. (Mind the 'inline')
 ## Link CSS to specific page content 
 
 	<?php
-	drupal_add_css ('https://link-to-external.css');
+	drupal_add_css('https://link-to-external.css', 'external');
 	?>
     
 ## Example
@@ -49,11 +49,11 @@ For inline JS functions. (Mind the 'inline')
 The whole shebang might go like this at the top of a page.
 
 	<?php
-	drupal_add_css ('https://link-to-external.css');
+	drupal_add_css('https://link-to-external.css', 'external');
 
-	drupal_add_js ('https://link-to-external.js', 'external');
-	drupal_add_js ('https://link-to-another-external.js', 'external');
-	drupal_add_js ('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+	drupal_add_js('https://link-to-external.js', 'external');
+	drupal_add_js('https://link-to-another-external.js', 'external');
+	drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
 	?>
 
 ***
