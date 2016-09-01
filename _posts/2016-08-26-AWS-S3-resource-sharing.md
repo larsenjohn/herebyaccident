@@ -87,7 +87,7 @@ body {
 
 So there is a CLI tool where you can fuck up your machine. Which I probably already have. So at this point I'm going to just "copy" stuff instead of snycing it. Cause you know, it may remove everything that isn't snyced to S3.
 
-I also suck at paths - so I like to **nav to the folder I want to copy to first**. So to copy everything from a folder you can do this mojo.
+I also suck at paths - so I like to **nav to the folder I want to copy to first**. To copy everything from an s3 bucket you can do this mojo.
 
 Like so:
 
