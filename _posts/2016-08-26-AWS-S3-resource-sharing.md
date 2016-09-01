@@ -85,11 +85,11 @@ body {
 
 ## CLI Terror 
 
-So there is a CLI tool where you can fuck up your machine. Which I probably have. So at this point I'm going to just "copy" stuff instead of snycing it. Cause you know, it may remove everything that isn't snyced to S3.
+So there is a CLI tool where you can fuck up your machine. Which I probably already have. So at this point I'm going to just "copy" stuff instead of snycing it. Cause you know, it may remove everything that isn't snyced to S3.
 
-I also suck at paths - so I like to **nav to the folder I want to copy to first**.
+I also suck at paths - so I like to **nav to the folder I want to copy to first**. So to copy everything from a folder you can do this mojo.
 
-Then you can do like so:
+Like so:
 
 		aws s3 cp s3://bucket-name . --recursive
 
