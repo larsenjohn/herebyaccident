@@ -91,6 +91,4 @@ I also suck at paths - so I like to **nav to the folder I want to copy to first*
 
 Like so:
 
-		aws s3 cp s3://bucket-name . --recursive
-
-
+	aws s3 cp s3://bucket-name . --recursive
