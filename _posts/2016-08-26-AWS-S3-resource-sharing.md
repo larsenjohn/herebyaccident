@@ -79,3 +79,18 @@ body {
   font-family: 'KillerComicSans', sans-serif;
 }
 </pre>
+
+***
+<hr class="rule">
+
+## CLI Terror 
+
+So there is a CLI tool where you can fuck up your machine. Which I probably have. So at this point I'm going to just "copy" stuff instead of snycing it. Cause you know, it may remove everything that isn't snyced to S3.
+
+I also suck at paths - so I like to **nav to the folder I want to copy to first**.
+
+Then you can do like so:
+
+		aws s3 cp s3://bucket-name . --recursive
+
+
