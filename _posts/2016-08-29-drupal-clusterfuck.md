@@ -75,3 +75,16 @@ The hoops:
 + Add CSS
 + Choose Theme to show on
 + Choose if you want to show on a specific page or Global. ex: specific page `node/5`
+
+***
+<hr class="rule">
+
+## OG Tags
+
+So far this is surpisingly difficult without actually altering the template. There's [this](http://drupal.stackexchange.com/questions/37715/adding-open-graph-metatags-to-head) stack thread about it. Most searches say to use the [metatags](https://www.drupal.org/project/metatag) module which requires a whopping **three** dependent modules just to work.
+
++ [Ctools](https://www.drupal.org/project/ctools)
++ [Token](https://www.drupal.org/project/token)
+
+There is also the [Open Graph Meta Tags](https://www.drupal.org/project/opengraph_meta) module, but for some reason won't let me actually select and og:img.
+
