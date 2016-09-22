@@ -67,7 +67,6 @@ Fluid video `iframe` embed.
       position: relative;
       /** 16:9 **/
       padding-bottom: 56.25%;
-      padding-top: 25px;
       height: 0;
     }
 
