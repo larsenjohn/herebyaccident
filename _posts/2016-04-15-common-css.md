@@ -1412,21 +1412,25 @@ Jotform reset to 100% width. Good starting place for simple forms w/Google fonts
       width: 100%;
       min-width: 100%;
       padding: 8px !important;
+      
       /* box sizing */
       box-sizing: border-box !important;
       -moz-box-sizing: border-box !important;
       -webkit-box-sizing: border-box !important;
       -o-box-sizing: border-box !important;
+      
       /* cut border radius */
       border-radius: 0 !important;
       -webkit-border-radius: 0 !important;
       -moz-border-radius: 0 !important;
       -o-border-radius: 0 !important;
-      /* Appearance */
-      appearance: none !important;
-      -webkit-appearance: none !important;
-      -moz-appearance: none !important;
-      -o-appearance: none !important;
+      
+      /* Appearance - watch out for checkboxes & radios */
+      /* appearance: none !important; */
+      /* -webkit-appearance: none !important; */
+      /* -moz-appearance: none !important; */
+      /* -o-appearance: none !important; */
+      
       /* Cut box shadow */
       box-shadow: none !important;
       -webkit-box-shadow: none !important;
