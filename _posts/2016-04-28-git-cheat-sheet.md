@@ -56,7 +56,7 @@ Check the history Log
 
 Get **out of the Log type "q"**.
 
-Drop all local changes and commits, fetch the latest history from the server and point your local master branch at it like this.
+Drop all local changes and commits, fetch the latest history from the server and point your local master branch.
 
     $ git fetch origin
     $ git reset --hard origin/master
