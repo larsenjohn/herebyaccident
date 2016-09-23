@@ -7,7 +7,7 @@ published: true
 
 # JS Hair Pulling #
 
-Didn't think it would take me this long to make this page. I would think it would be a mile long by now. I am bald though, so that should be an indicator about this.
+Didn't think it would take me this long to make this page. I would think it would be a mile long by now. I am bald though, so that should be an indicator.
 
 <hr class="rule">
 ***
@@ -37,17 +37,18 @@ jQuery(document).ready(function($) {
 </code>
 </pre>
 
-Switch out the top line to change for a specific ID. Look to the `:not([href=#])'`
+Switch out the top line single out a specific ID. Look to the `:not([href=#])'`
 
     $('a[href*=#]:not([href=#id-of-your-thing])').click(function() {
 
-Switch out the top line to allow multiple carousels or other JS options.
+Switch out the top line to allow multiple carousels or for other JS options.
 
     $('a[href*=#]:not([href=#]):not(.carousel-control)').click(function () {
 
+<hr class="rule">
 ***
 
-## Close the Bootstrap mobile nav after click ##
+## Close Bootstrap mobile nav after click ##
 
 <pre>
 <code>
