@@ -20,7 +20,6 @@ This works great, that is unless you have to anchor somewhere other than your pa
 <code>
 jQuery(document).ready(function($) {
 
-  // change :not([href=#])' for slider conflicts
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -34,7 +33,25 @@ jQuery(document).ready(function($) {
     }
   });
 
-  // Mobile navbar collapse on click //
+});
+</code>
+</pre>
+
+Switch out the top line to change for a specific ID. Look to the `:not([href=#])'`
+
+    $('a[href*=#]:not([href=#id-of-your-thing])').click(function() {
+
+Switch out the top line to allow multiple carousels or other JS options.
+
+    $('a[href*=#]:not([href=#]):not(.carousel-control)').click(function () {
+
+***
+
+## Close the Bootstrap mobile nav after click ##
+
+<pre>
+<code>
+jQuery(document).ready(function($) {
 
 	$(".navbar-nav li a").click(function (event) {
     // check if window is small enough so dropdown is created
