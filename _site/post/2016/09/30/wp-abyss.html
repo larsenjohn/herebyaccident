@@ -24,7 +24,7 @@
 
     <title>
       
-        git cheat sheet
+        Wordpress and the abyss
       
     </title>
 
@@ -88,89 +88,109 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="git-reference-for-the-feeble">git reference for the feeble</h1>
+          <h1 id="wordpress-and-the-black-abyss">Wordpress and the black abyss</h1>
 
-<p>Hoorah, git commands. Another exiting day at the races.</p>
+<p>Sure, you learned PHP while you were asleep. I didn’t.</p>
 
-<hr />
+<p>Wordpress is what my nightmares are made of, so I don’t sleep much.</p>
+
 <hr class="rule" />
 
-<h2 id="branching">Branching</h2>
+<hr />
 
-<p>Checkout a new branch</p>
+<h2 id="load-jscss-through-functionsphp-child">load JS/CSS through functions.php (child)</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b branch-name
+<p>For instance, if you were lazy like me and are crippled by Bootstrap.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Bootstrap Support
+function bootstrap() {
+
+	wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ));
+	wp_enqueue_style( 'bootstrap-css', get_stylesheet_directory_uri() . '/css/bootstrap.min.css' );
+}
+
+add_action( 'wp_enqueue_scripts', 'bootstrap' );
 </code></pre>
 </div>
 
-<p>Delete branch</p>
+<p>So to walk through this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git branch -d branch-name
+<ul>
+  <li>start with defining your fancy new function. <code class="highlighter-rouge">function something() {</code>. The “something” being whatever you want to name your function.</li>
+  <li>Next <code class="highlighter-rouge">wp_enqueue_script( 'bootstrap-js',</code> Load the script with another name of your choosing.</li>
+  <li><code class="highlighter-rouge">get_stylesheet_directory_uri() .</code> This tells WP to get the file from the child theme directory</li>
+  <li><code class="highlighter-rouge">'/js/bootstrap.min.js', array( 'jquery' ));</code> This is the path to wherever you put the file. The array tells WP it’s ‘jquery’, but I’m not sure if that’s a necessity.</li>
+  <li><code class="highlighter-rouge">add_action( 'wp_enqueue_scripts', 'bootstrap' );</code> Then tell WP to add your fancy new function.</li>
+</ul>
+
+<p>Fascinating huh? Watch out for the <code class="highlighter-rouge">get_stylesheet_directory_uri()</code>. That’s for the child theme. If you are saucy and using <em>_S</em> You will want to load it like so: <code class="highlighter-rouge">get_template_directory_uri()</code>, since Underscores is the template.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function fucktheweb_scripts() {
+
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
+
+	/** main styles **/
+	wp_enqueue_style( 'fucktheweb-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'fucktheweb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'fucktheweb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	/** set jquery arrary for bootstrap js **/
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '3.1.1', true );
+
+	if ( is_singular() &amp;&amp; comments_open() &amp;&amp; get_option( 'thread_comments' ) ) {
+	wp_enqueue_script( 'comment-reply' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'fucktheweb_scripts' );
 </code></pre>
 </div>
 
-<p>Push branch</p>
+<p>This one has a bunch of BS in it as well. It worked once, but maybe not anymore.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git push origin branch-name
-</code></pre>
-</div>
-
-<p>Or alternately the master</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git push origin master
-</code></pre>
-</div>
-
-<h2 id="updating">Updating</h2>
-
-<p>Basic update (pull)</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git pull
-</code></pre>
-</div>
-
-<p>Merge branch to master</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git merge branch-name
-</code></pre>
-</div>
-
-<h2 id="logging">Logging</h2>
-
-<p>Check the history Log</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git log
-</code></pre>
-</div>
-
-<p>Get <strong>out of the Log type “q”</strong>.</p>
-
-<p>Drop all local changes and commits, fetch the latest history from the server and point your local master branch at it like this.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git fetch origin
-$ git reset --hard origin/master
-</code></pre>
-</div>
+<hr class="rule" />
 
 <hr />
 
         </div>
 
         <div class="col-sm-3 sidenav">
-          <h3>Failures</h3>
+          <h3>No such process</h3>
           <hr class="heading">
           <ul>
             
             <li>
-              <a href="/2016/05/06/jekyll-and-wercker-to-s3.html">Wercker + Jekyll to S3</a>
+              <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/simple-sass.html">Basic SASS</a>
+              <a href="/post/2016/09/30/wp-abyss.html">Wordpress and the abyss</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/29/drupal-clusterfuck.html">Drupal clusterfuck</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/26/AWS-S3-resource-sharing.html">AWS S3 resource sharing</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/05/12/prose-configure.html">Github pages prose.io config</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/simple-sass.html">Basic SASS</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
             </li>
             
             <li>
@@ -178,7 +198,7 @@ $ git reset --hard origin/master
             </li>
             
             <li>
-              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
             </li>
             
             <li>
@@ -202,11 +222,7 @@ $ git reset --hard origin/master
             </li>
             
             <li>
-              <a href="/2016/04/15/common-css.html">Common CSS</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/osx-setup.html">OSX setup</a>
+              <a href="/post/2016/04/15/common-css.html">Common CSS</a>
             </li>
             
             <li>
@@ -214,11 +230,15 @@ $ git reset --hard origin/master
             </li>
             
             <li>
-              <a href="/2016/04/05/basic-linux-commands.html">Linux basics</a>
+              <a href="/post/2016/04/05/basic-linux-commands.html">Linux basics</a>
             </li>
             
             <li>
-              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+              <a href="/post/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">OSX setup</a>
             </li>
             
             <li>

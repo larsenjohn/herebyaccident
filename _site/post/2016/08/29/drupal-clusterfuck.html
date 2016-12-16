@@ -24,7 +24,7 @@
 
     <title>
       
-        Open VPN El Capitan bug
+        Drupal clusterfuck
       
     </title>
 
@@ -88,29 +88,102 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="open-vpn-amp-osx-el-capitan-connection-bug">Open VPN &amp; OSX El Capitan connection bug</h1>
+          <h1 id="dont-read-this-if-you-actually-know-drupal">Don’t read this if you actually know Drupal</h1>
 
-<p>This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? Well here’s a total cludge for your amusement.</p>
+<p>This is basically a tear stained document of trying to figure out Drupal in a few hours. Feel free to print this, cry on it, then upload to smugmug to reflect on your life.</p>
+
+<p>Also, none of this may <em>actually</em> work.</p>
+
+<hr class="rule" />
+
+<hr />
+
+<h2 id="allow-php-formatting-in-content">Allow php formatting in content</h2>
+
+<p>Go to <strong>Modules</strong> and check off <strong>PHP filter</strong>. Edit your content and select <strong>Text format: PHP code</strong>. Most of the crap that follows this will be in <strong>php code</strong> to leverage the Drupal core functions.</p>
+
+<hr />
+
+<h2 id="link-js-to-specific-page-content">Link JS to specific page content</h2>
+
+<p>These next few snippets use the <strong>drupal core</strong> functions and should print in the head, even though it’s marked up in the content editor in the admin section.</p>
+
+<p>For external JS libraries. (Mind the ‘external’)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+drupal_add_js('https://link-to-external.js', 'external');
+?&gt;
+</code></pre>
+</div>
+
+<p>For inline JS functions. (Mind the ‘inline’)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+?&gt;
+</code></pre>
+</div>
+
+<p><strong>Watch out for the space</strong> between the <code class="highlighter-rouge">drupal_add_js('https://link-to-external.js', 'external');</code>. Doesn’t work so hot if you go: <code class="highlighter-rouge">drupal_add_js ('https://link-to-external.js', 'external');</code>.</p>
+
+<hr />
+
+<h2 id="link-css-to-specific-page-content">Link CSS to specific page content</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+drupal_add_css('https://link-to-external.css', 'external');
+?&gt;
+</code></pre>
+</div>
+
+<h2 id="example">Example</h2>
+
+<p>The whole shebang might go like this at the top of a page.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?php
+drupal_add_css('https://link-to-external.css', 'external');
+
+drupal_add_js('https://link-to-external.js', 'external');
+drupal_add_js('https://link-to-another-external.js', 'external');
+drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+?&gt;
+</code></pre>
+</div>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="csrutil-disable">csrutil disable</h2>
+<h2 id="inject-custom-css-without-altering-the-theme">Inject Custom CSS without altering the theme</h2>
 
-<ol>
-  <li>Restart to recovery mode: CMD+R.</li>
-  <li>In terminal run:</li>
-</ol>
+<p>This <strong>module</strong> called the <a href="https://www.drupal.org/project/css_injector"><strong>CSS Injector</strong></a> seems to do the trick. This allows you to create a specific stylesheets based on custom <em>rules</em> and will load in the head. It would probably be best to wrap everything in an id if you are getting real specific.</p>
 
-<pre>
-csrutil disable; reboot
-</pre>
+<p>The hoops:</p>
 
-<p>Do your dirty work, and when it’s all clear, you’ll need to reboot in recovery once more to zip it back up.</p>
+<ul>
+  <li>Install</li>
+  <li>Go to Modules &gt; Enable</li>
+  <li>Click Configure</li>
+  <li>Create a new rule</li>
+  <li>Title it</li>
+  <li>Add CSS</li>
+  <li>Choose Theme to show on</li>
+  <li>Choose if you want to show on a specific page or Global. ex: specific page <code class="highlighter-rouge">node/5</code></li>
+</ul>
 
-<pre>
-csrutil enable
-</pre>
+<hr />
+<hr class="rule" />
+
+<h2 id="og-tags">OG Tags</h2>
+
+<p>So far this is surpisingly difficult without actually altering the template. There’s <a href="http://drupal.stackexchange.com/questions/37715/adding-open-graph-metatags-to-head">this</a> stack thread about it. Most searches say to use the <a href="https://www.drupal.org/project/metatag">metatags</a> module which requires a whopping <strong>three</strong> dependent modules just to work.</p>
+
+<ul>
+  <li><a href="https://www.drupal.org/project/ctools">Ctools</a></li>
+  <li><a href="https://www.drupal.org/project/token">Token</a></li>
+</ul>
+
+<p>There is also the <a href="https://www.drupal.org/project/opengraph_meta">Open Graph Meta Tags</a> module, but for some reason won’t let me actually select and og:img.</p>
+
 
         </div>
 

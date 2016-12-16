@@ -24,7 +24,7 @@
 
     <title>
       
-        Open VPN El Capitan bug
+        AWS S3 Static Setup
       
     </title>
 
@@ -88,29 +88,167 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="open-vpn-amp-osx-el-capitan-connection-bug">Open VPN &amp; OSX El Capitan connection bug</h1>
+          <h1 id="configure-a-static-site-through-aws-s3">Configure a static site through AWS S3</h1>
 
-<p>This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? Well here’s a total cludge for your amusement.</p>
+<p>It’s super cheap. That is until you get a bill that says it isn’t. Doesn’t matter, since Amazon already has your credit card on file so you will pay either way.</p>
+
+<p>The whole <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html">sad state of affairs is here to read.</a></p>
+
+<p>So let’s get going shall we?</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="csrutil-disable">csrutil disable</h2>
+<h2 id="create-three-buckets">Create three buckets</h2>
+
+<p>The site will need three instances. root, www, and logs. Create a bucket for each with the exact domain name.</p>
+
+<p>For instance:</p>
+
+<ul>
+  <li>fucktheweb.com</li>
+  <li>www.fucktheweb.com</li>
+  <li>logs.fucktheweb.com</li>
+</ul>
+
+<p>Enable the root site <em>fucktheweb.com</em> for web hosting. Go to the <strong>Properties</strong> panel, click <strong>Static Website Hosting</strong>, and do the following:</p>
 
 <ol>
-  <li>Restart to recovery mode: CMD+R.</li>
-  <li>In terminal run:</li>
+  <li>Select the <strong>Enable website hosting</strong>.</li>
+  <li>In the <strong>Index Document</strong> box, add index.html.</li>
+  <li>In the <strong>Error Document</strong> box, add 404.html.</li>
+</ol>
+
+<p><img src="/images/ref/aws-enable-website-hosting.jpg" alt="Enable website hosting" /></p>
+
+<hr />
+
+<h2 id="make-the-root-public">Make the root public</h2>
+
+<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click the <strong>Permissions</strong>.</p>
+
+<ol>
+  <li>Click Add <strong>Bucket Policy</strong>.</li>
+  <li>Drop this puppy in</li>
 </ol>
 
 <pre>
-csrutil disable; reboot
+{
+  "Version":"2012-10-17",
+  "Statement":[{
+	"Sid":"PublicReadForGetBucketObjects",
+        "Effect":"Allow",
+	  "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::fucktheweb.com/*"
+      ]
+    }
+  ]
+}
 </pre>
 
-<p>Do your dirty work, and when it’s all clear, you’ll need to reboot in recovery once more to zip it back up.</p>
+<hr />
 
-<pre>
-csrutil enable
-</pre>
+<h2 id="set-up-the-redirect">Set up the redirect</h2>
+
+<p>In the <em>www.fucktheweb.com</em> bucket <strong>Properties</strong> go to <strong>Static Website Hosting</strong>.</p>
+
+<ol>
+  <li>Select <strong>Redirect all requests to another host name</strong></li>
+  <li><strong>Redirect all requests to:</strong> fucktheweb.com</li>
+</ol>
+
+<p><img src="/images/ref/aws-redirect.jpg" alt="Set up redirect" /></p>
+
+<hr />
+
+<h2 id="enable-logging">Enable logging</h2>
+
+<p>In the <em>logs.fucktheweb.com</em> bucket, create a folder named “root”.</p>
+
+<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click <strong>Logging</strong>.</p>
+
+<ol>
+  <li>Check <strong>Enabled</strong>.</li>
+  <li><strong>Target bucket:</strong> logs.fucktheweb.com</li>
+  <li><strong>Target prefix:</strong> root/</li>
+</ol>
+
+<p><img src="/images/ref/aws-enable-logging.jpg" alt="Enable logging" /></p>
+
+<hr />
+
+<h1 id="point-the-domain">Point the domain</h1>
+
+<p>Well, that was fun. Now we get to go through another super groovy interface that costs more money. It’s Amazon’s signature “Route 53” and we need to set up a <strong>hosted zone</strong>. Well, it’s not <em>that</em> expensive. But if you want to use any fancy cloud stuff in the future their specific cloudfront version is <em>not cheap</em>. Or, at least I think so. I have no way of telling since their “calculator” is a giant clusterfuck.</p>
+
+<p>You can alternately use <a href="https://www.cloudflare.com/">cloudflare</a>, where you can roll a <strong>freebie CDN</strong> site that includes routing <em>and</em> provides compression juice for speed. Prices don’t appear bad for the paid gig and they also are sensitive for DDOS attacks. They also boast free SSL, which seems kind of impossible.</p>
+
+<hr />
+<hr />
+
+<h1 id="route-53-way">Route 53 way</h1>
+
+<p>In Route 53, go to <strong>Hosted zones</strong> and <strong>create a new hosted zone</strong> called fucktheweb.com. This will generate the nameservers. The nameservers are not consistent when generated, so if you botch it and start over, make sure to check them again before you point. You’ll also need to <strong>config two new A records</strong>.</p>
+
+<hr />
+
+<h2 id="create-a-root-a-record">Create a root A record</h2>
+
+<p>In the new fucktheweb.com hosted zone, <strong>create a record set</strong>.</p>
+
+<ol>
+  <li><strong>Name:</strong> leave blank</li>
+  <li><strong>Type:</strong> A - IPv4 address</li>
+  <li><strong>Alias:</strong> <em>- S3 website endpoints -</em> fucktheweb.com (s3-website-…)</li>
+  <li><strong>Routing Policy:</strong> Simple</li>
+</ol>
+
+<hr />
+
+<h2 id="create-a-www-a-record">Create a www. A record</h2>
+
+<ol>
+  <li><strong>Name:</strong> www</li>
+  <li><strong>Type:</strong> A - IPv4 address</li>
+  <li><strong>Alias:</strong> <em>- S3 website endpoints -</em> fucktheweb.com (s3-website-…)</li>
+  <li><strong>Routing Policy:</strong> Simple</li>
+</ol>
+
+<hr />
+
+<h2 id="change-nameservers">Change Nameservers</h2>
+
+<p>Now go to the registrar and use the Route 53 generated Nameservers to point the domain to S3.</p>
+
+<hr />
+<hr />
+
+<h1 id="cloudflare-way">Cloudflare way</h1>
+
+<p>This appears to be totally free. Seriously. I saw a few hosting providers were using this as a feature, which seems like it’s at least fairly stable for the time being. So, to fire it up, do the account hoops and login. Then run the scan on the domain you want to route.</p>
+
+<h2 id="cut-the-auto-records">Cut the auto records</h2>
+
+<p>I read somewhere you don’t need the A records this thing generates. So, I didn’t. This may be a total mistake.</p>
+
+<hr />
+
+<h2 id="add-two-cnames">Add two CNAMEs</h2>
+
+<p>Add one titled fucktheweb.com, and one titled www. Just use the defualts for everything else. You should be set for www forwarding from the S3 config and this shouldn’t rely on any Route 53 support.</p>
+
+<hr />
+
+<h2 id="activate-records">Activate records</h2>
+
+<p>Theoretically, you should only need the two CNAMEs to hook this up. I have no idea how and MX stuff works, so don’t cry to me about it now. Select the little cloud icon and make sure it turns orange or whatever it needs to move the dial. Then you can go through and push buttons and see how everything works.</p>
+
+<hr />
+
+<h2 id="change-nameservers-1">Change nameservers</h2>
+
+<p>Now go to the registrar and use the cloudflare generated Nameservers to point the domain to S3.</p>
 
         </div>
 

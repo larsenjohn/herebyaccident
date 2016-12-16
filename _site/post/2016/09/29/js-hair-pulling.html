@@ -24,7 +24,7 @@
 
     <title>
       
-        Wercker + Jekyll to S3
+        JS Hair Pulling
       
     </title>
 
@@ -88,82 +88,110 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="deploy-a-jekyll-site-to-s3-using-wercker">Deploy a Jekyll site to S3 using Wercker</h1>
+          <h1 id="js-hair-pulling">JS Hair Pulling</h1>
 
-<p>In my efforts to make my life infinitely more complicated, there is this mess. I’m not sure when FTP became a dirty word, maybe it’s when the “S” got involved and things just went off the rails.</p>
+<p>Didn’t think it would take me this long to make this page. I would think it would be a mile long by now. I am bald though, so that should be an indicator.</p>
 
-<p>Anyway, here is a way to make a one page site stupidly verbose.</p>
-
-<p>Before you will be able to deploy you will need to setup a <code class="highlighter-rouge">wercker.yml</code> file and sync it to your account. You will also need to set your AWS SSH keys and bucket urls through your wercker account, thus keeping them secret so you can safely use git to track your <code class="highlighter-rouge">wercker.yml</code> in the root of your repo.</p>
-
-<hr />
 <hr class="rule" />
 
-<h3 id="box">Box</h3>
+<hr />
 
-<p>In this case it’s ruby, so the scripts will be similar to OSX terminal. There are a bunch available depending on which app you want to deploy.</p>
+<h2 id="bootstrap-ease-to-anchor-conflict-with-carousel">Bootstrap ease to anchor conflict with carousel</h2>
 
-<h3 id="install-dependencies">Install dependencies</h3>
+<p>This works great, that is unless you have to anchor somewhere other than your page.</p>
 
-<p>Using the build step this will do the following:</p>
+<pre>
+<code>
+jQuery(document).ready(function($) {
 
-<p><strong>build:</strong></p>
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') &amp;&amp; location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 250);
+        return false;
+      }
+    }
+  });
 
-<ul>
-  <li>Run a bundle-install and verify everything is up to date</li>
-  <li>Run script to build the site, effectively compiling the files to the <code class="highlighter-rouge">_site</code> folder.</li>
-</ul>
+});
+</code>
+</pre>
 
-<p><strong>deploy</strong></p>
+<p>Switch out the top line single out a specific ID. Look to the <code class="highlighter-rouge">:not([href=#])'</code></p>
 
-<ul>
-  <li>s3sync to AWS</li>
-  <li>Check AWS keys</li>
-  <li>Check AWS target bucket</li>
-  <li>Source_dir: <code class="highlighter-rouge">_site</code> folder path</li>
-</ul>
+<div class="highlighter-rouge"><pre class="highlight"><code>$('a[href*=#]:not([href=#id-of-your-thing])').click(function() {
+</code></pre>
+</div>
+
+<p>Switch out the top line to allow multiple carousels or for other JS options.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$('a[href*=#]:not([href=#]):not(.carousel-control)').click(function () {
+</code></pre>
+</div>
+
+<hr class="rule" />
 
 <hr />
 
-<p>wercker.yml</p>
+<h2 id="close-bootstrap-mobile-nav-after-click">Close Bootstrap mobile nav after click</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>box: wercker/ruby
-build:
-steps:
-  - bundle-install
-  - script:
-      name: generate site
-      code: bundle exec jekyll build --trace
-deploy:
-steps:
-    - s3sync:
-        key_id: $KEY
-        key_secret: $SECRET
-        bucket_url: $URL
-        source_dir: _site/
-        opts: |
-            --add-header Cache-Control:max-age=60
-            --no-preserve
-</code></pre>
-</div>
+<pre>
+<code>
+jQuery(document).ready(function($) {
+
+	$(".navbar-nav li a").click(function (event) {
+    // check if window is small enough so dropdown is created
+    var toggle = $(".navbar-toggle").is(":visible");
+    if (toggle) {
+      $(".navbar-collapse").collapse('hide');
+    }
+  });
+
+});
+</code>
+</pre>
 
         </div>
 
         <div class="col-sm-3 sidenav">
-          <h3>Failures</h3>
+          <h3>No such process</h3>
           <hr class="heading">
           <ul>
             
             <li>
-              <a href="/2016/05/06/jekyll-and-wercker-to-s3.html">Wercker + Jekyll to S3</a>
+              <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/simple-sass.html">Basic SASS</a>
+              <a href="/post/2016/09/30/wp-abyss.html">Wordpress and the abyss</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/29/drupal-clusterfuck.html">Drupal clusterfuck</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/26/AWS-S3-resource-sharing.html">AWS S3 resource sharing</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/05/12/prose-configure.html">Github pages prose.io config</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/simple-sass.html">Basic SASS</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
             </li>
             
             <li>
@@ -171,7 +199,7 @@ steps:
             </li>
             
             <li>
-              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
             </li>
             
             <li>
@@ -195,11 +223,7 @@ steps:
             </li>
             
             <li>
-              <a href="/2016/04/15/common-css.html">Common CSS</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/osx-setup.html">OSX setup</a>
+              <a href="/post/2016/04/15/common-css.html">Common CSS</a>
             </li>
             
             <li>
@@ -207,11 +231,15 @@ steps:
             </li>
             
             <li>
-              <a href="/2016/04/05/basic-linux-commands.html">Linux basics</a>
+              <a href="/post/2016/04/05/basic-linux-commands.html">Linux basics</a>
             </li>
             
             <li>
-              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+              <a href="/post/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">OSX setup</a>
             </li>
             
             <li>

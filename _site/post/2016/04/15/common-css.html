@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Where all of the tragic happens. You should really turn back now.">
+    <meta name="author" content="">
+
+    <!-- FB -->
+  	<meta property="og:title" content="..." />
+  	<meta property="og:site_name" content="..."/>
+  	<meta property="og:url" content="http://..." />
+  	<meta property="og:description" content="..." />
+  	<meta property="og:type" content="article" />
+  	<meta property="og:image" content="http://..." />
+  	<meta property="og:image:type" content="/images/jpeg" />
+  	<meta property="og:image:width" content="1200" />
+  	<meta property="og:image:height" content="650" />
+
+  	<!-- FB alt translations -->
+  	<meta property="og:locale" content="en_US" />
+
+    <title>
+      
+        Common CSS
+      
+    </title>
+
+    <!-- fav and touch -->
+    <link rel="shortcut icon" type="image/png" href="/favicon.png?">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    <link href="/css/libs/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  
+<!-- Basic nav -->
+
+<nav id="mainnav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/index.html"><i class="fa fa-bug" aria-hidden="true"></i> This incident will be reported</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/blog.html">Adventures in bullshit <i class="fa fa-terminal" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+
+  </div>
+</nav>
+
+
+  <div class="post">
+
+    <div class="container push">
+      <div class="row">
+
+        <div class="col-sm-9">
+          <h1 id="css-styles-im-always-repeating">CSS styles I’m always repeating</h1>
+
+<p>I know I have done this a hundred times and have it in all of my basic custom sheets, but for some reason I have to look up this stuff every month or so. Mostly a bunch of Bootstrap stuff and split up for easy chewing.</p>
+
+<hr />
+<hr class="rule" />
+
+<p>Remove Firefox <code class="highlighter-rouge">&lt;a&gt;</code> outline, (watch out for accessibility on this one though).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>a, a:hover, a:active, a:focus {
+  outline: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+</code></pre>
+</div>
+
+<p>Opacity with IE legacy</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>opacity: 0.5;
+-moz-opacity: 0.5;
+-webkit-opacity: 0.5;
+-o-opacity: 0.5;
+filter: alpha(opacity=50);
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+</code></pre>
+</div>
+
+<p>Simple vanilla CSS3 ease</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>transition: all 0.15s ease-in-out;
+-webkit-transition: all 0.15s ease-in-out;
+-moz-transition: all 0.15s ease-in-out;
+-o-transition: all 0.15s ease-in-out;
+</code></pre>
+</div>
+
+<p>Wrap an <code class="highlighter-rouge">&lt;a&gt;</code> tag around a div.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="wrap"&gt;
+  &lt;a class="link-full-div" href="#"&gt;&lt;/a&gt;
+    &lt;h1&gt;Link the entire div&lt;/h1&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+&lt;/div&gt;
+
+.wrap {
+  position: relative;
+}
+
+a.link-full-div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 999;
+}
+</code></pre>
+</div>
+
+<p>Fluid video <code class="highlighter-rouge">iframe</code> embed.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.video-wrapper {
+  position: relative;
+  /** 16:9 **/
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</code></pre>
+</div>
+
+<p>Absolute center fluid container</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+</code></pre>
+</div>
+
+<p>Bootstrap offset grid part</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.col-sm-offset-*
+.col-md-offset-*
+.col-lg-offset-*
+
+&lt;div class="col-sm-6 col-sm-offset-6"&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p>Bootstrap vanilla media queries</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/*** === Mobile First Method === ***/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+/*** === Non-Mobile First Method === ***/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* ipad Portrait and Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+/** Retina specific **/
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+}
+</code></pre>
+</div>
+
+<p>Bootstrap grid and responsive utilities only</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>img {
+  vertical-align: middle;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.col-xs-11 {
+  width: 91.66666667%;
+}
+
+.col-xs-10 {
+  width: 83.33333333%;
+}
+
+.col-xs-9 {
+  width: 75%;
+}
+
+.col-xs-8 {
+  width: 66.66666667%;
+}
+
+.col-xs-7 {
+  width: 58.33333333%;
+}
+
+.col-xs-6 {
+  width: 50%;
+}
+
+.col-xs-5 {
+  width: 41.66666667%;
+}
+
+.col-xs-4 {
+  width: 33.33333333%;
+}
+
+.col-xs-3 {
+  width: 25%;
+}
+
+.col-xs-2 {
+  width: 16.66666667%;
+}
+
+.col-xs-1 {
+  width: 8.33333333%;
+}
+
+.col-xs-pull-12 {
+  right: 100%;
+}
+
+.col-xs-pull-11 {
+  right: 91.66666667%;
+}
+
+.col-xs-pull-10 {
+  right: 83.33333333%;
+}
+
+.col-xs-pull-9 {
+  right: 75%;
+}
+
+.col-xs-pull-8 {
+  right: 66.66666667%;
+}
+
+.col-xs-pull-7 {
+  right: 58.33333333%;
+}
+
+.col-xs-pull-6 {
+  right: 50%;
+}
+
+.col-xs-pull-5 {
+  right: 41.66666667%;
+}
+
+.col-xs-pull-4 {
+  right: 33.33333333%;
+}
+
+.col-xs-pull-3 {
+  right: 25%;
+}
+
+.col-xs-pull-2 {
+  right: 16.66666667%;
+}
+
+.col-xs-pull-1 {
+  right: 8.33333333%;
+}
+
+.col-xs-pull-0 {
+  right: auto;
+}
+
+.col-xs-push-12 {
+  left: 100%;
+}
+
+.col-xs-push-11 {
+  left: 91.66666667%;
+}
+
+.col-xs-push-10 {
+  left: 83.33333333%;
+}
+
+.col-xs-push-9 {
+  left: 75%;
+}
+
+.col-xs-push-8 {
+  left: 66.66666667%;
+}
+
+.col-xs-push-7 {
+  left: 58.33333333%;
+}
+
+.col-xs-push-6 {
+  left: 50%;
+}
+
+.col-xs-push-5 {
+  left: 41.66666667%;
+}
+
+.col-xs-push-4 {
+  left: 33.33333333%;
+}
+
+.col-xs-push-3 {
+  left: 25%;
+}
+
+.col-xs-push-2 {
+  left: 16.66666667%;
+}
+
+.col-xs-push-1 {
+  left: 8.33333333%;
+}
+
+.col-xs-push-0 {
+  left: auto;
+}
+
+.col-xs-offset-12 {
+  margin-left: 100%;
+}
+
+.col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+
+.col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+
+.col-xs-offset-9 {
+  margin-left: 75%;
+}
+
+.col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+
+.col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+
+.col-xs-offset-6 {
+  margin-left: 50%;
+}
+
+.col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+
+.col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+
+.col-xs-offset-3 {
+  margin-left: 25%;
+}
+
+.col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+
+.col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+
+.col-xs-offset-0 {
+  margin-left: 0%;
+}
+
+@media (min-width: 768px) {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  
+  .col-sm-12 {
+    width: 100%;
+  }
+  
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  
+  .col-sm-9 {
+    width: 75%;
+  }
+  
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  
+  .col-sm-6 {
+    width: 50%;
+  }
+  
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  
+  .col-sm-3 {
+    width: 25%;
+  }
+  
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  
+  .col-sm-push-0 {
+    left: auto;
+  }
+  
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+  }
+  
+  .col-md-12 {
+    width: 100%;
+  }
+  
+  .col-md-11 {
+    width: 91.66666667%;
+  }
+  
+  .col-md-10 {
+    width: 83.33333333%;
+  }
+  
+  .col-md-9 {
+    width: 75%;
+  }
+  
+  .col-md-8 {
+    width: 66.66666667%;
+  }
+  
+  .col-md-7 {
+    width: 58.33333333%;
+  }
+  
+  .col-md-6 {
+    width: 50%;
+  }
+  
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+  
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  
+  .col-md-3 {
+    width: 25%;
+  }
+  
+  .col-md-2 {
+    width: 16.66666667%;
+  }
+  
+  .col-md-1 {
+    width: 8.33333333%;
+  }
+  
+  .col-md-pull-12 {
+    right: 100%;
+  }
+  
+  .col-md-pull-11 {
+    right: 91.66666667%;
+  }
+  
+  .col-md-pull-10 {
+    right: 83.33333333%;
+  }
+  
+  .col-md-pull-9 {
+    right: 75%;
+  }
+  
+  .col-md-pull-8 {
+    right: 66.66666667%;
+  }
+  
+  .col-md-pull-7 {
+    right: 58.33333333%;
+  }
+  
+  .col-md-pull-6 {
+    right: 50%;
+  }
+  
+  .col-md-pull-5 {
+    right: 41.66666667%;
+  }
+  
+  .col-md-pull-4 {
+    right: 33.33333333%;
+  }
+  
+  .col-md-pull-3 {
+    right: 25%;
+  }
+  
+  .col-md-pull-2 {
+    right: 16.66666667%;
+  }
+  
+  .col-md-pull-1 {
+    right: 8.33333333%;
+  }
+  
+  .col-md-pull-0 {
+    right: auto;
+  }
+  
+  .col-md-push-12 {
+    left: 100%;
+  }
+  
+  .col-md-push-11 {
+    left: 91.66666667%;
+  }
+  
+  .col-md-push-10 {
+    left: 83.33333333%;
+  }
+  
+  .col-md-push-9 {
+    left: 75%;
+  }
+  
+  .col-md-push-8 {
+    left: 66.66666667%;
+  }
+  
+  .col-md-push-7 {
+    left: 58.33333333%;
+  }
+  
+  .col-md-push-6 {
+    left: 50%;
+  }
+  
+  .col-md-push-5 {
+    left: 41.66666667%;
+  }
+  
+  .col-md-push-4 {
+    left: 33.33333333%;
+  }
+  
+  .col-md-push-3 {
+    left: 25%;
+  }
+  
+  .col-md-push-2 {
+    left: 16.66666667%;
+  }
+  
+  .col-md-push-1 {
+    left: 8.33333333%;
+  }
+  
+  .col-md-push-0 {
+    left: auto;
+  }
+  
+  .col-md-offset-12 {
+    margin-left: 100%;
+  }
+  
+  .col-md-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  
+  .col-md-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  
+  .col-md-offset-9 {
+    margin-left: 75%;
+  }
+  
+  .col-md-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  
+  .col-md-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  
+  .col-md-offset-6 {
+    margin-left: 50%;
+  }
+  
+  .col-md-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  
+  .col-md-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  
+  .col-md-offset-3 {
+    margin-left: 25%;
+  }
+  
+  .col-md-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  
+  .col-md-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  
+  .col-md-offset-0 {
+    margin-left: 0%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left;
+  }
+  
+  .col-lg-12 {
+    width: 100%;
+  }
+  
+  .col-lg-11 {
+    width: 91.66666667%;
+  }
+  
+  .col-lg-10 {
+    width: 83.33333333%;
+  }
+  
+  .col-lg-9 {
+    width: 75%;
+  }
+  
+  .col-lg-8 {
+    width: 66.66666667%;
+  }
+  
+  .col-lg-7 {
+    width: 58.33333333%;
+  }
+  
+  .col-lg-6 {
+    width: 50%;
+  }
+  
+  .col-lg-5 {
+    width: 41.66666667%;
+  }
+  
+  .col-lg-4 {
+    width: 33.33333333%;
+  }
+  
+  .col-lg-3 {
+    width: 25%;
+  }
+  
+  .col-lg-2 {
+    width: 16.66666667%;
+  }
+  
+  .col-lg-1 {
+    width: 8.33333333%;
+  }
+  
+  .col-lg-pull-12 {
+    right: 100%;
+  }
+  
+  .col-lg-pull-11 {
+    right: 91.66666667%;
+  }
+  
+  .col-lg-pull-10 {
+    right: 83.33333333%;
+  }
+  
+  .col-lg-pull-9 {
+    right: 75%;
+  }
+  
+  .col-lg-pull-8 {
+    right: 66.66666667%;
+  }
+  
+  .col-lg-pull-7 {
+    right: 58.33333333%;
+  }
+  
+  .col-lg-pull-6 {
+    right: 50%;
+  }
+  
+  .col-lg-pull-5 {
+    right: 41.66666667%;
+  }
+  
+  .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+  
+  .col-lg-pull-3 {
+    right: 25%;
+  }
+  
+  .col-lg-pull-2 {
+    right: 16.66666667%;
+  }
+  
+  .col-lg-pull-1 {
+    right: 8.33333333%;
+  }
+  
+  .col-lg-pull-0 {
+    right: auto;
+  }
+  
+  .col-lg-push-12 {
+    left: 100%;
+  }
+  
+  .col-lg-push-11 {
+    left: 91.66666667%;
+  }
+  
+  .col-lg-push-10 {
+    left: 83.33333333%;
+  }
+  
+  .col-lg-push-9 {
+    left: 75%;
+  }
+  
+  .col-lg-push-8 {
+    left: 66.66666667%;
+  }
+  
+  .col-lg-push-7 {
+    left: 58.33333333%;
+  }
+  
+  .col-lg-push-6 {
+    left: 50%;
+  }
+  
+  .col-lg-push-5 {
+    left: 41.66666667%;
+  }
+  
+  .col-lg-push-4 {
+    left: 33.33333333%;
+  }
+  
+  .col-lg-push-3 {
+    left: 25%;
+  }
+  
+  .col-lg-push-2 {
+    left: 16.66666667%;
+  }
+  
+  .col-lg-push-1 {
+    left: 8.33333333%;
+  }
+  
+  .col-lg-push-0 {
+    left: auto;
+  }
+  
+  .col-lg-offset-12 {
+    margin-left: 100%;
+  }
+  
+  .col-lg-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  
+  .col-lg-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  
+  .col-lg-offset-9 {
+    margin-left: 75%;
+  }
+  
+  .col-lg-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  
+  .col-lg-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  
+  .col-lg-offset-6 {
+    margin-left: 50%;
+  }
+  
+  .col-lg-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  
+  .col-lg-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  
+  .col-lg-offset-3 {
+    margin-left: 25%;
+  }
+  
+  .col-lg-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  
+  .col-lg-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  
+  .col-lg-offset-0 {
+    margin-left: 0%;
+  }
+}
+
+.clearfix:before,
+.clearfix:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after,
+.container:after,
+.container-fluid:after,
+.row:after {
+  clear: both;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.affix {
+  position: fixed;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visible-xs {
+    display: block !important;
+  }
+  
+  table.visible-xs {
+    display: table !important;
+  }
+  
+  tr.visible-xs {
+    display: table-row !important;
+  }
+  
+  th.visible-xs,
+  td.visible-xs {
+    display: table-cell !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .visible-xs-block {
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline {
+    display: inline !important;
+  }
+}
+@media (max-width: 767px) {
+  .visible-xs-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm {
+    display: block !important;
+  }
+  
+  table.visible-sm {
+    display: table !important;
+  }
+  
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .visible-sm-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md {
+    display: block !important;
+  }
+  
+  table.visible-md {
+    display: table !important;
+  }
+  
+  tr.visible-md {
+    display: table-row !important;
+  }
+  
+  th.visible-md,
+  td.visible-md {
+    display: table-cell !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visible-md-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .visible-lg {
+    display: block !important;
+  }
+  
+  table.visible-lg {
+    display: table !important;
+  }
+  
+  tr.visible-lg {
+    display: table-row !important;
+  }
+  
+  th.visible-lg,
+  td.visible-lg {
+    display: table-cell !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .visible-lg-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .visible-lg-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .visible-lg-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+}
+
+.visible-print {
+  display: none !important;
+}
+
+@media print {
+  .visible-print {
+    display: block !important;
+  }
+  
+  table.visible-print {
+    display: table !important;
+  }
+  
+  tr.visible-print {
+    display: table-row !important;
+  }
+  
+  th.visible-print,
+  td.visible-print {
+    display: table-cell !important;
+  }
+}
+
+.visible-print-block {
+  display: none !important;
+}
+
+@media print {
+  .visible-print-block {
+    display: block !important;
+  }
+}
+
+.visible-print-inline {
+  display: none !important;
+}
+
+@media print {
+  .visible-print-inline {
+    display: inline !important;
+  }
+}
+
+.visible-print-inline-block {
+  display: none !important;
+}
+
+@media print {
+  .visible-print-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media print {
+  .hidden-print {
+    display: none !important;
+  }
+}
+</code></pre>
+</div>
+
+<p>Jotform reset to 100% width. Good starting place for simple forms w/Google fonts.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/** Jotform Reset **/
+
+/** import fonts @top or pull them for default **/
+@import ... Google font
+
+.form-all {
+  /* Define font family */
+  font-family: 'Google font', serif;
+  font-weight: 400;
+  color: #4d4d4d;
+  padding-top: 0;
+}
+
+input,
+textarea {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+  width: 100%;
+  min-width: 100%;
+  padding: 8px !important;
+  
+  /* box sizing */
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  -o-box-sizing: border-box !important;
+  
+  /* cut border radius */
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+  
+  /* Appearance - watch out for checkboxes &amp; radios */
+  /* appearance: none !important; */
+  /* -webkit-appearance: none !important; */
+  /* -moz-appearance: none !important; */
+  /* -o-appearance: none !important; */
+  
+  /* Cut box shadow */
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  background: #ffffff !important;
+  outline: none !important;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+.form-line-error {
+  background: none;
+}
+
+.form-line {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+.form-input .form-error-message,
+.form-input-wide .form-error-message {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  /* cut border radius */
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+  /* cut box-shadow */
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+}
+
+.form-input .form-error-message img,
+.form-input-wide .form-error-message img {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background: #ffffff;
+}
+
+.form-line-active {
+  background: none;
+}
+
+/* Redundant text overrides */
+.form-textarea {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+}
+
+input,
+textarea {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #aaaaaa !important;
+}
+
+.form-input .form-error-message,
+.form-input-wide .form-error-message,
+.form-button-error {
+  font-family: 'Google font', serif;
+  font-weight: 400;
+}
+
+label {
+  font-family: 'Google font', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.form-submit-button,
+.form-submit-reset,
+.form-submit-print,
+.form-screen-button {
+  padding: 10px;
+  width: 100%;
+  font-family: 'Google font', sans-serif;
+  font-weight: 600;
+  background: #000000;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #aaaaaa;
+}
+</code></pre>
+</div>
+
+        </div>
+
+        <div class="col-sm-3 sidenav">
+          <h3>No such process</h3>
+          <hr class="heading">
+          <ul>
+            
+            <li>
+              <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/09/30/wp-abyss.html">Wordpress and the abyss</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/29/drupal-clusterfuck.html">Drupal clusterfuck</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/26/AWS-S3-resource-sharing.html">AWS S3 resource sharing</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/05/12/prose-configure.html">Github pages prose.io config</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/simple-sass.html">Basic SASS</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/20/simple-xml-sitemap.html">XML simple sitemap</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/20/common-analytics-settings.html">Analytics starter settings</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/18/youtube-custom-transcriptions.html">Youtube custom transcriptions</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/18/aws-ec2-easy-engine.html">AWS EC2 LEMP stack</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/15/vagrant-scotchbox.html">Vagrant Scotchbox LAMP stack</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/15/open-vpn-el-capitan-bug.html">Open VPN El Capitan bug</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/15/common-css.html">Common CSS</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/global-git-ignore.html">Global .gitignore</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/05/basic-linux-commands.html">Linux basics</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">OSX setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/04/markdown.html">Markdown / Kramdown</a>
+            </li>
+            
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  
+<footer>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+      <hr>
+      <p class="text-center">It's 2016 in case you live on the moon.</p>
+
+      </div>
+    </div>
+  </div>
+
+</footer><!-- footer -->
+
+
+  <!-- JS -->
+
+
+</body>

@@ -243,6 +243,87 @@
 
 <hr />
 
+<h2 id="sql">SQL</h2>
+
+<p>Where the fuck is this stuff? Typically the path for a basic LAMP setup is located in /var/lib/mysql.</p>
+
+<p>If you are getting database connection errors, you might want to check if SQL is even running.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysqladmin -u root -p status
+</code></pre>
+</div>
+
+<p>Or with this if you are logged in as root already.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>service mysql status
+</code></pre>
+</div>
+
+<p>If it isn’t you’ll get a message something like this…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysqladmin: connect to server at 'localhost' failed
+error: 'Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)'
+Check that mysqld is running and that the socket: '/var/run/mysqld/mysqld.sock' exists!
+</code></pre>
+</div>
+
+<p>Or this…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysql stop/waiting
+</code></pre>
+</div>
+
+<p>Start it up like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>service mysql start
+</code></pre>
+</div>
+
+<p>Or if it’s already started and you want to restart</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>service mysql restart
+</code></pre>
+</div>
+
+<hr />
+
+<h2 id="checking-stats">Checking stats</h2>
+
+<p>If you want to know what’s going on with space or RAM usage there are a few options.</p>
+
+<p>The <code class="highlighter-rouge">free</code> command will give you bare bones memory usage.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>free -m
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">vmstat</code> will give you some more RAM detail of whats and wheres.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vmstat -s
+</code></pre>
+</div>
+
+<p>Real time monitoring can be viewed with the <code class="highlighter-rouge">top</code> or <code class="highlighter-rouge">htop</code> command.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>top
+htop
+</code></pre>
+</div>
+
+<p>To see what processes are running on your machine, sorted by their memory usage, run:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 15
+</code></pre>
+</div>
+
+<p>Look for established connections</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -anp | grep :80 | grep ESTABLISHED | wc -l
+</code></pre>
+</div>
+
+<hr />
+
 <h1 id="deadly-commands-">Deadly commands *</h1>
 
 <p>Someday, some asshole on a forum may try to ruin your life by tricking you into using these commands. Take a hard look and remember them. <strong>Never</strong> run any of the following:</p>
@@ -336,20 +417,40 @@ sh ./some_file
         </div>
 
         <div class="col-sm-3 sidenav">
-          <h3>Failures</h3>
+          <h3>No such process</h3>
           <hr class="heading">
           <ul>
             
             <li>
-              <a href="/2016/05/06/jekyll-and-wercker-to-s3.html">Wercker + Jekyll to S3</a>
+              <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/simple-sass.html">Basic SASS</a>
+              <a href="/post/2016/09/30/wp-abyss.html">Wordpress and the abyss</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/29/drupal-clusterfuck.html">Drupal clusterfuck</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/26/AWS-S3-resource-sharing.html">AWS S3 resource sharing</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/05/12/prose-configure.html">Github pages prose.io config</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/simple-sass.html">Basic SASS</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
             </li>
             
             <li>
@@ -357,7 +458,7 @@ sh ./some_file
             </li>
             
             <li>
-              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
             </li>
             
             <li>
@@ -381,11 +482,7 @@ sh ./some_file
             </li>
             
             <li>
-              <a href="/2016/04/15/common-css.html">Common CSS</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/osx-setup.html">OSX setup</a>
+              <a href="/post/2016/04/15/common-css.html">Common CSS</a>
             </li>
             
             <li>
@@ -393,11 +490,15 @@ sh ./some_file
             </li>
             
             <li>
-              <a href="/2016/04/05/basic-linux-commands.html">Linux basics</a>
+              <a href="/post/2016/04/05/basic-linux-commands.html">Linux basics</a>
             </li>
             
             <li>
-              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+              <a href="/post/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">OSX setup</a>
             </li>
             
             <li>

@@ -24,7 +24,7 @@
 
     <title>
       
-        Open VPN El Capitan bug
+        Jekyll github pages hosting
       
     </title>
 
@@ -88,29 +88,143 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="open-vpn-amp-osx-el-capitan-connection-bug">Open VPN &amp; OSX El Capitan connection bug</h1>
+          <h1 id="host-a-jekyll-site-on-github">Host a Jekyll site on Github</h1>
 
-<p>This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? Well here’s a total cludge for your amusement.</p>
+<p>This is a super condensed version of <a href="https://help.github.com/articles/creating-project-pages-manually/">these docs</a>. All things below are referencing a site already manually set up for jekyll development. You can also just use the <strong>automatic generator</strong> for simple startup projects.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="csrutil-disable">csrutil disable</h2>
+<h2 id="make-a-fresh-repository">Make a fresh repository</h2>
+
+<p>Create a fresh repository and clone it.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone .../repo-name
+</code></pre>
+</div>
+
+<h2 id="create-a-gh-pages-branch">Create a gh-pages branch</h2>
+
+<p>Create a new gh-pages branch.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ cd repo-name
+$ git checkout --orphan gh-pages
+</code></pre>
+</div>
+
+<p>Now empty out the folder in the new branch.</p>
+
+<h2 id="add-content-and-push">Add content and push</h2>
+
+<p>Drop your files into the repo, add, commit and push the origin to github.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git add -A
+$ git commit -m "first gh-pages commit"
+$ git push origin gh-pages
+</code></pre>
+</div>
+
+<h2 id="check-your-githubio-url">Check your github.io url</h2>
+
+<p>You can check the public url by going to http://yourgithubaccount.github.io/repo-name to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.</p>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="configure-the-dns">Configure the DNS</h2>
+
+<p>Go to the new repository on github and create a <strong>new file</strong>. Title it “<strong>CNAME</strong>” and drop the domain name in it. This should be <strong>done first</strong> before changing any settings at the domain host.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>fucktheweb.com
+</code></pre>
+</div>
+
+<p>In this case the canonical name will be fucktheweb.com. You can also use <em>www.fucktheweb.com</em> if necessary, but the records will need reflect that through the domain registrar.</p>
+
+<hr />
+
+<h2 id="change-the-dns-at-the-registrar">Change the DNS at the registrar</h2>
 
 <ol>
-  <li>Restart to recovery mode: CMD+R.</li>
-  <li>In terminal run:</li>
+  <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.153</li>
+  <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.154</li>
+  <li>Create one www <strong>CNAME record</strong> for: yourgithubaccount.github.io/repo-name</li>
 </ol>
 
-<pre>
-csrutil disable; reboot
-</pre>
+<hr />
+<hr class="rule" />
 
-<p>Do your dirty work, and when it’s all clear, you’ll need to reboot in recovery once more to zip it back up.</p>
+<h2 id="using-the-the-githubio-domain">Using the the github.io domain</h2>
 
-<pre>
-csrutil enable
-</pre>
+<p>The links will bork out unless you utilize the liquid tag {{ site.baseurl }} throughout. For instance:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
+</code></pre>
+</div>
+
+<p>The baseurl path needs to be defined in the <code class="highlighter-rouge">config.yml</code> file like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Site settings
+baseurl: "/repo-name"
+</code></pre>
+</div>
+
+<p>This will render the path to the github repository name. For example http://yourgithubaccount.github.io/repo-name.</p>
+
+<p>Ala <code class="highlighter-rouge">&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;</code> compiles to <code class="highlighter-rouge">&lt;link href="/repo-name/css/styles.css" rel="stylesheet"&gt;</code>.</p>
+
+<p>This will also clear up any links in the dev <code class="highlighter-rouge">jekyll serve</code> environment. This applies to all linked files like images as well.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;img src="{{ site.baseurl }}/images/lame-shit.jpg" alt="baseurl lame shit"&gt;
+</code></pre>
+</div>
+
+<p>When you change the baseurl to <code class="highlighter-rouge">"/repo-name"</code>, it will change the path on your local server. So to view the local url you’ll need to go to 127.0.0.1:4000/repo-name/ instead.</p>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="using-sass">Using SASS</h2>
+
+<p>You’ll need to add the front matter markup at the top of any .scss files. It <strong>needs to be right at the top</strong> or it will break because jekyll will read white space. You can comment it if you like, but only the front matter markup is necessary.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+# super happy fun scss
+---
+
+// or
+
+---
+
+---
+</code></pre>
+</div>
+
+<p>Just hook up the styles with a vanilla .css path and Jekyll will process the .scss to the <code class="highlighter-rouge">_site</code> folder. For instance the file <code class="highlighter-rouge">css/styles.scss</code> can be linked in the head like so.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
+</code></pre>
+</div>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="bundler-issues">Bundler issues</h2>
+
+<p>If you have forked or built off of another system, one that uses prose or specific gem dependencies, sometimes things will wonk if you just run <code class="highlighter-rouge">jekyll serve</code>.</p>
+
+<p>In some cases you may need to run:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bundle exec jekyll serve
+</code></pre>
+</div>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="using-proseio">Using prose.io</h2>
+
+<p>Prose.io is a nice option to edit your stuff right in the browser complete with upload support as well. Plus you don’t have to go and commit/push each time. Good for simple stuff. Just login to <a href="http://prose.io">prose.io</a> and give access to your repo. Bada-bing bada-boom.</p>
 
         </div>
 

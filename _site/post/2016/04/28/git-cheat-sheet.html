@@ -24,7 +24,7 @@
 
     <title>
       
-        Jekyll github pages hosting
+        git cheat sheet
       
     </title>
 
@@ -88,139 +88,121 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="host-a-jekyll-site-on-github">Host a Jekyll site on Github</h1>
+          <h1 id="git-reference-for-the-feeble">git reference for the feeble</h1>
 
-<p>This is a super condensed version of <a href="https://help.github.com/articles/creating-project-pages-manually/">these docs</a>. All things below are referencing a site already manually set up for jekyll development. You can also just use the <strong>automatic generator</strong> for simple startup projects.</p>
-
-<hr />
-<hr class="rule" />
-
-<h2 id="make-a-fresh-repository">Make a fresh repository</h2>
-
-<p>Create a fresh repository and clone it.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone .../repo-name
-</code></pre>
-</div>
-
-<h2 id="create-a-gh-pages-branch">Create a gh-pages branch</h2>
-
-<p>Create a new gh-pages branch.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ cd repo-name
-$ git checkout --orphan gh-pages
-</code></pre>
-</div>
-
-<p>Now empty out the folder in the new branch.</p>
-
-<h2 id="add-content-and-push">Add content and push</h2>
-
-<p>Drop your files into the repo, add, commit and push the origin to github.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ git add -A
-$ git commit -m "first gh-pages commit"
-$ git push origin gh-pages
-</code></pre>
-</div>
-
-<h2 id="check-your-githubio-url">Check your github.io url</h2>
-
-<p>You can check the public url by going to http://yourgithubaccount.github.io/repo-name to see if it stuck. Github pages kind of has a lag sometimes so it can take a few.</p>
+<p>Hoorah, git commands. Another exiting day at the races.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="configure-the-dns">Configure the DNS</h2>
+<h2 id="branching">Branching</h2>
 
-<p>Go to the new repository on github and create a <strong>new file</strong>. Title it “<strong>CNAME</strong>” and drop the domain name in it. This should be <strong>done first</strong> before changing any settings at the domain host.</p>
+<p>Checkout a new branch</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>fucktheweb.com
+<div class="highlighter-rouge"><pre class="highlight"><code>git checkout -b branch-name
 </code></pre>
 </div>
 
-<p>In this case the canonical name will be fucktheweb.com. You can also use <em>www.fucktheweb.com</em> if necessary, but the records will need reflect that through the domain registrar.</p>
+<p>Push upstream new branch</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push --set-upstream origin branch-name
+</code></pre>
+</div>
+
+<p>Delete branch (mind the uppercase -D)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git branch -D branch-name
+</code></pre>
+</div>
+
+<p>Push specific branch</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push origin branch-name
+</code></pre>
+</div>
+
+<p>Or alternately the master</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git push origin master
+</code></pre>
+</div>
+
+<p>List all branches</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git show-branch -a
+</code></pre>
+</div>
+
+<h2 id="updating">Updating</h2>
+
+<p>Basic update (pull)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git pull
+</code></pre>
+</div>
+
+<p>Merge branch to master. If you are currently on a branch, switch to master branch first, then run</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git merge branch-name
+</code></pre>
+</div>
+
+<h2 id="logging">Logging</h2>
+
+<p>Check the history Log</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git log
+</code></pre>
+</div>
+
+<p>Get <strong>out of the Log type “q”</strong>.</p>
+
+<p>Drop all local changes and commits, fetch the latest history from the server and point your local master branch.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ git fetch origin
+$ git reset --hard origin/master
+</code></pre>
+</div>
 
 <hr />
-
-<h2 id="change-the-dns-at-the-registrar">Change the DNS at the registrar</h2>
-
-<ol>
-  <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.153</li>
-  <li>Create one <strong>A record</strong> <em>(@)</em> for: 192.30.252.154</li>
-  <li>Create one www <strong>CNAME record</strong> for: yourgithubaccount.github.io/repo-name</li>
-</ol>
-
-<hr />
-<hr class="rule" />
-
-<h2 id="using-the-the-githubio-domain">Using the the github.io domain</h2>
-
-<p>The links will bork out unless you utilize the liquid tag {{ site.baseurl }} throughout. For instance:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
-</code></pre>
-</div>
-
-<p>The baseurl path needs to be defined in the <code class="highlighter-rouge">config.yml</code> file like so:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># Site settings
-baseurl: "/repo-name"
-</code></pre>
-</div>
-
-<p>This will render the path to the github repository name. For example http://yourgithubaccount.github.io/repo-name.</p>
-
-<p>Ala <code class="highlighter-rouge">&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;</code> compiles to <code class="highlighter-rouge">&lt;link href="/repo-name/css/styles.css" rel="stylesheet"&gt;</code>.</p>
-
-<p>This will also clear up any links in the dev <code class="highlighter-rouge">jekyll serve</code> environment. This applies to all linked files like images as well.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;img src="{{ site.baseurl }}/images/lame-shit.jpg" alt="baseurl lame shit"&gt;
-</code></pre>
-</div>
-
-<hr />
-<hr class="rule" />
-
-<h2 id="using-sass">Using SASS</h2>
-
-<p>You’ll need to add the front matter markup at the top of any .scss files. It <strong>needs to be right at the top</strong> or it will break because jekyll will read white space. You can comment it if you like, but only the front matter markup is necessary.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>---
-# super happy fun scss
----
-
-// or
-
----
-
----
-</code></pre>
-</div>
-
-<p>Just hook up the styles with a vanilla .css path and Jekyll will process the .scss to the <code class="highlighter-rouge">_site</code> folder. For instance the file <code class="highlighter-rouge">css/styles.scss</code> can be linked in the head like so.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
-</code></pre>
-</div>
 
         </div>
 
         <div class="col-sm-3 sidenav">
-          <h3>Failures</h3>
+          <h3>No such process</h3>
           <hr class="heading">
           <ul>
             
             <li>
-              <a href="/2016/05/06/jekyll-and-wercker-to-s3.html">Wercker + Jekyll to S3</a>
+              <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/simple-sass.html">Basic SASS</a>
+              <a href="/post/2016/09/30/wp-abyss.html">Wordpress and the abyss</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/29/drupal-clusterfuck.html">Drupal clusterfuck</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/26/AWS-S3-resource-sharing.html">AWS S3 resource sharing</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/05/12/prose-configure.html">Github pages prose.io config</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/simple-sass.html">Basic SASS</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
             </li>
             
             <li>
@@ -228,7 +210,7 @@ baseurl: "/repo-name"
             </li>
             
             <li>
-              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
             </li>
             
             <li>
@@ -252,11 +234,7 @@ baseurl: "/repo-name"
             </li>
             
             <li>
-              <a href="/2016/04/15/common-css.html">Common CSS</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/osx-setup.html">OSX setup</a>
+              <a href="/post/2016/04/15/common-css.html">Common CSS</a>
             </li>
             
             <li>
@@ -264,11 +242,15 @@ baseurl: "/repo-name"
             </li>
             
             <li>
-              <a href="/2016/04/05/basic-linux-commands.html">Linux basics</a>
+              <a href="/post/2016/04/05/basic-linux-commands.html">Linux basics</a>
             </li>
             
             <li>
-              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+              <a href="/post/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">OSX setup</a>
             </li>
             
             <li>

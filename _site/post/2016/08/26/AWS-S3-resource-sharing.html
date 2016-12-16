@@ -24,7 +24,7 @@
 
     <title>
       
-        Open VPN El Capitan bug
+        AWS S3 resource sharing
       
     </title>
 
@@ -88,29 +88,101 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="open-vpn-amp-osx-el-capitan-connection-bug">Open VPN &amp; OSX El Capitan connection bug</h1>
+          <h1 id="swinging-shit-through-aws-s3">Swinging shit through AWS S3</h1>
 
-<p>This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? Well here’s a total cludge for your amusement.</p>
+<p>I know all of you are laughing since you have been able to do this since, like Y2K or something. But not me. Since I really don’t like anything, I probably won’t like this - and drop it later once I get a bill for like a million dollars.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="csrutil-disable">csrutil disable</h2>
+<h2 id="cat-pictures">Cat pictures</h2>
 
-<ol>
-  <li>Restart to recovery mode: CMD+R.</li>
-  <li>In terminal run:</li>
-</ol>
+<p>Sure, I guess you can just make a bucket and just open it up to the world. But the higher ups at Amazon says it’s a <a href="https://aws.amazon.com/articles/5050">no-no</a>. So, one way to do it is to spin up a “website” and serve your stuff from a public folder.</p>
 
-<pre>
-csrutil disable; reboot
-</pre>
-
-<p>Do your dirty work, and when it’s all clear, you’ll need to reboot in recovery once more to zip it back up.</p>
+<p>See the utterly inspiring post <a href="http://herebyaccident.com/post/2016/04/05/aws-s3.html">here</a> about it. I just work up a whatever.com and use the S3 endpoint once it’s all up to speed. You will have to go through the trouble of making a dummy index.html and 404.html page. I know you are lazy, so here is the bucket policy once again.</p>
 
 <pre>
-csrutil enable
+{
+  "Version":"2012-10-17",
+  "Statement":[{
+	"Sid":"PublicReadForGetBucketObjects",
+        "Effect":"Allow",
+	  "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::fucktheweb.com/*"
+      ]
+    }
+  ]
+}
 </pre>
+
+<p>Now you can just link out to “https://s3.amazonaws.com/fucktheweb.com/lamepost/super-cat.jpg”.</p>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="font-wizardry">Font wizardry</h2>
+
+<p>Not so fast. Apparently AWS is so damn awesome you can’t just serve up your souped up comic sans font you stole from napster in the 90’s. Firefox gets all jittery about it. So <em>now</em> you have to use some BS called CORS. Or to be cool when you are around the big developers it’s called “Cross-Origin Resource Sharing.”</p>
+
+<p>So jump through the following hoop:</p>
+
+<ul>
+  <li>Select your “root” bucket</li>
+  <li>Select Properties</li>
+  <li>Select Permissions</li>
+  <li>Select Edit CORS Configuration</li>
+  <li>
+    <p>Check that is says this:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+  &lt;CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"&gt;
+  		&lt;CORSRule&gt;
+  		&lt;AllowedOrigin&gt;*&lt;/AllowedOrigin&gt;
+  		&lt;AllowedMethod&gt;GET&lt;/AllowedMethod&gt;
+  		&lt;MaxAgeSeconds&gt;3000&lt;/MaxAgeSeconds&gt;
+  		&lt;AllowedHeader&gt;Authorization&lt;/AllowedHeader&gt;
+  		&lt;/CORSRule&gt;
+  &lt;/CORSConfiguration&gt;
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<p>Generally, you can use the default for this. For my deal I used the <code class="highlighter-rouge">&lt;AllowedOrigin&gt;*&lt;/AllowedOrigin&gt;</code> or the * setting to use all URL’s instead of a specific one.</p>
+
+<p>So, now you should be able to hook up your fonts like so:</p>
+
+<pre>
+@font-face {
+  font-family: KillerComicSans;
+  src: url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.eot');
+  src: url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.eot?#iefix') format('embedded-opentype'),
+       url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.woff') format('woff'),
+       url('https://s3.amazonaws.com/fucktheweb/lamepost/fonts/KillerComicSans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'KillerComicSans', sans-serif;
+}
+</pre>
+
+<hr />
+<hr class="rule" />
+
+<h2 id="cli-terror">CLI Terror</h2>
+
+<p>So there is a CLI tool where you can fuck up your machine. Which I probably already have. So at this point I’m going to just “copy” stuff instead of snycing it. Cause you know, it may remove everything that isn’t snyced to S3.</p>
+
+<p>I also suck at paths - so I like to <strong>nav to the folder I want to copy to first</strong>. To copy everything from an s3 bucket you can do this mojo.</p>
+
+<p>Like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>aws s3 cp s3://bucket-name . --recursive
+</code></pre>
+</div>
 
         </div>
 

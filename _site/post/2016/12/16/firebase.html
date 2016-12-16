@@ -24,7 +24,7 @@
 
     <title>
       
-        Open VPN El Capitan bug
+        Jekyll Firebase hosting
       
     </title>
 
@@ -88,29 +88,96 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="open-vpn-amp-osx-el-capitan-connection-bug">Open VPN &amp; OSX El Capitan connection bug</h1>
+          <h1 id="host-a-jekyll-site-on-firebase">Host a Jekyll site on Firebase</h1>
 
-<p>This is always a fun one. Running El Capitan and getting a fucked up error trying to connect to Open VPN? Well here’s a total cludge for your amusement.</p>
+<p>This is <a href="https://firebase.google.com/">all newish</a>, but super honky dory for a few reasons.</p>
 
-<hr />
+<ul>
+  <li>Freebie for small single static sites</li>
+  <li>SSL all ready out of the box</li>
+  <li>CDN through Google automatically</li>
+</ul>
+
+<p>Plus deployment is a breeze. If this pans out I will be hooked.</p>
+
+<p>Looks like 25 a month for the paid version. Not sure about multiple domains for now. This service looks aimed at mobile app development, but has a lot of potential for other web projects.</p>
+
 <hr class="rule" />
 
-<h2 id="csrutil-disable">csrutil disable</h2>
+<hr />
+
+<h2 id="here-we-go">Here we go</h2>
 
 <ol>
-  <li>Restart to recovery mode: CMD+R.</li>
-  <li>In terminal run:</li>
+  <li>First up, do all the sign up crap.</li>
+  <li>Next, you will need to “Create a Project”. Name it something incredibly stupid and choose where you want the data center located.</li>
+  <li>Select “Add Firebase to your web app”. This will kick out some Javascript linking your project. Drop that at the bottom of your index page.</li>
+  <li>Then you will need to install firebase via npm <code class="highlighter-rouge">npm install firebase</code></li>
+  <li>Alternately you can install the latest tools <code class="highlighter-rouge">npm install -g firebase-tools</code></li>
+  <li>Login and hook it up to your Google account <code class="highlighter-rouge">firebase login</code></li>
 </ol>
 
+<hr />
+<hr />
+
+<h2 id="firebase-init">Firebase init</h2>
+
+<p>Now, Firebase will kick out a site by itself by just going to your project folder and running <code class="highlighter-rouge">firebase init</code>.</p>
+
+<p>The prompt will lead you though a few options, but in this case I didn’t chose any database info. You can also redirect to the index page, or it will create a basic 404.html if you don’t have one set up.</p>
+
+<p>Afterwards this will generate a “firebase.json” file and a public folder with a basic web setup. If you want you can also serve it up by going <code class="highlighter-rouge">firebase serve</code> and go to the localhost.</p>
+
+<hr />
+<hr />
+
+<h2 id="hooking-it-up-to-jekyll">Hooking it up to Jekyll</h2>
+
+<p>Cheap way to integrate this is to init a Firebase install and copy over the json file along with the public folder into your Jekyll project. Next you will want to change where Firebase points the public folder.</p>
+
+<p>In firebase.json, change</p>
+
 <pre>
-csrutil disable; reboot
+{
+  "hosting": {
+    "public": "public"
+  }
+}
 </pre>
 
-<p>Do your dirty work, and when it’s all clear, you’ll need to reboot in recovery once more to zip it back up.</p>
+<p>to:</p>
 
 <pre>
-csrutil enable
+{
+  "hosting": {
+    "public": "_sites"
+  }
+}
 </pre>
+
+<p>So now your Jekyll _sites files will be in sync with Firebase</p>
+
+<hr />
+<hr />
+
+<h2 id="cleaning-up">Cleaning up</h2>
+
+<p>Jekyll will copy over whatever is in the root of the install into the _sites folder, so you can exclude the json file or whatever you chose in the <code class="highlighter-rouge">_config.yml</code> like so:</p>
+
+<pre>
+exclude:
+  - CNAME
+  - README
+  - '*.json'
+  - .DS_Store
+</pre>
+
+<hr />
+<hr />
+
+<h2 id="deployment">Deployment</h2>
+
+<p>Is a snap. Just run <code class="highlighter-rouge">firebase deploy</code> and it will push everything up. You can check it all out at the default domain to test.</p>
 
         </div>
 

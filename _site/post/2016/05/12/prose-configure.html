@@ -24,7 +24,7 @@
 
     <title>
       
-        AWS S3 Static Setup
+        Github pages prose.io config
       
     </title>
 
@@ -88,154 +88,88 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="configure-a-static-site-through-aws-s3">Configure a static site through AWS S3</h1>
+          <h1 id="proseio-config">Prose.io config</h1>
 
-<p>It’s super cheap. That is until you get a bill that says it isn’t. Doesn’t matter, since Amazon already has your credit card on file so you will pay either way.</p>
+<p>Prose is pretty sweet for editing in the browser, but for those who suckk at speling like me it will prove to be a challenge in proof reading.</p>
 
-<p>The whole <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html">sad state of affairs is here to read.</a></p>
-
-<p>So let’s get going shall we?</p>
+<p>This is super rough, just getting my head wrapped around all the variables. Most important area for this config is getting the path straight for the front matter template.</p>
 
 <hr />
 <hr class="rule" />
 
-<h2 id="create-three-buckets">Create three buckets</h2>
-
-<p>The site will need three instances. root, www, and logs. Create a bucket for each with the exact domain name.</p>
-
-<p>For instance:</p>
-
-<ul>
-  <li>fucktheweb.com</li>
-  <li>www.fucktheweb.com</li>
-  <li>logs.fucktheweb.com</li>
-</ul>
-
-<p>Enable the root site <em>fucktheweb.com</em> for web hosting. Go to the <strong>Properties</strong> panel, click <strong>Static Website Hosting</strong>, and do the following:</p>
-
-<ol>
-  <li>Select the <strong>Enable website hosting</strong>.</li>
-  <li>In the <strong>Index Document</strong> box, add index.html.</li>
-  <li>In the <strong>Error Document</strong> box, add 404.html.</li>
-</ol>
-
-<p><img src="/images/ref/aws-enable-website-hosting.jpg" alt="Enable website hosting" /></p>
-
-<hr />
-
-<h2 id="make-the-root-public">Make the root public</h2>
-
-<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click the <strong>Permissions</strong>.</p>
-
-<ol>
-  <li>Click Add <strong>Bucket Policy</strong>.</li>
-  <li>Drop this puppy in</li>
-</ol>
-
-<pre>
-{
-  "Version":"2012-10-17",
-  "Statement":[{
-	"Sid":"PublicReadForGetBucketObjects",
-        "Effect":"Allow",
-	  "Principal": "*",
-      "Action":["s3:GetObject"],
-      "Resource":["arn:aws:s3:::fucktheweb.com/*"
-      ]
-    }
-  ]
-}
-</pre>
-
-<hr />
-
-<h2 id="set-up-the-redirect">Set up the redirect</h2>
-
-<p>In the <em>www.fucktheweb.com</em> bucket <strong>Properties</strong> go to <strong>Static Website Hosting</strong>.</p>
-
-<ol>
-  <li>Select <strong>Redirect all requests to another host name</strong></li>
-  <li><strong>Redirect all requests to:</strong> fucktheweb.com</li>
-</ol>
-
-<p><img src="/images/ref/aws-redirect.jpg" alt="Set up redirect" /></p>
-
-<hr />
-
-<h2 id="enable-logging">Enable logging</h2>
-
-<p>In the <em>logs.fucktheweb.com</em> bucket, create a folder named “root”.</p>
-
-<p>In the <em>fucktheweb.com</em> bucket <strong>Properties</strong> panel, click <strong>Logging</strong>.</p>
-
-<ol>
-  <li>Check <strong>Enabled</strong>.</li>
-  <li><strong>Target bucket:</strong> logs.fucktheweb.com</li>
-  <li><strong>Target prefix:</strong> root/</li>
-</ol>
-
-<p><img src="/images/ref/aws-enable-logging.jpg" alt="Enable logging" /></p>
-
-<hr />
-
-<h1 id="point-the-domain">Point the domain</h1>
-
-<p>Well, that was fun. Now we get to go through another super groovy interface that costs more money. It’s Amazon’s signature “Route 53” and we need to set up a “hosted zone”.</p>
-
-<hr />
-
-<h2 id="create-a-new-hosted-zone">Create a new hosted zone</h2>
-
-<p>In Route 53, go to <strong>Hosted zones</strong> and <strong>create a new hosted zone</strong> called fucktheweb.com. This will generate the namesevers. These nameservers are not consistent when generated, so if you botch it and start over, make sure to check them again before you point. You’ll also need to <strong>config two new A records in Route 53</strong> because simple nameservers would be too easy.</p>
-
-<hr />
-
-<h2 id="create-a-root-a-record">Create a root A record</h2>
-
-<p>In the new fucktheweb.com hosted zone, <strong>create a record set</strong>.</p>
-
-<ol>
-  <li><strong>Name:</strong> leave blank</li>
-  <li><strong>Type:</strong> A - IPv4 address</li>
-  <li><strong>Alias:</strong> <em>- S3 website endpoints -</em> fucktheweb.com (s3-website-…)</li>
-  <li><strong>Routing Policy:</strong> Simple</li>
-</ol>
-
-<hr />
-
-<h2 id="create-a-www-a-record">Create a www. A record</h2>
-
-<ol>
-  <li><strong>Name:</strong> www</li>
-  <li><strong>Type:</strong> A - IPv4 address</li>
-  <li><strong>Alias:</strong> <em>- S3 website endpoints -</em> fucktheweb.com (s3-website-…)</li>
-  <li><strong>Routing Policy:</strong> Simple</li>
-</ol>
-
-<hr />
-<hr />
-
-<h1 id="change-nameservers">Change Nameservers</h1>
-
-<p>Now go to the registrar and use the Route 53 generated Nameservers to point the domain to S3.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>prose:
+rooturl: '_posts'
+media: 'media'
+metadata:
+_posts:
+  - name: "category"
+    field:
+      element: "hidden"
+      value: "post"
+  - name: "layout"
+    field:
+      element: "hidden"
+      value: "post"
+  - name: "title"
+    field:
+      element: "text"
+      label: "Title"
+      value: ""
+_posts/static:
+  - name: "layout"
+    field:
+      element: "hidden"
+      value: "page"
+  - name: "title"
+    field:
+      element: "text"
+      label: "Title"
+      value: ""
+  - name: "permalink"
+    field:
+      element: "text"
+      label: "Permalink"
+      value: ""
+</code></pre>
+</div>
 
         </div>
 
         <div class="col-sm-3 sidenav">
-          <h3>Failures</h3>
+          <h3>No such process</h3>
           <hr class="heading">
           <ul>
             
             <li>
-              <a href="/2016/05/06/jekyll-and-wercker-to-s3.html">Wercker + Jekyll to S3</a>
+              <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/simple-sass.html">Basic SASS</a>
+              <a href="/post/2016/09/30/wp-abyss.html">Wordpress and the abyss</a>
             </li>
             
             <li>
-              <a href="/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/29/drupal-clusterfuck.html">Drupal clusterfuck</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/08/26/AWS-S3-resource-sharing.html">AWS S3 resource sharing</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/05/12/prose-configure.html">Github pages prose.io config</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/simple-sass.html">Basic SASS</a>
+            </li>
+            
+            <li>
+              <a href="/post/2016/04/28/git-cheat-sheet.html">git cheat sheet</a>
             </li>
             
             <li>
@@ -243,7 +177,7 @@
             </li>
             
             <li>
-              <a href="/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
             </li>
             
             <li>
@@ -267,11 +201,7 @@
             </li>
             
             <li>
-              <a href="/2016/04/15/common-css.html">Common CSS</a>
-            </li>
-            
-            <li>
-              <a href="/2016/04/05/osx-setup.html">OSX setup</a>
+              <a href="/post/2016/04/15/common-css.html">Common CSS</a>
             </li>
             
             <li>
@@ -279,11 +209,15 @@
             </li>
             
             <li>
-              <a href="/2016/04/05/basic-linux-commands.html">Linux basics</a>
+              <a href="/post/2016/04/05/basic-linux-commands.html">Linux basics</a>
             </li>
             
             <li>
-              <a href="/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+              <a href="/post/2016/04/05/aws-s3.html">AWS S3 Static Setup</a>
+            </li>
+            
+            <li>
+              <a href="/2016/04/05/OSX-setup.html">OSX setup</a>
             </li>
             
             <li>
