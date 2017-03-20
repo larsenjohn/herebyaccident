@@ -96,7 +96,7 @@ This was for a nav button to trigger and overlay. The overlay then had a button 
 	}
 	</script>
 
-Plainly speaking, this just adds the following CSS to the customNav div. So pretty brute force but certainly simple. If you want to send several styles through just repeat the lines like so.
+Plainly speaking, this just adds the CSS "opacity:1.0;" to the "customNav" div when the "openNav" item is clicked, then changes the CSS to "opacity:0;" when the closeNav item is clicked. So pretty brute force, but certainly simple. If you want to send several styles through just repeat the lines like so.
 
 	<script>
 		function openNav() {
