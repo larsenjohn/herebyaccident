@@ -71,28 +71,28 @@ jQuery(document).ready(function($) {
 
 ## Vanilla JS add CSS to div onClick ##
 
-This was for a nav button to trigger and overlay. The overlay then had a button in the container to close itself. I guess this is the only way to do this without JQuery, but it seems to work in a pinch.
+This chunk was for a nav button to trigger an overlay menu. The overlay *then* had a button in the container to close itself. This is one way to do it withou JQuery and seems to work in a pinch.
 
 
 	<!-- The HTML -->
 
-		<!-- The open button -->
-		<span class="ti-menu" onclick="openNav()"></span>
+	<!-- The open button -->
+	<span onclick="openNav()">The open button</span>
     
     	<div id="customNav">
     		<!-- The close button -->
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="ti-close" onclick="openNav()"></span></a>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span onclick="openNav()">The close button</span></a>
     
     		<p>The shit inside the div</p>
     	</div>
 
 	<script>
-		function openNav() {
-		document.getElementById("customNav").style.opacity = "1.0";
+	function openNav() {
+	document.getElementById("customNav").style.opacity = "1.0";
 	}
 
 	function closeNav() {
-		document.getElementById("customNav").style.opacity = "0";
+	document.getElementById("customNav").style.opacity = "0";
 	}
 	</script>
 
