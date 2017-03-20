@@ -34,7 +34,7 @@ Then cd into where your repo is. It will most likely have a folder name "templat
 At this point, you can just basically hack the thing open and push it. Which is nice. But also super duper not nice is all the commits **go live out of the gate**. So branch like a mofo or find some other way to develop if you ever have one of these fuckers living in the wild.
 
 
-***
+<hr class="rule">
 ***
 
 ## Circle two - "templating" ##
@@ -57,6 +57,7 @@ You will be spending a bit of time scratching your head at the JSON "template.co
 Now just put your.css in the "styles" folder and you are off and running.
 
 ***
+***
 
 ### JS ###
 
@@ -77,6 +78,9 @@ The JS should all be put in the "scripts" folder in the directory. It also looks
 ## site.region ##
 
 Most of the templates have pretty much everything nailed down the "site.region" file. Which I might add has an annoying feature of confusing atom - so I'll have to figure that out... But, nevertheless you will be in here crying in your soup. Yet, I have some good news from the tunnels as I suspect you will be using this...
+
+***
+***
 
 ## Open block field ##
 
