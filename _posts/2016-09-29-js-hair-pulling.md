@@ -65,3 +65,59 @@ jQuery(document).ready(function($) {
 });
 </code>
 </pre>
+
+<hr class="rule">
+***
+
+## Vanilla JS add CSS to div onClick
+
+This was for a nav button to trigger and overlay. The overlay then had a button in the container to close itself. I guess this is the only way to do this without JQuery, but it seems to work in a pinch.
+
+<pre>
+<code>
+<!-- The HTML -->
+
+	<!-- The open button -->
+	<span class="ti-menu" onclick="openNav()"></span>
+    
+    <div id="customNav">
+    	<!-- The close button -->
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="ti-close" onclick="openNav()"></span></a>
+    
+    	<p>The shit inside the div</p>
+    </div>
+
+<script>
+function openNav() {
+	document.getElementById("customNav").style.opacity = "1.0";
+}
+
+function closeNav() {
+	document.getElementById("customNav").style.opacity = "0";
+}
+</script>
+</code>
+</pre>
+
+Plainly speaking, this just adds the following CSS to the customNav div. So pretty brute force but certainly simple. If you want to send several styles through just repeat the lines like so.
+
+<pre>
+<code>
+<script>
+function openNav() {
+	document.getElementById("customNav").style.opacity = "1.0";
+	document.getElementById("customNav").style.visibility = "visible";
+}
+
+function closeNav() {
+	document.getElementById("customNav").style.opacity = "0";
+	document.getElementById("customNav").style.visibility = "hidden";
+}
+</script>
+</code>
+</pre>
+
+And so on.
+
+<hr class="rule">
+***
