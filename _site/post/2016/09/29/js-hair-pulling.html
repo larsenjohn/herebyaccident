@@ -24,7 +24,7 @@
 
     <title>
       
-        JS Hair Pulling
+        JS hair pulling
       
     </title>
 
@@ -88,7 +88,7 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="js-hair-pulling">JS Hair Pulling</h1>
+          <h1 id="js-hair-pulling">JS hair pulling</h1>
 
 <p>Didn’t think it would take me this long to make this page. I would think it would be a mile long by now. I am bald though, so that should be an indicator.</p>
 
@@ -144,16 +144,166 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
 
 	$(".navbar-nav li a").click(function (event) {
-    // check if window is small enough so dropdown is created
-    var toggle = $(".navbar-toggle").is(":visible");
-    if (toggle) {
-      $(".navbar-collapse").collapse('hide');
-    }
-  });
+    	// check if window is small enough so dropdown is created
+    	var toggle = $(".navbar-toggle").is(":visible");
+    	if (toggle) {
+      	$(".navbar-collapse").collapse('hide');
+    	}
+  	});
 
 });
 </code>
 </pre>
+
+<hr class="rule" />
+
+<hr />
+
+<h2 id="vanilla-js-add-css-to-div-onclick">Vanilla JS add CSS to div onClick</h2>
+
+<p>This chunk was for a nav button to trigger an overlay menu. The overlay <em>then</em> had a button in the container to close itself. This is one way to do it withou JQuery and seems to work in a pinch.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- The HTML --&gt;
+
+&lt;!-- The open button --&gt;
+&lt;span onclick="openNav()"&gt;The open button&lt;/span&gt;
+
+	&lt;div id="customNav"&gt;
+		&lt;!-- The close button --&gt;
+		&lt;a href="javascript:void(0)" class="closebtn" onclick="closeNav()"&gt;&lt;span onclick="openNav()"&gt;The close button&lt;/span&gt;&lt;/a&gt;
+
+		&lt;p&gt;The shit inside the div&lt;/p&gt;
+	&lt;/div&gt;
+
+&lt;script&gt;
+function openNav() {
+document.getElementById("customNav").style.opacity = "1.0";
+}
+
+function closeNav() {
+document.getElementById("customNav").style.opacity = "0";
+}
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<p>Plainly speaking, this just adds the CSS “opacity:1.0;” to the “customNav” div when the “openNav” item is clicked, then changes the CSS to “opacity:0;” when the closeNav item is clicked. So pretty brute force, but certainly simple. If you want to send several styles through just repeat the lines like so.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script&gt;
+	function openNav() {
+	document.getElementById("customNav").style.opacity = "1.0";
+	document.getElementById("customNav").style.visibility = "visible";
+}
+
+function closeNav() {
+	document.getElementById("customNav").style.opacity = "0";
+	document.getElementById("customNav").style.visibility = "hidden";
+}
+&lt;/script&gt;
+</code></pre>
+</div>
+
+<p>And so on.</p>
+
+<hr class="rule" />
+
+<hr />
+
+<h2 id="hide-and-go-seek-nav">Hide and go seek nav</h2>
+
+<p>Wanna hide the nav when you scroll down, then reveal it when you scroll up? Sound like a stupid and annoying idea? That’s what I thought.</p>
+
+<p>Let’s begin.</p>
+
+<p>Don’t ask me what the fuck is going on with this really, but it is marked up by a nice person.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$(document).ready(function(){
+
+  // Hide nav
+
+  var didScroll;
+  var lastScrollTop = 0;
+  var delta = 5;
+  var navbarHeight = $('.main-menu').outerHeight();
+
+  $(window).scroll(function(event){
+      didScroll = true;
+  });
+  
+  setInterval(function() {
+      if (didScroll) {
+          hasScrolled();
+          didScroll = false;
+      }
+  }, 250);
+
+  function hasScrolled() {
+      var st = $(this).scrollTop();
+
+      // Make sure they scroll more than delta
+      if(Math.abs(lastScrollTop - st) &lt;= delta)
+          return;
+
+      // If they scrolled down and are past the navbar, add class .nav-up.
+      // This is necessary so you never see what is "behind" the navbar.
+      if (st &gt; lastScrollTop &amp;&amp; st &gt; navbarHeight){
+          // Scroll Down
+          $('.full-menu').removeClass('nav-down').addClass('nav-up');
+      } else {
+          // Scroll Up
+          if(st + $(window).height() &lt; $(document).height()) {
+              $('.full-menu').removeClass('nav-up').addClass('nav-down');
+          }
+      }
+
+      lastScrollTop = st;
+  }
+});
+</code></pre>
+</div>
+
+<p>So, generally - this adds a class to latch onto when your nav scrolls past a certain point. Namely, addClass ‘nav-up’. So what you do is tweak a little CSS to manuver your nav off screen like so.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.full-menu {
+  	 height: 60px;
+  	 position: fixed;
+  	 padding: 10px 0;
+  	 z-index: 999;
+  	 top: 0;
+  	 transition: top 0.2s ease-in-out;
+  	 -webkit-transition: top 0.2s ease-in-out;
+  	 -moz-transition: top 0.2s ease-in-out;
+  	 transition: all 0.2s ease-in-out;
+  	 width: 100%;
+}
+
+.nav-up {
+  	 top: -80px;
+}
+
+.nav-down {
+  	 top: 0px;
+}
+</code></pre>
+</div>
+
+<p>Now, it may not be totally necessary to set the .nav-down position to 0, but it’s a good redundant measure. Also you can add whatever additional stuff you like. Now you are so cool.</p>
+
+<p>But lest we forget this is <strong>kind of janky on Android</strong>. Basically what happens is the nav will show after the second swipe. <strong>One swipe up</strong> will pull the navbar url field into view, then <strong>the second swipe will display the hidden nav</strong>. So, while not impossible to master - it would most likely be best to ditch it on mobile.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/** Ditch this for mobile **/
+
+@media only screen and (max-width : 768px) {
+ .nav-up {
+  	  top: 0;
+  }
+}
+</code></pre>
+</div>
+
+<hr class="rule" />
+
+<hr />
 
         </div>
 
@@ -171,7 +321,7 @@ jQuery(document).ready(function($) {
             </li>
             
             <li>
-              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS hair pulling</a>
             </li>
             
             <li>
@@ -262,7 +412,7 @@ jQuery(document).ready(function($) {
       <div class="col-sm-12">
 
       <hr>
-      <p class="text-center">It's 2016 in case you live on the moon.</p>
+      <p class="text-center">It's 2017 in case you live on the moon.</p>
 
       </div>
     </div>

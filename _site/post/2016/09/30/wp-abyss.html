@@ -123,7 +123,7 @@ add_action( 'wp_enqueue_scripts', 'bootstrap' );
   <li><code class="highlighter-rouge">add_action( 'wp_enqueue_scripts', 'bootstrap' );</code> Then tell WP to add your fancy new function.</li>
 </ul>
 
-<p>Fascinating huh? Watch out for the <code class="highlighter-rouge">get_stylesheet_directory_uri()</code>. That’s for the child theme. If you are saucy and using <em>_S</em> You will want to load it like so: <code class="highlighter-rouge">get_template_directory_uri()</code>, since Underscores is the template.</p>
+<p>Fascinating huh? <strong>Watch out for the <code class="highlighter-rouge">get_stylesheet_directory_uri()</code>. That’s for the child theme.</strong> If you are saucy and using <em>_S</em> You will want to load it like so: <code class="highlighter-rouge">get_template_directory_uri()</code>, since Underscores is the template.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>function fucktheweb_scripts() {
 
@@ -154,6 +154,52 @@ add_action( 'wp_enqueue_scripts', 'fucktheweb_scripts' );
 
 <hr />
 
+<h2 id="load-a-custom-menu">Load a custom menu</h2>
+
+<p>This is oddly not that difficult. First, you will need to go into the functions.pnp file and drop in this not so bad boy. This works just dandy for your <strong>child theme</strong>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//** Load custom menus **/
+
+function register_my_menus() {
+  	register_nav_menus(
+		array(
+  		'new-menu' =&gt; __( 'Custom Shit' ),
+  		'social-menu' =&gt; __( 'Social Shit' ),
+		)
+  		);
+}
+add_action( 'init', 'register_my_menus' );
+</code></pre>
+</div>
+
+<p>To dissect this, you are setting up the function ‘register_my_menus’, with the array of ‘new-menu’, and it will display on the Wordpress back end as the ‘Custom Shit’ menu in the menus section. And so on. Once it’s all done it adds the action of ‘register_my_menus’.</p>
+
+<p>Then to display it in the template - you drop in this code. In this instance, there is the added ‘container_class’ which gives you handy container class for CSS.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?wp_nav_menu( array( 'theme_location' =&gt; 'new-menu', 'container_class' =&gt; 'custom-shit' ) ); ?&gt;
+&lt;?wp_nav_menu( array( 'theme_location' =&gt; 'social-menu', 'container_class' =&gt; 'social-shit' ) ); ?&gt;
+</code></pre>
+</div>
+
+<p>If multiple menus ain’t your bag you can just do a singe one like so.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function register_my_menu() {
+	register_nav_menu('new-menu',__( 'Custom Shit' ));
+}
+add_action( 'init', 'register_my_menu' );
+</code></pre>
+</div>
+
+<p>Then just add the single line to the template wherever. Bada bing bada boom.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;?wp_nav_menu( array( 'theme_location' =&gt; 'new-menu', 'container_class' =&gt; 'custom-shit' ) ); ?&gt;
+</code></pre>
+</div>
+
+<hr class="rule" />
+
+<hr />
+
         </div>
 
         <div class="col-sm-3 sidenav">
@@ -170,7 +216,7 @@ add_action( 'wp_enqueue_scripts', 'fucktheweb_scripts' );
             </li>
             
             <li>
-              <a href="/post/2016/09/29/js-hair-pulling.html">JS Hair Pulling</a>
+              <a href="/post/2016/09/29/js-hair-pulling.html">JS hair pulling</a>
             </li>
             
             <li>
@@ -261,7 +307,7 @@ add_action( 'wp_enqueue_scripts', 'fucktheweb_scripts' );
       <div class="col-sm-12">
 
       <hr>
-      <p class="text-center">It's 2016 in case you live on the moon.</p>
+      <p class="text-center">It's 2017 in case you live on the moon.</p>
 
       </div>
     </div>
