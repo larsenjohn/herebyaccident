@@ -55,3 +55,35 @@ You will be spending a bit of time scratching your head at the JSON "template.co
     ],
 
 Now just put your.css in the "styles" folder and you are off and running.
+
+***
+
+### JS ###
+
+The JS should all be put in the "scripts" folder in the directory. It also looks like it can compile and minify it just to make your life a whole lot worse when you want to debug. But - if you are an actual developer this is handy. Flag it with combo="true" to fuck up the next person you hand this off to.
+
+    // Plug me into a template part with combine
+    <squarespace:script src="shitty.js" combo="true" />
+
+    // What the Gods command for External libs
+    <script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script>
+      window.jQuery || document.write('<script src="scripts/jquery-2.2.1.min.js"><\/script>')
+    </script>
+
+***
+***
+
+## site.region ##
+
+Most of the templates have pretty much everything nailed down the "site.region" file. Which I might add has an annoying feature of confusing atom - so I'll have to figure that out... But, nevertheless you will be in here crying in your soup I'm afraid. Yet, I have some good news from the tunnels as I suspect you will be using this...
+
+## Open block field ##
+
+But what does this all mean? I can't tell you that, but one brute force way to "template" is to drop one of these bastards right in the middle. The "open block" field pretty much gives you the basics and can be edited right away.
+
+    <squarespace:block-field id="blockField1" columns="12"/>
+
+
+<hr class="rule">
+***
