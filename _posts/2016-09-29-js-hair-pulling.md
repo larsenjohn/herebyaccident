@@ -190,9 +190,9 @@ So, generally - this adds a class to latch onto when your nav scrolls past a cer
 	}
 
     
-Now, it may not be totally necessary to set the .nav-down position to 0, but it's a good redundant measure. Also you add whatever additional stuff you like. Now you are so cool.
+Now, it may not be totally necessary to set the .nav-down position to 0, but it's a good redundant measure. Also you can add whatever additional stuff you like. Now you are so cool.
 
-But lest we forget this is **kind of janky on Android**. Basically what happens is the nav will show after the second swipe. *One swipe up* will pull the navbar url field into view, **then the second swipe will display the hidden nav**. So, while not impossible to master - it would most likely be best to ditch it on mobile.
+But lest we forget this is **kind of janky on Android**. Basically what happens is the nav will show after the second swipe. **One swipe up** will pull the navbar url field into view, then **the second swipe will display the hidden nav**. So, while not impossible to master - it would most likely be best to ditch it on mobile.
 
 	/** Ditch this for mobile **/
     
