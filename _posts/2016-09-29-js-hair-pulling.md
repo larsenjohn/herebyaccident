@@ -1,11 +1,11 @@
 ---
 layout: post
 category: post
-title: JS Hair Pulling
+title: JS hair pulling
 published: true
 ---
 
-# JS Hair Pulling #
+# JS hair pulling #
 
 Didn't think it would take me this long to make this page. I would think it would be a mile long by now. I am bald though, so that should be an indicator.
 
