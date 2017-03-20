@@ -55,12 +55,12 @@ Switch out the top line to allow multiple carousels or for other JS options.
 jQuery(document).ready(function($) {
 
 	$(".navbar-nav li a").click(function (event) {
-    // check if window is small enough so dropdown is created
-    var toggle = $(".navbar-toggle").is(":visible");
-    if (toggle) {
-      $(".navbar-collapse").collapse('hide');
-    }
-  });
+    	// check if window is small enough so dropdown is created
+    	var toggle = $(".navbar-toggle").is(":visible");
+    	if (toggle) {
+      	$(".navbar-collapse").collapse('hide');
+    	}
+  	});
 
 });
 </code>
