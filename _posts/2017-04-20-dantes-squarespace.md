@@ -94,10 +94,10 @@ But what does this all mean? I can't tell you that, but one brute force way to "
 
 ## Fuck the user ##
 
-Now we are cooking with gas - you can bypass the whole shebang and make a custom page if you choose. Which pretty much makes SP an expensive host. To make the leap start by making a "pages" folder if there isn't one there already. Then make a couple of files.
+Now we are cooking with gas - you can bypass the whole shebang and make a custom page if you choose. But they say the user cannot edit with this method - which pretty much makes SP an expensive static host. To make the leap start by making a "pages" folder if there isn't one there already. Then make a couple of files.
 
-Uno - custom.page
-Duo - custom.page.conf
+Uno - custom.page  
+Duo - custom.page.conf  
 
 You don't have to put anything in the .conf for now, but I have seen this snippet. Too bad this doesn't work either, but put it in so people *think* they have the feature. If you just *believe* it's true it most certainly is - Just ask the president.
 
