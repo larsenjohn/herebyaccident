@@ -164,8 +164,7 @@ Wanna hide the nav when you scroll? Sound like a stupid and annoying idea? That'
 
 So, generally - this adds a class to latch onto when your nav scrolls past a certain point. Namely, addClass 'nav-up'. So what you do is tweak a little CSS to manuver your nav off screen like so.
 
-	
-  	.full-menu {
+	.full-menu {
   		height: 60px;
   		position: fixed;
   		padding: 10px 0;
@@ -177,7 +176,7 @@ So, generally - this adds a class to latch onto when your nav scrolls past a cer
   		transition: all 0.2s ease-in-out;
   		width: 100%;
 	}
-
+	
 	.nav-up {
   		top: -80px;
 	}
