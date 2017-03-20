@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
 <hr class="rule">
 ***
 
-## Vanilla JS add CSS to div onClick
+## Vanilla JS add CSS to div onClick ##
 
 This was for a nav button to trigger and overlay. The overlay then had a button in the container to close itself. I guess this is the only way to do this without JQuery, but it seems to work in a pinch.
 
