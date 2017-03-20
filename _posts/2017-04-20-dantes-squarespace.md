@@ -19,7 +19,7 @@ This is a git deploy, so this circle is actually quite a mild climate. Pleasant 
 
 In order to get at it though, you need to "Enable the Developer Mode". This will relinquish it from it's cold crypt.
 
-*Out of the mouthes of babes*
+*Out of the mouths of babes*
 
 > Now that you've chosen your starting point, you need to enable Developer Mode in the site where you are working. In the Site Manager, navigate to Settings -> Advanced -> Developer Mode. At the top right corner of the settings panel, there is a toggle that is set to off. Click the toggle to turn on Developer Mode.
 
@@ -27,9 +27,9 @@ I just started with one of their templates to see how much this will effect my m
 
     $ npm install -g @squarespace/server
 
-Then cd into where your repo is. It will most likely have a folder name "template". Then you will have to do a special special since you aren't just going to pay them right away, so you have to flag your server with "--auth".
+Then cd into where your repo is. It will most likely have a folder name "template". Then you will have to do a special special since you aren't just going to pay them right away, so you have to flag your server with `--auth`.
 
-    $ squarespace-server --auth https://site-name.squarespace.com --auth
+    $ squarespace-server https://site-name.squarespace.com --auth
 
 At this point, you can just basically hack the thing open and push it. Which is nice. But also super duper not nice is all the commits **go live out of the gate**. So branch like a mofo or find some other way to develop if you ever have one of these fuckers living in the wild.
 
@@ -76,7 +76,7 @@ The JS should all be put in the "scripts" folder in the directory. It also looks
 
 ## site.region ##
 
-Most of the templates have pretty much everything nailed down the "site.region" file. Which I might add has an annoying feature of confusing atom - so I'll have to figure that out... But, nevertheless you will be in here crying in your soup I'm afraid. Yet, I have some good news from the tunnels as I suspect you will be using this...
+Most of the templates have pretty much everything nailed down the "site.region" file. Which I might add has an annoying feature of confusing atom - so I'll have to figure that out... But, nevertheless you will be in here crying in your soup. Yet, I have some good news from the tunnels as I suspect you will be using this...
 
 ## Open block field ##
 
@@ -84,6 +84,24 @@ But what does this all mean? I can't tell you that, but one brute force way to "
 
     <squarespace:block-field id="blockField1" columns="12"/>
 
+
+***
+***
+
+## Fuck the user ##
+
+Now we are cooking with gas - you can bypass the whole shebang and make a custom page if you choose. Which pretty much makes SP an expensive host. To make the leap start by making a "pages" folder if there isn't one there already. Then make a couple of files.
+
+Uno - custom.page
+Duo - custom.page.conf
+
+You don't have to put anything in the .conf for now, but I have seen this snippet. Too bad this doesn't work either, but put it in so people *think* they have the feature. If you just *believe* it's true it most certainly is - Just ask the president.
+
+    {
+      "supportsVideoBackgrounds": true
+    }
+
+So now you can plug in whatever horrible HTML you like in the custom.page file. I have even dropped an open block in there - which SP says you **really can't do**. We will just have to wait I guess.
 
 <hr class="rule">
 ***
