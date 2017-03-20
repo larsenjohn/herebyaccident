@@ -117,11 +117,11 @@ And so on.
 
 ## Hide and go seek nav ##
 
-Wanna hide the nav when you scroll? Sound like a stupid and annoying idea? That's what I thought. 
+Wanna hide the nav when you scroll down, then reveal it when you scroll up? Sound like a stupid and annoying idea? That's what I thought. 
 
 Let's begin. 
 
-Don't aske me what the fuck is going on with this really, but it is marked up by a nice person.
+Don't ask me what the fuck is going on with this really, but it is marked up by a nice person.
 
 	$(document).ready(function(){
 
