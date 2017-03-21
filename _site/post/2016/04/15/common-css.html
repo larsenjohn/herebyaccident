@@ -172,46 +172,48 @@ a.link-full-div {
 
 <p>Absolute center fluid container</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>.parent {
-  position: relative;
-}
+<div class="highlighter-rouge"><pre class="highlight"><code> .parent {
+   position: relative;
+ }
 
-.child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
+ .child {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   -moz-transform: translate(-50%, -50%);
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+ }
 </code></pre>
 </div>
 
 <p>Vertical align with flexbox</p>
 
-<p>/** wrap the container in a flexbox <em>*/
-  .vertical-align {
-    display: -webkit-box;  /</em> OLD - iOS 6-, Safari 3.1-6, BB7 <em>/
-    display: -ms-flexbox;  /</em> TWEENER - IE 10 */
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-  }</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>/** wrap the container in a flexbox **/
+.vertical-align {
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
 
-<p>/** set to 100 vertical height and align center **/
-  .fill {
-    height: 100vh;
-    width: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }</p>
+/** set to 100 vertical height and align center **/
+.fill {
+  height: 100vh;
+width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+</code></pre>
+</div>
 
 <p>Bootstrap offset grid part</p>
 

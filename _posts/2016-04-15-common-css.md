@@ -80,44 +80,44 @@ Fluid video `iframe` embed.
 
 Absolute center fluid container
 
-	.parent {
-	  position: relative;
-	}
+	 .parent {
+	   position: relative;
+	 }
 
-	.child {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  -moz-transform: translate(-50%, -50%);
-	  -webkit-transform: translate(-50%, -50%);
-	  -ms-transform: translate(-50%, -50%);
-	}
+	 .child {
+	   position: absolute;
+	   top: 50%;
+	   left: 50%;
+	   transform: translate(-50%, -50%);
+	   -moz-transform: translate(-50%, -50%);
+	   -webkit-transform: translate(-50%, -50%);
+	   -ms-transform: translate(-50%, -50%);
+	 }
 
 Vertical align with flexbox
 
-  /** wrap the container in a flexbox **/
-  .vertical-align {
-    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-    display: -ms-flexbox;  /* TWEENER - IE 10 */
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-  }
+    /** wrap the container in a flexbox **/
+    .vertical-align {
+      display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+      display: -ms-flexbox;  /* TWEENER - IE 10 */
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+    }
 
-  /** set to 100 vertical height and align center **/
-  .fill {
-    height: 100vh;
+    /** set to 100 vertical height and align center **/
+    .fill {
+      height: 100vh;
     width: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
 
 Bootstrap offset grid part
 
