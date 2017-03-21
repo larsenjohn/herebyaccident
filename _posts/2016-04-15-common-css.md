@@ -108,7 +108,7 @@ Vertical align with flexbox
     /** set to 100 vertical height and align center **/
     .fill {
       height: 100vh;
-    width: 100%;
+      width: 100%;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
