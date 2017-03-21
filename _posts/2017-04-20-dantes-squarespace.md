@@ -8,7 +8,7 @@ title: Dante's Squarespace
 
 So, your client wants a custom Squarespace site. Who boy. OK - where to begin.
 
-You can [read all about it here](https://developers.squarespace.com/quick-start), and I'm sure you will over and over as there is extremely little to go on.
+You can [read all about it here](https://developers.squarespace.com/quick-start), and I'm sure you will over and over as there is extremely little to go on. If you actually found this from the intertubes - good luck - as this is all conjecture.
 
 <hr class="rule">
 ***
@@ -84,10 +84,34 @@ Most of the templates have pretty much everything nailed down the "site.region" 
 
 ## Open block field ##
 
-But what does this all mean? I can't tell you that, but one brute force way to "template" is to drop one of these bastards right in the middle. The "open block" field pretty much gives you the basics and can be edited right away.
+What does this all mean? I can't tell you that, but one brute force way to "template" is to drop one of these bastards right in the middle. The "open block" field pretty much gives you the basics and can be edited right away.
 
     <squarespace:block-field id="blockField1" columns="12"/>
 
+
+***
+***
+
+### Working with regions ###
+
+You can also come up with [your own custom layouts](https://developers.squarespace.com/layouts-regions/) by creating "regions". It's similar to using includes, but you will need to gang them together differently. First you will need to chop up your layout into various parts, for instance "header.region, "body.region", "footer.region".
+
+Then go into the **template.conf** and string your template under the layouts. Just include all of the regions you want to deal with between the [] brackets.
+
+    "name": "...",
+    "author": "...",
+    "layouts": {
+      // the layout that came out of the box
+      "default": {
+      "name": "Default",
+      "regions": ["site"]
+    },
+      // your cool layout that the designer will balk at
+      "custom" : {
+      "name" : "Custom",
+      "regions" : [ "header", "body", "footer" ]
+    }
+  },
 
 ***
 ***
