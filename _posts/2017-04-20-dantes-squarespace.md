@@ -87,9 +87,10 @@ Most of the templates have pretty much everything nailed down the "site.region" 
 
 What does this all mean? I can't tell you that, but one brute force way to "template" is to drop one of these bastards right in the middle. The "open block" field pretty much gives you the basics and can be edited right away.
 
+	// Mind the id cowboy
+
     <squarespace:block-field id="blockField1" columns="12"/>
 
-So just a heads up - mind that id. I'm *sure* you remember how many times you can use an id.
 
 ***
 ***
