@@ -2,6 +2,7 @@
 layout: post
 category: post
 title: Dante's Squarespace
+published: true
 ---
 
 # Dante's Squarespace #
@@ -88,6 +89,7 @@ What does this all mean? I can't tell you that, but one brute force way to "temp
 
     <squarespace:block-field id="blockField1" columns="12"/>
 
+So just a heads up - mind that id. I'm *sure* you remember how many times you can use an id.
 
 ***
 ***
