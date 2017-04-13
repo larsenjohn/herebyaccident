@@ -202,5 +202,28 @@ But lest we forget this is **kind of janky on Android**. Basically what happens 
 	  }
 	}
  
-<hr class="rule">
 ***
+***
+
+## Using Waypoints and Animate.css? ##
+
+This worked once importing into the Enfold wordpress theme manually. Might break tomorrow. Could work for static.
+    
+    $('.fadeinup').addClass('opacity-hidden animated').waypoint({
+	  handler: function() {
+	      $(this.element).addClass("opacity-visible fadeInUp")
+	  },
+	  offset: '80%'
+  	});
+
+Kind of like this:
+	
+    <div class="fadeinup">
+      <h1>I'm fading up asshole. Everyone's mind is blown</h1>
+    </div>
+
+**Notey note:** You might want to watch out for the `opacity-hidden` class there. But it worked for my hackathon.
+
+***
+***
+
