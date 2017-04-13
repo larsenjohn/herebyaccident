@@ -45,7 +45,7 @@ Switch out the top line to allow multiple carousels or for other JS options.
 
     $('a[href*=#]:not([href=#]):not(.carousel-control)').click(function () {
 
-<hr class="rule">
+***
 ***
 
 ## Close Bootstrap mobile nav after click ##
@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 </code>
 </pre>
 
-<hr class="rule">
+***
 ***
 
 ## Vanilla JS add CSS to div onClick ##
@@ -99,20 +99,20 @@ This chunk was for a nav button to trigger an overlay menu. The overlay *then* h
 Plainly speaking, this just adds the CSS "opacity:1.0;" to the "customNav" div when the "openNav" item is clicked, then changes the CSS to "opacity:0;" when the closeNav item is clicked. So pretty brute force, but certainly simple. If you want to send several styles through just repeat the lines like so.
 
 	<script>
-		function openNav() {
-		document.getElementById("customNav").style.opacity = "1.0";
-		document.getElementById("customNav").style.visibility = "visible";
+	  function openNav() {
+	    document.getElementById("customNav").style.opacity = "1.0";
+	    document.getElementById("customNav").style.visibility = "visible";
 	}
 
 	function closeNav() {
-		document.getElementById("customNav").style.opacity = "0";
-		document.getElementById("customNav").style.visibility = "hidden";
+	  document.getElementById("customNav").style.opacity = "0";
+	  document.getElementById("customNav").style.visibility = "hidden";
 	}
 	</script>
 
 And so on.
 
-<hr class="rule">
+***
 ***
 
 ## Hide and go seek nav ##
@@ -226,4 +226,3 @@ Kind of like this:
 
 ***
 ***
-
