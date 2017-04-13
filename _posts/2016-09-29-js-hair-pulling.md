@@ -104,9 +104,9 @@ Plainly speaking, this just adds the CSS "opacity:1.0;" to the "customNav" div w
 	    document.getElementById("customNav").style.visibility = "visible";
 	}
 
-	function closeNav() {
-	  document.getElementById("customNav").style.opacity = "0";
-	  document.getElementById("customNav").style.visibility = "hidden";
+	  function closeNav() {
+	    document.getElementById("customNav").style.opacity = "0";
+	    document.getElementById("customNav").style.visibility = "hidden";
 	}
 	</script>
 
