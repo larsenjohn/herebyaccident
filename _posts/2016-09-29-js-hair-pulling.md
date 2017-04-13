@@ -213,8 +213,8 @@ This worked once importing into the Enfold wordpress theme manually. Might break
 	  handler: function() {
 	      $(this.element).addClass("opacity-visible fadeInUp")
 	  },
-	  offset: '80%'
-  	});
+     offset: '80%'
+    });
 
 Kind of like this:
 	
