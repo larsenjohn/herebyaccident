@@ -220,11 +220,11 @@ This worked once importing into the Enfold wordpress theme manually. Might break
     
     $(document).ready(function(){
 
-      $('#contact').waypoint({
+      $('.fadeinup').addClass('opacity-hidden animated').waypoint({
         handler: function() {
-            $('.main_color').toggleClass("light-bg")
+            $(this.element).addClass("opacity-visible fadeInUp")
         },
-        offset: '80%'
+       offset: '80%'
       });
 
 	});
