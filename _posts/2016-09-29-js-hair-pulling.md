@@ -215,6 +215,19 @@ This worked once importing into the Enfold wordpress theme manually. Might break
 	  },
      offset: '80%'
     });
+    
+    // You may have to one of these
+    
+    $(document).ready(function(){
+
+  	  $('#contact').waypoint({
+	     handler: function() {
+	        $('.main_color').toggleClass("light-bg")
+	     },
+	    offset: '80%'
+      });
+
+    });
 
 Kind of like this:
 	
