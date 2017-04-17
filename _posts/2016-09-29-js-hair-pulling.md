@@ -211,7 +211,7 @@ This worked once importing into the Enfold wordpress theme manually. Might break
     
     $('.fadeinup').addClass('opacity-hidden animated').waypoint({
 	  handler: function() {
-      	  // Add animate.css classes to .fadeinup
+          // Add animate.css classes to .fadeinup
 	      $(this.element).addClass("opacity-visible fadeInUp")
 	  },
      
