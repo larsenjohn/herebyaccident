@@ -220,14 +220,14 @@ This worked once importing into the Enfold wordpress theme manually. Might break
     
     $(document).ready(function(){
 
-  	  $('#contact').waypoint({
-	     handler: function() {
-	        $('.main_color').toggleClass("light-bg")
-	     },
-	    offset: '80%'
+      $('#contact').waypoint({
+        handler: function() {
+            $('.main_color').toggleClass("light-bg")
+        },
+        offset: '80%'
       });
 
-    });
+	});
 
 Kind of like this:
 	
