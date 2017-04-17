@@ -211,12 +211,15 @@ This worked once importing into the Enfold wordpress theme manually. Might break
     
     $('.fadeinup').addClass('opacity-hidden animated').waypoint({
 	  handler: function() {
+      	  // Add animate.css classes to .fadeinup
 	      $(this.element).addClass("opacity-visible fadeInUp")
 	  },
+     
+     // Set the percentage of screen height for trigger
      offset: '80%'
     });
     
-    // You may have to one of these
+    // You may have to one of these if not already in the mix
     
     $(document).ready(function(){
 
@@ -228,6 +231,16 @@ This worked once importing into the Enfold wordpress theme manually. Might break
       });
 
 	});
+    
+    // You can also use a toggle like so
+
+    $('#contact').waypoint({
+        handler: function() {
+            $('.toggle-color').toggleClass("light-bg")
+        },
+        offset: '80%'
+    });
+
 
 Kind of like this:
 	
