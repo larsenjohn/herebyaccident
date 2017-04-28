@@ -5,7 +5,7 @@ title: 'Seriously, enough with the video'
 published: true
 ---
 
-# Video backgrounds: or how to punish your user #
+# Video backgrounds, I just... I.. #
 
 I know what you are thinking. So, just stop it already. They want it to happen. Doesn't matter that they *never* work, or that the video will cause seizures. They want it to happen and they saw it happen.
 
