@@ -24,7 +24,7 @@
 
     <title>
       
-        AWS EC2 LEMP stack
+        Dante's Squarespace
       
     </title>
 
@@ -88,112 +88,153 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="aws-ec2-lemp-stack-with-easyengineio">AWS EC2 LEMP stack with easyengine.io</h1>
+          <h1 id="dantes-squarespace">Dante’s Squarespace</h1>
 
-<p>The <a href="https://easyengine.io/">easyengine</a> setup is so simple it’s kind of scary. I really have no idea what to do if I got into trouble with it, but for now it’s a magical little rainbow.</p>
+<p>So, your client wants a custom Squarespace site. Who boy. OK - where to begin.</p>
 
-<hr />
-<hr class="rule" />
-
-<h2 id="spin-up-an-ec2-instance">Spin up an EC2 instance</h2>
-
-<p>Launch an Ubuntu Server 14.04 LTS instance. Use all of the default settings. When you get to the <strong>security groups</strong> add these custom rules after the auto populated ssh.</p>
-
-<ol>
-  <li>SSH, TCP, 22, anywhere</li>
-  <li>HTTP, TCP, 80, anywhere</li>
-  <li>HTTPS, TCP, 443, anywhere</li>
-  <li>Custom TCP rule, TCP, 2222, anywhere</li>
-  <li>Custom ICMP rule, Echo Reply, N/A, anywhere</li>
-</ol>
-
-<p>Change the permissions on the <code class="highlighter-rouge">.pem</code> file</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>chmod 600 key.pem
-</code></pre>
-</div>
+<p>You can <a href="https://developers.squarespace.com/quick-start">read all about it here</a>, and I’m sure you will over and over as there is extremely little to go on. If you actually found this from the intertubes - good luck - as this is all conjecture.</p>
 
 <hr class="rule" />
 
-<h2 id="install-easyengine">Install easyengine</h2>
+<hr />
 
-<p>Connect to the instance and run</p>
+<h2 id="circle-one---setup">Circle one - setup</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wget -qO ee rt.cx/ee &amp;&amp; sudo bash ee
+<p>This is a git deploy, so this circle is actually quite a mild climate. Pleasant weather actually.</p>
+
+<p>In order to get at it though, you need to “Enable the Developer Mode”. This will relinquish it from it’s cold crypt.</p>
+
+<p><em>Out of the mouths of babes</em></p>
+
+<blockquote>
+  <p>Now that you’ve chosen your starting point, you need to enable Developer Mode in the site where you are working. In the Site Manager, navigate to Settings -&gt; Advanced -&gt; Developer Mode. At the top right corner of the settings panel, there is a toggle that is set to off. Click the toggle to turn on Developer Mode.</p>
+</blockquote>
+
+<p>I just started with one of their templates to see how much this will effect my mental health in the future. But - what they don’t mention in the quickstart immediately is that it’s a colossal pain in the ass to see your changes. So you will need to download the squarespace server from NPM.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install -g @squarespace/server
 </code></pre>
 </div>
+
+<p>Then cd into where your repo is. It will most likely have a folder name “template”. Then you will have to do a special special since you aren’t just going to pay them right away, so you have to flag your server with <code class="highlighter-rouge">--auth</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ squarespace-server https://site-name.squarespace.com --auth
+</code></pre>
+</div>
+
+<p>At this point, you can just basically hack the thing open and push it. Which is nice. But also super duper not nice is all the commits <strong>go live out of the gate</strong>. So branch like a mofo or find some other way to develop if you ever have one of these fuckers living in the wild.</p>
 
 <hr class="rule" />
 
-<h2 id="create-a-site">Create a site</h2>
+<hr />
 
-<p>This will roll a site and configure the virtual host in one swoop.</p>
+<h2 id="circle-two---templating">Circle two - “templating”</h2>
 
-<p>Static</p>
+<p>You will be spending a bit of time scratching your head at the JSON “template.conf”. But I’ll visit you from the future and tell you that this is important.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --html
+<p><em>template.conf</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"stylesheets": [
+  "sometemplate.less",
+  "sometemplate.less",
+  "sometemplate.less",
+  "sometemplate.less",
+  "sometemplate.less",
+  "sometemplate.less",
+  // add your css here asshole
+  "your.css"
+],
 </code></pre>
 </div>
 
-<p>PHP+MySQL.</p>
+<p>Now just put your.css in the “styles” folder and you are off and running.</p>
 
-<p>MySQL database details will be in the <code class="highlighter-rouge">ee-config.php</code> file.</p>
+<hr />
+<hr />
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --mysql
-</code></pre>
-</div>
+<h3 id="js">JS</h3>
 
-<p>Standard Wordpress</p>
+<p>The JS should all be put in the “scripts” folder in the directory. It also looks like it can compile and minify it just to make your life a whole lot worse when you want to debug. But - if you are an actual developer this is handy. Flag it with combo=”true” to fuck up the next person you hand this off to.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site create example.com --wp # install wordpress without any page caching
-ee site create example.com --w3tc # install wordpress with w3-total-cache plugin
-ee site create example.com --wpsc # install wordpress with whisp-super-cache plugin
-ee site create example.com --wpfc # install wordpress + nginx fastcgi_cache
-ee site create example.com --wpredis # install wordpress + nginx redis_cache
+<div class="highlighter-rouge"><pre class="highlight"><code>// Plug me into a template part with combine
+&lt;squarespace:script src="shitty.js" combo="true" /&gt;
+
+// What the Gods command for External libs
+&lt;script src="//code.jquery.com/jquery-2.2.1.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.jQuery || document.write('&lt;script src="scripts/jquery-2.2.1.min.js"&gt;&lt;\/script&gt;')
+&lt;/script&gt;
 </code></pre>
 </div>
 
 <hr />
+<hr />
 
-<h2 id="delete-a-site">Delete a site</h2>
+<h2 id="siteregion">site.region</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com
-</code></pre>
-</div>
+<p>Most of the templates have pretty much everything nailed down the “site.region” file. Which I might add has an annoying feature of confusing atom - so I’ll have to figure that out… But, nevertheless you will be in here crying in your soup. Yet, I have some good news from the tunnels as I suspect you will be using this…</p>
 
-<p>Delete webroot only</p>
+<hr />
+<hr />
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com --files
-</code></pre>
-</div>
+<h2 id="open-block-field">Open block field</h2>
 
-<p>Delete db only</p>
+<p>What does this all mean? I can’t tell you that, but one brute force way to “template” is to drop one of these bastards right in the middle. The “open block” field pretty much gives you the basics and can be edited right away.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee site delete example.com --db
+<div class="highlighter-rouge"><pre class="highlight"><code>// Mind the id cowboy
+
+&lt;squarespace:block-field id="blockField1" columns="12"/&gt;
 </code></pre>
 </div>
 
 <hr />
+<hr />
 
-<h2 id="restart">Restart</h2>
+<h3 id="working-with-regions">Working with regions</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee stack restart
-</code></pre>
-</div>
+<p>You can also come up with <a href="https://developers.squarespace.com/layouts-regions/">your own custom layouts</a> by creating “regions”. It’s similar to using includes, but you will need to gang them together differently. First you will need to chop up your layout into various parts, for instance “header.region, “body.region”, “footer.region”.</p>
 
-<p>and reload</p>
+<p>Then go into the <strong>template.conf</strong> and string your template under the layouts. Just include all of the regions you want to deal with between the [] brackets.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee stack reload
+<div class="highlighter-rouge"><pre class="highlight"><code>"name": "...",
+"author": "...",
+"layouts": {
+  // the layout that came out of the box
+  "default": {
+  "name": "Default",
+  "regions": ["site"]
+},
+  // your cool layout that the designer will balk at
+  "custom" : {
+  "name" : "Custom",
+  "regions" : [ "header", "body", "footer" ]
+}   },
 </code></pre>
 </div>
 
 <hr />
+<hr />
 
-<h2 id="update">Update</h2>
+<h2 id="fuck-the-user">Fuck the user</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ee update
-</code></pre>
+<p>Now we are cooking with gas - you can bypass the whole shebang and make a custom page if you choose. But they say the user cannot edit with this method - which pretty much makes SP an expensive static host. To make the leap start by making a “pages” folder if there isn’t one there already. Then make a couple of files.</p>
+
+<p>Uno - custom.page<br />
+Duo - custom.page.conf</p>
+
+<p>You don’t have to put anything in the .conf for now, but I have seen this snippet. Too bad this doesn’t work either, but put it in so people <em>think</em> they have the feature. If you just <em>believe</em> it’s true it most certainly is - Just ask the president.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"supportsVideoBackgrounds"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
+
+<p>So now you can plug in whatever horrible HTML you like in the custom.page file. I have even dropped an open block in there - which SP says you <strong>really can’t do</strong>. We will just have to wait I guess.</p>
+
+<hr class="rule" />
+
+<hr />
 
         </div>
 

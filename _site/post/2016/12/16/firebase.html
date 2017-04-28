@@ -175,6 +175,39 @@ exclude:
 <hr />
 <hr />
 
+<h2 id="browser-caching">Browser Caching</h2>
+
+<p>.htaccess is a no no here, so you have to config it in the .json file. This <em>seems</em> to pass on Google’s wildly general page speed test.</p>
+
+<pre>
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "_site",
+    "ignore": ["firebase.json"],
+    // Cache the headers for a month
+    "headers": [{
+         "source" : "**/*.@(eot|otf|ttf|ttc|woff|font|css|js|jpg|jpeg|gif|png|mp4|webm|ogg)",
+         "headers": [{
+            "key" : "Cache-Control",
+            "value" : "max-age=2628000"
+         }]
+      }],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+</pre>
+
+<hr />
+<hr />
+
 <h2 id="deployment">Deployment</h2>
 
 <p>Is a snap. Just run <code class="highlighter-rouge">firebase deploy</code> and it will push everything up. You can check it all out at the default domain to test.</p>
@@ -194,6 +227,10 @@ exclude:
           <h3>No such process</h3>
           <hr class="heading">
           <ul>
+            
+            <li>
+              <a href="/post/2017/04/20/dantes-squarespace.html">Dante's Squarespace</a>
+            </li>
             
             <li>
               <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>

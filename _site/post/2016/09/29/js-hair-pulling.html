@@ -133,8 +133,7 @@ jQuery(document).ready(function($) {
 </code></pre>
 </div>
 
-<hr class="rule" />
-
+<hr />
 <hr />
 
 <h2 id="close-bootstrap-mobile-nav-after-click">Close Bootstrap mobile nav after click</h2>
@@ -155,13 +154,12 @@ jQuery(document).ready(function($) {
 </code>
 </pre>
 
-<hr class="rule" />
-
+<hr />
 <hr />
 
 <h2 id="vanilla-js-add-css-to-div-onclick">Vanilla JS add CSS to div onClick</h2>
 
-<p>This chunk was for a nav button to trigger an overlay menu. The overlay <em>then</em> had a button in the container to close itself. This is one way to do it withou JQuery and seems to work in a pinch.</p>
+<p>This chunk was for a nav button to trigger an overlay menu. The overlay <em>then</em> had a button in the container to close itself. This is one way to do it without JQuery and seems to work in a pinch.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- The HTML --&gt;
 
@@ -190,14 +188,14 @@ document.getElementById("customNav").style.opacity = "0";
 <p>Plainly speaking, this just adds the CSS “opacity:1.0;” to the “customNav” div when the “openNav” item is clicked, then changes the CSS to “opacity:0;” when the closeNav item is clicked. So pretty brute force, but certainly simple. If you want to send several styles through just repeat the lines like so.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;script&gt;
-	function openNav() {
-	document.getElementById("customNav").style.opacity = "1.0";
-	document.getElementById("customNav").style.visibility = "visible";
+  function openNav() {
+    document.getElementById("customNav").style.opacity = "1.0";
+    document.getElementById("customNav").style.visibility = "visible";
 }
 
-function closeNav() {
-	document.getElementById("customNav").style.opacity = "0";
-	document.getElementById("customNav").style.visibility = "hidden";
+  function closeNav() {
+    document.getElementById("customNav").style.opacity = "0";
+    document.getElementById("customNav").style.visibility = "hidden";
 }
 &lt;/script&gt;
 </code></pre>
@@ -205,8 +203,7 @@ function closeNav() {
 
 <p>And so on.</p>
 
-<hr class="rule" />
-
+<hr />
 <hr />
 
 <h2 id="hide-and-go-seek-nav">Hide and go seek nav</h2>
@@ -301,8 +298,58 @@ function closeNav() {
 </code></pre>
 </div>
 
-<hr class="rule" />
+<hr />
+<hr />
 
+<h2 id="using-waypoints-and-animatecss">Using Waypoints and Animate.css?</h2>
+
+<p>This worked once importing into the Enfold wordpress theme manually. Might break tomorrow. Could work for static.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$('.fadeinup').addClass('opacity-hidden animated').waypoint({
+  handler: function() {
+      // Add animate.css classes to .fadeinup
+      $(this.element).addClass("opacity-visible fadeInUp")
+  },
+ 
+ // Set the percentage of screen height for trigger
+ offset: '80%'
+});
+
+// You may have to one of these if not already in the mix
+
+$(document).ready(function(){
+
+  $('.fadeinup').addClass('opacity-hidden animated').waypoint({
+    handler: function() {
+        $(this.element).addClass("opacity-visible fadeInUp")
+    },
+   offset: '80%'
+  });
+
+});
+
+// You can also use a toggle like so
+
+$('#contact').waypoint({
+    handler: function() {
+        $('.toggle-color').toggleClass("light-bg")
+    },
+    offset: '80%'
+});
+</code></pre>
+</div>
+
+<p>Kind of like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="fadeinup"&gt;
+  &lt;h1&gt;I'm fading up asshole. Everyone's mind is blown&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p><strong>Notey note:</strong> You might want to watch out for the <code class="highlighter-rouge">opacity-hidden</code> class there. But it worked for my hackathon.</p>
+
+<hr />
 <hr />
 
         </div>
@@ -311,6 +358,10 @@ function closeNav() {
           <h3>No such process</h3>
           <hr class="heading">
           <ul>
+            
+            <li>
+              <a href="/post/2017/04/20/dantes-squarespace.html">Dante's Squarespace</a>
+            </li>
             
             <li>
               <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>

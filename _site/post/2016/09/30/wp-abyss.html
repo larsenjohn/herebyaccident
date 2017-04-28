@@ -150,13 +150,12 @@ add_action( 'wp_enqueue_scripts', 'fucktheweb_scripts' );
 
 <p>This one has a bunch of BS in it as well. It worked once, but maybe not anymore.</p>
 
-<hr class="rule" />
-
+<hr />
 <hr />
 
 <h2 id="load-a-custom-menu">Load a custom menu</h2>
 
-<p>This is oddly not that difficult. First, you will need to go into the functions.pnp file and drop in this not so bad boy. This works just dandy for your <strong>child theme</strong>.</p>
+<p>This is oddly not that difficult. First, you will need to go into the functions.php file and drop in this not-so-bad boy. This works just dandy for your <strong>child theme</strong>.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>//** Load custom menus **/
 
@@ -196,8 +195,127 @@ add_action( 'init', 'register_my_menu' );
 </code></pre>
 </div>
 
-<hr class="rule" />
+<hr />
+<hr />
 
+<h2 id="wanna-install-in-a-subfolder">Wanna install in a subfolder?</h2>
+
+<p>Maybe you are lazy or can’t make a subdomain and want two installs for staging or something. Seems like you can just make a subfolder and drop the whole install in there, right? Wrong bozo! This will fuck up your permalink structure.</p>
+
+<p>But, you can do a little workaround with the .htaccess file. Install it in the subfolder like usual, make sure you have your .htaccess file in the subfolder and change it from…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># I'm the original .htaccess
+
+# BEGIN WordPress
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ – [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Lookie here!!
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+# END WordPress
+</code></pre>
+</div>
+
+<p>to:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># I'm the new .htaccess
+
+# BEGIN WordPress
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ – [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# I'm the new path
+RewriteRule . /fuckit/index.php [L]
+&lt;/IfModule&gt;
+# END WordPress
+</code></pre>
+</div>
+
+<hr />
+<hr />
+
+<h2 id="tired-of-assholes-poking-around-in-your-directories">Tired of assholes poking around in your directories?</h2>
+
+<p>Go to /wp-content/uploads/ and you’ll know what I mean. Some hosts do this automagically, some don’t. I have <em>no</em> idea why so don’t ask me. So the answer is again in the .htaccess file. At the bottom you just add <code class="highlighter-rouge">Options -Indexes</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># I'm an .htaccess example, yo.
+
+# BEGIN WordPress
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ – [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+
+# Don't look in my drawers, chump.
+
+Options -Indexes
+
+# END WordPress
+</code></pre>
+</div>
+
+<hr />
+<hr />
+
+<h2 id="browser-caching">Browser caching</h2>
+
+<p>I fucking hate Google. Sooner or later some asshole will want you follow their Page Speed <em>insights</em> and you will want to kill yourself. One part of the noose knot will be to “leverage browser caching”. So - you think that using the “wp super cache” might do that right? Given that it has “cache” right in the fucking name.</p>
+
+<p>Wrong bozo! The super cache spits out your Wordpress files into plain old HTML/CSS/JS instead of constantly digging into the database. This <em>may</em> make you wonder why your are using Wordpress at all for your 3 page site, but I digest…</p>
+
+<p>.htaccess again.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Put me at the bottom.
+
+# BEGIN EXPIRES
+
+ExpiresActive On
+ExpiresDefault "access plus 10 days"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType text/plain "access plus 1 month"
+ExpiresByType image/svg+xml "access 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType application/x-javascript "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 week"
+ExpiresByType application/x-icon "access plus 1 year"
+
+# END EXPIRES
+</code></pre>
+</div>
+
+<p>Of course this will bite you in the ass when you are updating, and will most likely fuck your client unless they flush the cache. So when you update substantial shit - you will need to switch it over to <code class="highlighter-rouge">access 15 minutes</code> or so.</p>
+
+<hr />
+<hr />
+
+<h2 id="your-client-uses-godaddy">Your client uses Godaddy</h2>
+
+<p>Good Lord, what a clusterfuck Godaddy is. I don’t know how many times I have gotten screwed trying to uplad a database from staging there. Here is the lastest in a long line of things I want to drink to forget.</p>
+
+<p>This is a Godsend for <a href="https://wordpress.org/support/topic/1273-unknown-collation-utf8mb4_unicode_520_ci/">this issue</a>. So if you get a bunch of shit like this <code class="highlighter-rouge">#1273 – Unknown collation: ‘utf8mb4_unicode_520_ci’</code>, do the following…</p>
+
+<p>1) Click the “Export” tab for the database</p>
+
+<p>2) Click the “Custom” radio button</p>
+
+<p>3) Go the section titled “Format-specific options” and change the dropdown for “Database system or older MySQL server to maximize output compatibility with:” from NONE to MYSQL40.</p>
+
+<p>4) Scroll to the bottom and click “GO”</p>
+
+<hr />
 <hr />
 
         </div>
@@ -206,6 +324,10 @@ add_action( 'init', 'register_my_menu' );
           <h3>No such process</h3>
           <hr class="heading">
           <ul>
+            
+            <li>
+              <a href="/post/2017/04/20/dantes-squarespace.html">Dante's Squarespace</a>
+            </li>
             
             <li>
               <a href="/post/2016/12/16/firebase.html">Jekyll Firebase hosting</a>
