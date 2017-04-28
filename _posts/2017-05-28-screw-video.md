@@ -1,7 +1,7 @@
 ---
 layout: post
 category: post
-title: 'Seriously, enough with the video'
+title: Enough with the video
 published: true
 ---
 
