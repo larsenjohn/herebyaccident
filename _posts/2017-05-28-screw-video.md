@@ -1,7 +1,7 @@
 ---
 layout: post
 category: post
-title: Seriously, enough with the video
+title: 'Seriously, enough with the video'
 published: true
 ---
 
@@ -18,13 +18,12 @@ It's gonna happen, just bend over.
 
 Maybe it's not all bad. [You could just do this](http://thenewcode.com/777/Create-Fullscreen-HTML5-Page-Background-Video) and tell them all to fuck off if the browser doesn't support HTML5. It's Not your fault... It's not your fault... It's not your fault...
 
-<pre>
-<video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid">
-    <source src="die-already.webm" type="video/webm">
-    <source src="die-already.mp4" type="video/mp4">
-    <source src="die-already.ogg" type="video/ogg">
-</video>
-</pre>
+	<video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid">
+    	<source src="die-already.webm" type="video/webm">
+    	<source src="die-already.mp4" type="video/mp4">
+    	<source src="die-already.ogg" type="video/ogg">
+	</video>
+
 
 That's it assholes, and now for the CSS.
 
