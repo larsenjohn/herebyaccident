@@ -72,7 +72,7 @@ Since your video is smashed, you can use an overlay to ease it's pain. Now when 
   top: 0;
   left: 0;
   background: url(/images/overlay.png) repeat;
-  <!-- or whatever z works -->
+  /** or whatever z-index that works **/
   z-index: 0;
 }
 </pre>
