@@ -135,42 +135,44 @@
 
 <p>Cheap way to integrate this is to init a Firebase install and copy over the json file along with the public folder into your Jekyll project. Next you will want to change where Firebase points the public folder.</p>
 
-<p>In firebase.json, change</p>
+<p>Or you can run through the <code class="highlighter-rouge">firebase init</code> scenario and make sure the public folder is pointed to <code class="highlighter-rouge">_sites</code>.</p>
 
-<pre>
-{
-  "hosting": {
-    "public": "public"
-  }
-}
-</pre>
+<p>In firebase.json look for this.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"hosting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>to:</p>
 
-<pre>
-{
-  "hosting": {
-    "public": "_sites"
-  }
-}
-</pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"hosting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_sites"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<p>So now your Jekyll _sites files will be in sync with Firebase</p>
+<p>So now your Jekyll <code class="highlighter-rouge">_sites</code> files will be in sync with Firebase</p>
 
 <hr />
 <hr />
 
 <h2 id="cleaning-up">Cleaning up</h2>
 
-<p>Jekyll will copy over whatever is in the root of the install into the _sites folder, so you can exclude the json file or whatever you chose in the <code class="highlighter-rouge">_config.yml</code> like so:</p>
+<p>Jekyll will copy over whatever is in the root of the install into the <code class="highlighter-rouge">_sites</code> folder, so you can exclude the json file or whatever you chose in the <code class="highlighter-rouge">_config.yml</code> like so:</p>
 
-<pre>
-exclude:
+<div class="highlighter-rouge"><pre class="highlight"><code>exclude:
   - CNAME
   - README
   - '*.json'
   - .DS_Store
-</pre>
+</code></pre>
+</div>
 
 <hr />
 <hr />
@@ -179,31 +181,31 @@ exclude:
 
 <p>.htaccess is a no no here, so you have to config it in the .json file. This <em>seems</em> to pass on Google’s wildly general page speed test.</p>
 
-<pre>
-{
-  "database": {
-    "rules": "database.rules.json"
-  },
-  "hosting": {
-    "public": "_site",
-    "ignore": ["firebase.json"],
-    // Cache the headers for a month
-    "headers": [{
-         "source" : "**/*.@(eot|otf|ttf|ttc|woff|font|css|js|jpg|jpeg|gif|png|mp4|webm|ogg)",
-         "headers": [{
-            "key" : "Cache-Control",
-            "value" : "max-age=2628000"
-         }]
-      }],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
-</pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"rules"</span><span class="p">:</span><span class="w"> </span><span class="s2">"database.rules.json"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"hosting"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"public"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_site"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ignore"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"firebase.json"</span><span class="p">],</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Cache</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">headers</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">month</span><span class="w">
+    </span><span class="nt">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+         </span><span class="nt">"source"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"**/*.@(eot|otf|ttf|ttc|woff|font|css|js|jpg|jpeg|gif|png|mp4|webm|ogg)"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="nt">"key"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Cache-Control"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"max-age=2628000"</span><span class="w">
+         </span><span class="p">}]</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+    </span><span class="nt">"rewrites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"**"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <hr />
 <hr />
@@ -229,7 +231,11 @@ exclude:
           <ul>
             
             <li>
-              <a href="/post/2017/04/20/dantes-squarespace.html">Dante's Squarespace</a>
+              <a href="/post/2017/03/28/screw-video.html">Enough with the video</a>
+            </li>
+            
+            <li>
+              <a href="/post/2017/03/20/dantes-squarespace.html">Dante's Squarespace</a>
             </li>
             
             <li>
@@ -341,7 +347,8 @@ exclude:
 </footer><!-- footer -->
 
 
-  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 </body>

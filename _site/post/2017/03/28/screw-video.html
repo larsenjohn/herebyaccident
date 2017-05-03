@@ -24,7 +24,7 @@
 
     <title>
       
-        Dante's Squarespace
+        Enough with the video
       
     </title>
 
@@ -88,152 +88,142 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="dantes-squarespace">Dante’s Squarespace</h1>
+          <h1 id="video-backgrounds-i-just-i">Video backgrounds, I just… I..</h1>
 
-<p>So, your client wants a custom Squarespace site. Who boy. OK - where to begin.</p>
+<p>I know what you are thinking. So, just stop it already. They want it to happen. Doesn’t matter that they <em>never</em> work, or that the video will cause seizures. They want it to happen and they saw it happen.</p>
 
-<p>You can <a href="https://developers.squarespace.com/quick-start">read all about it here</a>, and I’m sure you will over and over as there is extremely little to go on. If you actually found this from the intertubes - good luck - as this is all conjecture.</p>
-
-<hr class="rule" />
-
-<hr />
-
-<h2 id="circle-one---setup">Circle one - setup</h2>
-
-<p>This is a git deploy, so this circle is actually quite a mild climate. Pleasant weather actually.</p>
-
-<p>In order to get at it though, you need to “Enable the Developer Mode”. This will relinquish it from it’s cold crypt.</p>
-
-<p><em>Out of the mouths of babes</em></p>
-
-<blockquote>
-  <p>Now that you’ve chosen your starting point, you need to enable Developer Mode in the site where you are working. In the Site Manager, navigate to Settings -&gt; Advanced -&gt; Developer Mode. At the top right corner of the settings panel, there is a toggle that is set to off. Click the toggle to turn on Developer Mode.</p>
-</blockquote>
-
-<p>I just started with one of their templates to see how much this will effect my mental health in the future. But - what they don’t mention in the quickstart immediately is that it’s a colossal pain in the ass to see your changes. So you will need to download the squarespace server from NPM.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install -g @squarespace/server
-</code></pre>
-</div>
-
-<p>Then cd into where your repo is. It will most likely have a folder name “template”. Then you will have to do a special special since you aren’t just going to pay them right away, so you have to flag your server with <code class="highlighter-rouge">--auth</code>.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ squarespace-server https://site-name.squarespace.com --auth
-</code></pre>
-</div>
-
-<p>At this point, you can just basically hack the thing open and push it. Which is nice. But also super duper not nice is all the commits <strong>go live out of the gate</strong>. So branch like a mofo or find some other way to develop if you ever have one of these fuckers living in the wild.</p>
+<p>It’s gonna happen, just bend over.</p>
 
 <hr class="rule" />
 
 <hr />
 
-<h2 id="circle-two---templating">Circle two - “templating”</h2>
+<h2 id="full-screen">Full Screen</h2>
 
-<p>You will be spending a bit of time scratching your head at the JSON “template.conf”. But I’ll visit you from the future and tell you that this is important.</p>
+<p>This one <strong>actually worked</strong>.</p>
 
-<p><em>template.conf</em></p>
+<p>Maybe it’s not all bad. <a href="http://thenewcode.com/777/Create-Fullscreen-HTML5-Page-Background-Video">You could just do this</a> and tell them all to fuck off if the browser doesn’t support HTML5. It’s Not your fault… It’s not your fault… It’s not your fault…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>"stylesheets": [
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  // add your css here asshole
-  "your.css"
-],
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid"&gt;
+  &lt;source src="die-already.webm" type="video/webm"&gt;
+  &lt;source src="die-already.mp4" type="video/mp4"&gt;
+  &lt;source src="die-already.ogg" type="video/ogg"&gt;
+&lt;/video&gt;
 </code></pre>
 </div>
 
-<p>Now just put your.css in the “styles” folder and you are off and running.</p>
+<p>That’s it assholes, and now for the CSS.</p>
 
-<hr />
-<hr />
-
-<h3 id="js">JS</h3>
-
-<p>The JS should all be put in the “scripts” folder in the directory. It also looks like it can compile and minify it just to make your life a whole lot worse when you want to debug. But - if you are an actual developer this is handy. Flag it with combo=”true” to fuck up the next person you hand this off to.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>// Plug me into a template part with combine
-&lt;squarespace:script src="shitty.js" combo="true" /&gt;
-
-// What the Gods command for External libs
-&lt;script src="//code.jquery.com/jquery-2.2.1.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  window.jQuery || document.write('&lt;script src="scripts/jquery-2.2.1.min.js"&gt;&lt;\/script&gt;')
-&lt;/script&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(/images/die-already.jpg) no-repeat;
+  background-size: cover;
+}
 </code></pre>
 </div>
 
 <hr />
 <hr />
 
-<h2 id="siteregion">site.region</h2>
+<h2 id="in-a-wrapper">In a wrapper</h2>
 
-<p>Most of the templates have pretty much everything nailed down the “site.region” file. Which I might add has an annoying feature of confusing atom - so I’ll have to figure that out… But, nevertheless you will be in here crying in your soup. Yet, I have some good news from the tunnels as I suspect you will be using this…</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="wrapper"&gt;
+ &lt;video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid"&gt;
+   &lt;source src="die-already.webm" type="video/webm"&gt;
+   &lt;source src="die-already.mp4" type="video/mp4"&gt;
+   &lt;source src="die-already.ogg" type="video/ogg"&gt;
+ &lt;/video&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<p>And the CSS</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.wrapper {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+#bgvid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 600px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+</code></pre>
+</div>
+
+<p>I have <strong>not done this</strong>.</p>
+
+<p>At least this is the start of it from <a href="http://callmenick.com/post/html5-video-jumpstart-examples">this fellah</a>. You will have to set up your own media queries. This <em>may</em> work with the fluid iframe css.</p>
+
+<p>Maybe this with a width and height set before?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+#bgvid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</code></pre>
+</div>
+<hr />
+<hr />
+
+<h2 id="crunch-the-fuck-out-of-it">Crunch the fuck out of it</h2>
+
+<p>Now, you will have to hide it for mobile. In order not to have angry mobs at your door, you should smash this thing as much as you can.</p>
+
+<p>VLC will take care of the .webm and .ogg for you. If you <strong>space how to do this</strong>, go to <strong>file &gt; Convert / Stream</strong>. Then choose your format from the dropdown.</p>
+
+<p>Aim for 5MB if you can.</p>
 
 <hr />
 <hr />
 
-<h2 id="open-block-field">Open block field</h2>
+<h2 id="overlay">Overlay</h2>
 
-<p>What does this all mean? I can’t tell you that, but one brute force way to “template” is to drop one of these bastards right in the middle. The “open block” field pretty much gives you the basics and can be edited right away.</p>
+<p>Since your video is smashed, you can use an overlay to ease it’s pain. Now when someone makes a screenshot it will look horrific. Huzzah!</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Mind the id cowboy
-
-&lt;squarespace:block-field id="blockField1" columns="12"/&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/images/overlay.png) repeat;
+  /** or whatever z-index that works **/
+  z-index: 0;
+}
 </code></pre>
 </div>
 
 <hr />
-<hr />
-
-<h3 id="working-with-regions">Working with regions</h3>
-
-<p>You can also come up with <a href="https://developers.squarespace.com/layouts-regions/">your own custom layouts</a> by creating “regions”. It’s similar to using includes, but you will need to gang them together differently. First you will need to chop up your layout into various parts, for instance “header.region, “body.region”, “footer.region”.</p>
-
-<p>Then go into the <strong>template.conf</strong> and string your template under the layouts. Just include all of the regions you want to deal with between the [] brackets.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>"name": "...",
-"author": "...",
-"layouts": {
-  // the layout that came out of the box
-  "default": {
-  "name": "Default",
-  "regions": ["site"]
-},
-  // your cool layout that the designer will balk at
-  "custom" : {
-  "name" : "Custom",
-  "regions" : [ "header", "body", "footer" ]
-}   },
-</code></pre>
-</div>
-
-<hr />
-<hr />
-
-<h2 id="fuck-the-user">Fuck the user</h2>
-
-<p>Now we are cooking with gas - you can bypass the whole shebang and make a custom page if you choose. But they say the user cannot edit with this method - which pretty much makes SP an expensive static host. To make the leap start by making a “pages” folder if there isn’t one there already. Then make a couple of files.</p>
-
-<p>Uno - custom.page<br />
-Duo - custom.page.conf</p>
-
-<p>You don’t have to put anything in the .conf for now, but I have seen this snippet. Too bad this doesn’t work either, but put it in so people <em>think</em> they have the feature. If you just <em>believe</em> it’s true it most certainly is - Just ask the president.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"supportsVideoBackgrounds"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<p>So now you can plug in whatever horrible HTML you like in the custom.page file. I have even dropped an open block in there - which SP says you <strong>really can’t do</strong>. We will just have to wait I guess.</p>
-
-<hr class="rule" />
-
 <hr />
 
         </div>
@@ -244,7 +234,11 @@ Duo - custom.page.conf</p>
           <ul>
             
             <li>
-              <a href="/post/2017/04/20/dantes-squarespace.html">Dante's Squarespace</a>
+              <a href="/post/2017/03/28/screw-video.html">Enough with the video</a>
+            </li>
+            
+            <li>
+              <a href="/post/2017/03/20/dantes-squarespace.html">Dante's Squarespace</a>
             </li>
             
             <li>
@@ -356,7 +350,8 @@ Duo - custom.page.conf</p>
 </footer><!-- footer -->
 
 
-  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 </body>

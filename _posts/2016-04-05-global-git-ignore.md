@@ -18,7 +18,7 @@ sudo nano ~/.gitignore_global
 
 .gitignore_global
 
-<pre>
+```
 #compiled source #
 ###################
 *.com
@@ -62,16 +62,16 @@ Thumbs.db
 .sass-cache/
 .codekit-config.json
 config.codekit
-</pre>
+```
 
 Assign it.
 
-<pre>
+```
 git config --global core.excludesfile '~/.gitignore_global'
-</pre>
+```
 
 Check config if you get nervous.
 
-<pre>
+```
 git config --list
-</pre>
+```

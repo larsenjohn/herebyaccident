@@ -56,11 +56,11 @@ video#bgvid {
 
 ```
 <div class="wrapper">
-  <video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid">
-  	<source src="die-already.webm" type="video/webm">
-  	<source src="die-already.mp4" type="video/mp4">
-  	<source src="die-already.ogg" type="video/ogg">
-	</video>
+ <video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid">
+   <source src="die-already.webm" type="video/webm">
+   <source src="die-already.mp4" type="video/mp4">
+   <source src="die-already.ogg" type="video/ogg">
+ </video>
 </div>
 ```
 
@@ -82,7 +82,7 @@ And the CSS
   height: auto;
   transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
 ```
@@ -91,6 +91,23 @@ I have **not done this**.
 
 At least this is the start of it from [this fellah](http://callmenick.com/post/html5-video-jumpstart-examples). You will have to set up your own media queries. This *may* work with the fluid iframe css.
 
+Maybe this with a width and height set before?
+
+```
+.wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+#bgvid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+```
 ***
 ***
 
