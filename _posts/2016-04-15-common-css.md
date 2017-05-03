@@ -14,123 +14,141 @@ I know I have done this a hundred times and have it in all of my basic custom sh
 
 Remove Firefox `<a>` outline, (watch out for accessibility on this one though).
 
-    a, a:hover, a:active, a:focus {
-      outline: 0;
-    }
+```
+a, a:hover, a:active, a:focus {
+   outline: 0;
+}
 
-    input::-moz-focus-inner {
-      border: 0;
-    }
+input::-moz-focus-inner {
+  border: 0;
+}
+```
 
 Opacity with IE legacy
 
-    opacity: 0.5;
-    -moz-opacity: 0.5;
-    -webkit-opacity: 0.5;
-    -o-opacity: 0.5;
-    filter: alpha(opacity=50);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+```
+opacity: 0.5;
+-moz-opacity: 0.5;
+-webkit-opacity: 0.5;
+-o-opacity: 0.5;
+filter: alpha(opacity=50);
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+```
 
 Simple vanilla CSS3 ease
 
-    transition: all 0.15s ease-in-out;
-    -webkit-transition: all 0.15s ease-in-out;
-    -moz-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
+```
+transition: all 0.15s ease-in-out;
+-webkit-transition: all 0.15s ease-in-out;
+-moz-transition: all 0.15s ease-in-out;
+-o-transition: all 0.15s ease-in-out;
+```
 
 Wrap an `<a>` tag around a div.
 
-    <div class="wrap">
-      <a class="link-full-div" href="#"></a>
-        <h1>Link the entire div</h1>
-        <p>Content</p>
-    </div>
+```
+<div class="wrap">
+  <a class="link-full-div" href="#"></a>
+    <h1>Link the entire div</h1>
+    <p>Content</p>
+</div>
 
-    .wrap {
-      position: relative;
-    }
+.wrap {
+  position: relative;
+}
 
-    a.link-full-div {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      text-decoration: none;
-      z-index: 999;
-    }
+a.link-full-div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 999;
+}
+```
 
 Fluid video `iframe` embed.
 
-    .video-wrapper {
-      position: relative;
-      /** 16:9 **/
-      padding-bottom: 56.25%;
-      height: 0;
-    }
+```
+.video-wrapper {
+  position: relative;
+  /** 16:9 **/
+  padding-bottom: 56.25%;
+  height: 0;
+}
 
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+```
 
 Absolute center fluid container
 
-	 .parent {
-	   position: relative;
-	 }
+```
+.parent {
+  position: relative;
+}
 
-	 .child {
-	   position: absolute;
-	   top: 50%;
-	   left: 50%;
-	   transform: translate(-50%, -50%);
-	   -moz-transform: translate(-50%, -50%);
-	   -webkit-transform: translate(-50%, -50%);
-	   -ms-transform: translate(-50%, -50%);
-	 }
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+```
 
 Vertical align with flexbox
 
-    /** wrap the container in a flexbox **/
-    .vertical-align {
-      display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-      display: -ms-flexbox;  /* TWEENER - IE 10 */
-      display: -webkit-flex;
-      display: flex;
-      align-items: center;
-    }
+```
+/** wrap the container in a flexbox **/
 
-    /** set to 100 vertical height and align center **/
-    .fill {
-      height: 100vh;
-      width: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-    }
+.vertical-align {
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
+
+/** set to 100 vertical height and align center **/
+
+.fill {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+```
 
 Bootstrap offset grid part
 
-	.col-sm-offset-*
-    .col-md-offset-*
-    .col-lg-offset-*
+```
+.col-sm-offset-*
+.col-md-offset-*
+.col-lg-offset-*
 
-    <div class="col-sm-6 col-sm-offset-6">
-    </div>
+<div class="col-sm-6 col-sm-offset-6">
+  <h1>content</h1>
+</div>
+```
 
 Bootstrap vanilla media queries
 
-
+```
     /*** === Mobile First Method === ***/
 
     /* Custom, iPhone Retina */
@@ -203,7 +221,11 @@ Bootstrap vanilla media queries
 
     }
 
+```
+
 Bootstrap grid and responsive utilities only
+
+```
 
     img {
       vertical-align: middle;
@@ -1413,8 +1435,11 @@ Bootstrap grid and responsive utilities only
       }
     }
 
+```
+
 Jotform reset to 100% width. Good starting place for simple forms w/Google fonts.
 
+```
     /** Jotform Reset **/
 
     /** import fonts @top or pull them for default **/
@@ -1558,3 +1583,7 @@ Jotform reset to 100% width. Good starting place for simple forms w/Google fonts
       font-size: 16px;
       border: 1px solid #aaaaaa;
     }
+```
+
+***
+***
