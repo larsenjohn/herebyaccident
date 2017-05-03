@@ -30,61 +30,62 @@ Maybe it's not all bad. [You could just do this](http://thenewcode.com/777/Creat
 
 That's it assholes, and now for the CSS.
 
-
-	video#bgvid {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -100;
-      -ms-transform: translateX(-50%) translateY(-50%);
-      -moz-transform: translateX(-50%) translateY(-50%);
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      background: url(/images/die-already.jpg) no-repeat;
-      background-size: cover;
-	}
+```
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(/images/die-already.jpg) no-repeat;
+  background-size: cover;
+}
+```
 
 ***
 ***
 
 ## In a wrapper ##
 
-<pre>
-<code>
+```
 <div class="wrapper">
   <video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid">
-  <source src="die-already.webm" type="video/webm">
-  <source src="die-already.mp4" type="video/mp4">
-  <source src="die-already.ogg" type="video/ogg">
-</video>
+  	<source src="die-already.webm" type="video/webm">
+  	<source src="die-already.mp4" type="video/mp4">
+  	<source src="die-already.ogg" type="video/ogg">
+	</video>
 </div>
-</code>
-</pre>
+```
 
 And the CSS
 
-	.wrapper {
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-    }
+```
+.wrapper {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
 
-	#bgvid {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 1;
-      width: 600px;
-      height: auto;
-      transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-    }
+#bgvid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 600px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+```
 
 I have **not done this**.
 
@@ -108,16 +109,18 @@ Aim for 5MB if you can.
 
 Since your video is smashed, you can use an overlay to ease it's pain. Now when someone makes a screenshot it will look horrific. Huzzah!
 
-	.overlay {
-  	  width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: url(/images/overlay.png) repeat;
-      /** or whatever z-index that works **/
-      z-index: 0;
-    }
+```
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(/images/overlay.png) repeat;
+  /** or whatever z-index that works **/
+  z-index: 0;
+}
+```
 
 ***
 ***
