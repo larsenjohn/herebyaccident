@@ -14,7 +14,9 @@ It's gonna happen, just bend over.
 <hr class="rule">
 ***
 
-## This actually worked ##
+## Full Screen ##
+
+This one **acutally worked**.
 
 Maybe it's not all bad. [You could just do this](http://thenewcode.com/777/Create-Fullscreen-HTML5-Page-Background-Video) and tell them all to fuck off if the browser doesn't support HTML5. It's Not your fault... It's not your fault... It's not your fault...
 
@@ -45,6 +47,47 @@ video#bgvid {
   background-size: cover;
 }
 </pre>
+
+***
+***
+
+## In a wrapper ##
+
+	<div class="wrapper"> 
+      <video playsinline autoplay muted loop poster="/images/die-already.jpg" id="bgvid">
+    	  <source src="die-already.webm" type="video/webm">
+    	  <source src="die-already.mp4" type="video/mp4">
+    	  <source src="die-already.ogg" type="video/ogg">
+	  </video>
+    </div>
+    
+And the CSS
+
+<pre>
+.wrapper {
+  position: relative;
+  height: 300px;
+  background-color: #282828;
+  overflow: hidden;
+ }
+ 
+#bgvid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 600px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+</pre>
+
+I have **not done this**.
+
+At least this is the start of it from [this fellah](http://callmenick.com/post/html5-video-jumpstart-examples). You will have to set up your own media queries. This *may* work with the fluid iframe css.
 
 ***
 ***
