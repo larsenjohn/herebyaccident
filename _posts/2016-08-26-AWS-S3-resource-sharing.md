@@ -18,7 +18,7 @@ Sure, I guess you can just make a bucket and just open it up to the world. But t
 
 See the utterly inspiring post [here](http://herebyaccident.com/post/2016/04/05/aws-s3.html) about it. I just work up a whatever.com and use the S3 endpoint once it's all up to speed. You will have to go through the trouble of making a dummy index.html and 404.html page. I know you are lazy, so here is the bucket policy once again.
 
-<pre>
+```
 {
   "Version":"2012-10-17",
   "Statement":[{
@@ -31,7 +31,7 @@ See the utterly inspiring post [here](http://herebyaccident.com/post/2016/04/05/
     }
   ]
 }
-</pre>
+```
 
 Now you can just link out to "https://s3.amazonaws.com/fucktheweb.com/lamepost/super-cat.jpg".
 
@@ -50,27 +50,29 @@ So jump through the following hoop:
 + Select Edit CORS Configuration
 + Check that is says this:
 
-		<?xml version="1.0" encoding="UTF-8"?>
-		<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-    		<CORSRule>
-        		<AllowedOrigin>*</AllowedOrigin>
-        		<AllowedMethod>GET</AllowedMethod>
-        		<MaxAgeSeconds>3000</MaxAgeSeconds>
-        		<AllowedHeader>Authorization</AllowedHeader>
-    		</CORSRule>
-		</CORSConfiguration>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+  <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <CORSRule>
+      <AllowedOrigin>*</AllowedOrigin>
+      <AllowedMethod>GET</AllowedMethod>
+      <MaxAgeSeconds>3000</MaxAgeSeconds>
+      <AllowedHeader>Authorization</AllowedHeader>
+    </CORSRule>
+  </CORSConfiguration>
+```
 
 Generally, you can use the default for this. For my deal I used the `<AllowedOrigin>*</AllowedOrigin>` or the * setting to use all URL's instead of a specific one.
 
 So, now you should be able to hook up your fonts like so:
 
-<pre>
+```
 @font-face {
   font-family: KillerComicSans;
   src: url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.eot');
   src: url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.eot?#iefix') format('embedded-opentype'),
-       url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.woff') format('woff'),
-       url('https://s3.amazonaws.com/fucktheweb/lamepost/fonts/KillerComicSans.ttf') format('truetype');
+  url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.woff') format('woff'),
+  url('https://s3.amazonaws.com/fucktheweb/lamepost/fonts/KillerComicSans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -78,12 +80,12 @@ So, now you should be able to hook up your fonts like so:
 body {
   font-family: 'KillerComicSans', sans-serif;
 }
-</pre>
+```
 
 ***
 <hr class="rule">
 
-## CLI Terror 
+## CLI Terror
 
 So there is a CLI tool where you can fuck up your machine. Which I probably already have. So at this point I'm going to just "copy" stuff instead of snycing it. Cause you know, it may remove everything that isn't snyced to S3.
 
@@ -91,4 +93,8 @@ I also suck at paths - so I like to **nav to the folder I want to copy to first*
 
 Like so:
 
-	aws s3 cp s3://bucket-name . --recursive
+```
+aws s3 cp s3://bucket-name . --recursive
+```
+
+***

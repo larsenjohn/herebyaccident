@@ -16,49 +16,69 @@ Hoorah, git commands. Another exiting day at the races.
 
 Checkout a new branch
 
-    git checkout -b branch-name
-    
+```
+git checkout -b branch-name
+```
+
 Push upstream new branch
 
-	git push --set-upstream origin branch-name
+```
+git push --set-upstream origin branch-name
+```
 
 Delete branch (mind the uppercase -D)
 
-    git branch -D branch-name
+```
+git branch -D branch-name
+```
 
 Push specific branch
 
-    git push origin branch-name
+```
+git push origin branch-name
+```
 
 Or alternately the master
 
-    git push origin master
+```
+git push origin master
+```
 
 List all branches
 
-	git show-branch -a
+```
+git show-branch -a
+```
 
 ## Updating
 
 Basic update (pull)
 
-    git pull
+```
+git pull
+```
 
 Merge branch to master. If you are currently on a branch, switch to master branch first, then run
 
-    git merge branch-name
+```
+git merge branch-name
+```
 
 ## Logging
 
 Check the history Log
 
-    git log
+```
+git log
+```
 
 Get **out of the Log type "q"**.
 
 Drop all local changes and commits, fetch the latest history from the server and point your local master branch.
 
-    $ git fetch origin
-    $ git reset --hard origin/master
+```
+$ git fetch origin
+$ git reset --hard origin/master
+```
 
 ***

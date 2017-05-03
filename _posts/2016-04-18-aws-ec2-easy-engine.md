@@ -22,7 +22,9 @@ Launch an Ubuntu Server 14.04 LTS instance. Use all of the default settings. Whe
 
 Change the permissions on the `.pem` file
 
-    chmod 600 key.pem
+```
+chmod 600 key.pem
+```
 
 <hr class="rule">
 
@@ -30,7 +32,9 @@ Change the permissions on the `.pem` file
 
 Connect to the instance and run
 
-    wget -qO ee rt.cx/ee && sudo bash ee
+```
+wget -qO ee rt.cx/ee && sudo bash ee
+```
 
 <hr class="rule">
 
@@ -40,48 +44,66 @@ This will roll a site and configure the virtual host in one swoop.
 
 Static
 
-    ee site create example.com --html
+```
+ee site create example.com --html
+```
 
 PHP+MySQL.
 
 MySQL database details will be in the `ee-config.php` file.
 
-    ee site create example.com --mysql
+```
+ee site create example.com --mysql
+```
 
 Standard Wordpress
 
-    ee site create example.com --wp # install wordpress without any page caching
-    ee site create example.com --w3tc # install wordpress with w3-total-cache plugin
-    ee site create example.com --wpsc # install wordpress with whisp-super-cache plugin
-    ee site create example.com --wpfc # install wordpress + nginx fastcgi_cache
-    ee site create example.com --wpredis # install wordpress + nginx redis_cache
+```
+ee site create example.com --wp # install wordpress without any page caching
+ee site create example.com --w3tc # install wordpress with w3-total-cache plugin
+ee site create example.com --wpsc # install wordpress with whisp-super-cache plugin
+ee site create example.com --wpfc # install wordpress + nginx fastcgi_cache
+ee site create example.com --wpredis # install wordpress + nginx redis_cache
+```
 
 ***
 
 ## Delete a site
 
-    ee site delete example.com
+```
+ee site delete example.com
+```
 
 Delete webroot only
 
-    ee site delete example.com --files
+```
+ee site delete example.com --files
+```
 
 Delete db only
 
-    ee site delete example.com --db
+```
+ee site delete example.com --db
+```
 
 ***
 
 ## Restart
 
-    ee stack restart
+```
+ee stack restart
+```
 
 and reload
 
-    ee stack reload
+```
+ee stack reload
+```
 
 ***
 
 ## Update
 
-    ee update
+```
+ee update
+```

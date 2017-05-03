@@ -100,9 +100,7 @@
 
 <p>This works great, that is unless you have to anchor somewhere other than your page.</p>
 
-<pre>
-<code>
-jQuery(document).ready(function($) {
+<div class="highlighter-rouge"><pre class="highlight"><code>jQuery(document).ready(function($) {
 
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') &amp;&amp; location.hostname == this.hostname) {
@@ -118,8 +116,8 @@ jQuery(document).ready(function($) {
   });
 
 });
-</code>
-</pre>
+</code></pre>
+</div>
 
 <p>Switch out the top line single out a specific ID. Look to the <code class="highlighter-rouge">:not([href=#])'</code></p>
 
@@ -138,21 +136,19 @@ jQuery(document).ready(function($) {
 
 <h2 id="close-bootstrap-mobile-nav-after-click">Close Bootstrap mobile nav after click</h2>
 
-<pre>
-<code>
-jQuery(document).ready(function($) {
+<div class="highlighter-rouge"><pre class="highlight"><code>jQuery(document).ready(function($) {
 
-	$(".navbar-nav li a").click(function (event) {
-    	// check if window is small enough so dropdown is created
-    	var toggle = $(".navbar-toggle").is(":visible");
-    	if (toggle) {
-      	$(".navbar-collapse").collapse('hide');
-    	}
-  	});
+  $(".navbar-nav li a").click(function (event) {
+      // check if window is small enough so dropdown is created
+      var toggle = $(".navbar-toggle").is(":visible");
+      if (toggle) {
+        $(".navbar-collapse").collapse('hide');
+      }
+    });
 
 });
-</code>
-</pre>
+</code></pre>
+</div>
 
 <hr />
 <hr />
@@ -163,25 +159,27 @@ jQuery(document).ready(function($) {
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- The HTML --&gt;
 
-&lt;!-- The open button --&gt;
-&lt;span onclick="openNav()"&gt;The open button&lt;/span&gt;
+    &lt;!-- The open button --&gt;
+    &lt;div onclick="openNav()"&gt;
+      The open button
+    &lt;/div&gt;
 
-	&lt;div id="customNav"&gt;
-		&lt;!-- The close button --&gt;
-		&lt;a href="javascript:void(0)" class="closebtn" onclick="closeNav()"&gt;&lt;span onclick="openNav()"&gt;The close button&lt;/span&gt;&lt;/a&gt;
-
-		&lt;p&gt;The shit inside the div&lt;/p&gt;
-	&lt;/div&gt;
+    &lt;div id="customNav"&gt;
+      &lt;!-- The close button --&gt;
+      &lt;a href="javascript:void(0)" class="closebtn" onclick="closeNav()"&gt;&lt;span onclick="openNav()"&gt;The close button&lt;/span&gt;&lt;/a&gt;
+        &lt;p&gt;The shit inside the div&lt;/p&gt;
+    &lt;/div&gt;
 
 &lt;script&gt;
-function openNav() {
-document.getElementById("customNav").style.opacity = "1.0";
-}
+  function openNav() {
+    document.getElementById("customNav").style.opacity = "1.0";
+  }
 
-function closeNav() {
-document.getElementById("customNav").style.opacity = "0";
-}
+  function closeNav() {
+    document.getElementById("customNav").style.opacity = "0";
+  }
 &lt;/script&gt;
+
 </code></pre>
 </div>
 
@@ -191,12 +189,12 @@ document.getElementById("customNav").style.opacity = "0";
   function openNav() {
     document.getElementById("customNav").style.opacity = "1.0";
     document.getElementById("customNav").style.visibility = "visible";
-}
+  }
 
   function closeNav() {
     document.getElementById("customNav").style.opacity = "0";
     document.getElementById("customNav").style.visibility = "hidden";
-}
+  }
 &lt;/script&gt;
 </code></pre>
 </div>
@@ -216,70 +214,70 @@ document.getElementById("customNav").style.opacity = "0";
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$(document).ready(function(){
 
-  // Hide nav
+      // Hide nav
 
-  var didScroll;
-  var lastScrollTop = 0;
-  var delta = 5;
-  var navbarHeight = $('.main-menu').outerHeight();
+      var didScroll;
+      var lastScrollTop = 0;
+      var delta = 5;
+      var navbarHeight = $('.main-menu').outerHeight();
 
-  $(window).scroll(function(event){
-      didScroll = true;
-  });
-  
-  setInterval(function() {
-      if (didScroll) {
-          hasScrolled();
-          didScroll = false;
-      }
-  }, 250);
+      $(window).scroll(function(event){
+        didScroll = true;
+      });
 
-  function hasScrolled() {
-      var st = $(this).scrollTop();
-
-      // Make sure they scroll more than delta
-      if(Math.abs(lastScrollTop - st) &lt;= delta)
-          return;
-
-      // If they scrolled down and are past the navbar, add class .nav-up.
-      // This is necessary so you never see what is "behind" the navbar.
-      if (st &gt; lastScrollTop &amp;&amp; st &gt; navbarHeight){
-          // Scroll Down
-          $('.full-menu').removeClass('nav-down').addClass('nav-up');
-      } else {
-          // Scroll Up
-          if(st + $(window).height() &lt; $(document).height()) {
-              $('.full-menu').removeClass('nav-up').addClass('nav-down');
+      setInterval(function() {
+          if (didScroll) {
+              hasScrolled();
+              didScroll = false;
           }
-      }
+      }, 250);
 
-      lastScrollTop = st;
-  }
-});
+      function hasScrolled() {
+          var st = $(this).scrollTop();
+
+          // Make sure they scroll more than delta
+          if(Math.abs(lastScrollTop - st) &lt;= delta)
+              return;
+
+          // If they scrolled down and are past the navbar, add class .nav-up.
+          // This is necessary so you never see what is "behind" the navbar.
+          if (st &gt; lastScrollTop &amp;&amp; st &gt; navbarHeight){
+              // Scroll Down
+              $('.full-menu').removeClass('nav-down').addClass('nav-up');
+          } else {
+              // Scroll Up
+              if(st + $(window).height() &lt; $(document).height()) {
+                 $('.full-menu').removeClass('nav-up').addClass('nav-down');
+              }
+          }
+
+          lastScrollTop = st;
+      }
+   });
 </code></pre>
 </div>
 
 <p>So, generally - this adds a class to latch onto when your nav scrolls past a certain point. Namely, addClass ‘nav-up’. So what you do is tweak a little CSS to manuver your nav off screen like so.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>.full-menu {
-  	 height: 60px;
-  	 position: fixed;
-  	 padding: 10px 0;
-  	 z-index: 999;
-  	 top: 0;
-  	 transition: top 0.2s ease-in-out;
-  	 -webkit-transition: top 0.2s ease-in-out;
-  	 -moz-transition: top 0.2s ease-in-out;
-  	 transition: all 0.2s ease-in-out;
-  	 width: 100%;
+  height: 60px;
+  position: fixed;
+  padding: 10px 0;
+  z-index: 999;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  -webkit-transition: top 0.2s ease-in-out;
+  -moz-transition: top 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
 }
 
 .nav-up {
-  	 top: -80px;
+  top: -80px;
 }
 
 .nav-down {
-  	 top: 0px;
+  top: 0px;
 }
 </code></pre>
 </div>
@@ -291,9 +289,9 @@ document.getElementById("customNav").style.opacity = "0";
 <div class="highlighter-rouge"><pre class="highlight"><code>/** Ditch this for mobile **/
 
 @media only screen and (max-width : 768px) {
- .nav-up {
-  	  top: 0;
-  }
+    .nav-up {
+      top: 0;
+    }
 }
 </code></pre>
 </div>
@@ -303,43 +301,70 @@ document.getElementById("customNav").style.opacity = "0";
 
 <h2 id="using-waypoints-and-animatecss">Using Waypoints and Animate.css?</h2>
 
-<p>This worked once importing into the Enfold wordpress theme manually. Might break tomorrow. Could work for static.</p>
+<p>This works for now.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$('.fadeinup').addClass('opacity-hidden animated').waypoint({
-  handler: function() {
-      // Add animate.css classes to .fadeinup
-      $(this.element).addClass("opacity-visible fadeInUp")
-  },
- 
- // Set the percentage of screen height for trigger
- offset: '80%'
-});
 
-// You may have to one of these if not already in the mix
-
-$(document).ready(function(){
-
-  $('.fadeinup').addClass('opacity-hidden animated').waypoint({
     handler: function() {
-        $(this.element).addClass("opacity-visible fadeInUp")
+       // Add animate.css classes to .fadeinup
+       $(this.element).addClass("opacity-visible fadeInUp")
     },
-   offset: '80%'
-  });
 
-});
-
-// You can also use a toggle like so
-
-$('#contact').waypoint({
-    handler: function() {
-        $('.toggle-color').toggleClass("light-bg")
-    },
+    // Set the percentage of screen height for trigger
     offset: '80%'
 });
 </code></pre>
 </div>
 
-<p>Kind of like this:</p>
+<p>You may have to one of these if not already in the mix</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$(document).ready(function(){
+
+  $('.fadeinup').addClass('opacity-hidden animated').waypoint({
+     handler: function() {
+      $(this.element).addClass("opacity-visible fadeInUp")
+    },
+      offset: '80%'
+  });
+
+});
+</code></pre>
+</div>
+
+<p>You can also use a toggle like so</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$('#contact').waypoint({
+    handler: function() {
+       $('.toggle-color').toggleClass("light-bg")
+      },
+      offset: '80%'
+  });
+</code></pre>
+</div>
+
+<p>To unpack this one, we choose a class of <code class="highlighter-rouge">fadeinup</code> that we want to use for our element. Then we are stringing the <code class="highlighter-rouge">opacity-hidden</code> class (.addClass) first to hide the element on load - otherwise they will hit all at once or flicker, followed by the standard <code class="highlighter-rouge">animated</code> class to trigger our <code class="highlighter-rouge">animate.css</code> library. This is capped off as a <code class="highlighter-rouge">.waypoint</code>.</p>
+
+<p>Finally we are adding the classes of <code class="highlighter-rouge">opacity-visible</code> and <code class="highlighter-rouge">fadeInUp</code> to start the <code class="highlighter-rouge">animate.css</code> animation set by <code class="highlighter-rouge">offset: '80%'</code>, or when the element is 80% height in the viewport.</p>
+
+<p>CSS like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/** Hide on the load **/
+.opacity-hidden {
+  opacity: 0;
+  -moz-opacity: 0;
+  -webkit-opacity: 0;
+}
+
+/** Show for animate.css **/
+.opacity-visible {
+  opacity: 1.0;
+  -moz-opacity: 1.0;
+  -webkit-opacity: 1.0;
+}
+</code></pre>
+</div>
+
+<p>HTML like so:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;div class="fadeinup"&gt;
   &lt;h1&gt;I'm fading up asshole. Everyone's mind is blown&lt;/h1&gt;

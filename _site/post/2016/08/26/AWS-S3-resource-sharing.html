@@ -101,20 +101,20 @@
 
 <p>See the utterly inspiring post <a href="http://herebyaccident.com/post/2016/04/05/aws-s3.html">here</a> about it. I just work up a whatever.com and use the S3 endpoint once it’s all up to speed. You will have to go through the trouble of making a dummy index.html and 404.html page. I know you are lazy, so here is the bucket policy once again.</p>
 
-<pre>
-{
-  "Version":"2012-10-17",
-  "Statement":[{
-	"Sid":"PublicReadForGetBucketObjects",
-        "Effect":"Allow",
-	  "Principal": "*",
-      "Action":["s3:GetObject"],
-      "Resource":["arn:aws:s3:::fucktheweb.com/*"
-      ]
-    }
-  ]
-}
-</pre>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Version"</span><span class="p">:</span><span class="s2">"2012-10-17"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Statement"</span><span class="p">:[{</span><span class="w">
+	</span><span class="nt">"Sid"</span><span class="p">:</span><span class="s2">"PublicReadForGetBucketObjects"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Effect"</span><span class="p">:</span><span class="s2">"Allow"</span><span class="p">,</span><span class="w">
+	  </span><span class="nt">"Principal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Action"</span><span class="p">:[</span><span class="s2">"s3:GetObject"</span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Resource"</span><span class="p">:[</span><span class="s2">"arn:aws:s3:::fucktheweb.com/*"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
 <p>Now you can just link out to “https://s3.amazonaws.com/fucktheweb.com/lamepost/super-cat.jpg”.</p>
 
@@ -132,34 +132,31 @@
   <li>Select Properties</li>
   <li>Select Permissions</li>
   <li>Select Edit CORS Configuration</li>
-  <li>
-    <p>Check that is says this:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code>  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
-  &lt;CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/"&gt;
-  		&lt;CORSRule&gt;
-  		&lt;AllowedOrigin&gt;*&lt;/AllowedOrigin&gt;
-  		&lt;AllowedMethod&gt;GET&lt;/AllowedMethod&gt;
-  		&lt;MaxAgeSeconds&gt;3000&lt;/MaxAgeSeconds&gt;
-  		&lt;AllowedHeader&gt;Authorization&lt;/AllowedHeader&gt;
-  		&lt;/CORSRule&gt;
-  &lt;/CORSConfiguration&gt;
-</code></pre>
-    </div>
-  </li>
+  <li>Check that is says this:</li>
 </ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+  <span class="nt">&lt;CORSConfiguration</span> <span class="na">xmlns=</span><span class="s">"http://s3.amazonaws.com/doc/2006-03-01/"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;CORSRule&gt;</span>
+      <span class="nt">&lt;AllowedOrigin&gt;</span>*<span class="nt">&lt;/AllowedOrigin&gt;</span>
+      <span class="nt">&lt;AllowedMethod&gt;</span>GET<span class="nt">&lt;/AllowedMethod&gt;</span>
+      <span class="nt">&lt;MaxAgeSeconds&gt;</span>3000<span class="nt">&lt;/MaxAgeSeconds&gt;</span>
+      <span class="nt">&lt;AllowedHeader&gt;</span>Authorization<span class="nt">&lt;/AllowedHeader&gt;</span>
+    <span class="nt">&lt;/CORSRule&gt;</span>
+  <span class="nt">&lt;/CORSConfiguration&gt;</span>
+</code></pre>
+</div>
 
 <p>Generally, you can use the default for this. For my deal I used the <code class="highlighter-rouge">&lt;AllowedOrigin&gt;*&lt;/AllowedOrigin&gt;</code> or the * setting to use all URL’s instead of a specific one.</p>
 
 <p>So, now you should be able to hook up your fonts like so:</p>
 
-<pre>
-@font-face {
+<div class="highlighter-rouge"><pre class="highlight"><code>@font-face {
   font-family: KillerComicSans;
   src: url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.eot');
   src: url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.eot?#iefix') format('embedded-opentype'),
-       url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.woff') format('woff'),
-       url('https://s3.amazonaws.com/fucktheweb/lamepost/fonts/KillerComicSans.ttf') format('truetype');
+  url('https://s3.amazonaws.com/fucktheweb.com/lamepost/fonts/KillerComicSans.woff') format('woff'),
+  url('https://s3.amazonaws.com/fucktheweb/lamepost/fonts/KillerComicSans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -167,7 +164,8 @@
 body {
   font-family: 'KillerComicSans', sans-serif;
 }
-</pre>
+</code></pre>
+</div>
 
 <hr />
 <hr class="rule" />
@@ -183,6 +181,8 @@ body {
 <div class="highlighter-rouge"><pre class="highlight"><code>aws s3 cp s3://bucket-name . --recursive
 </code></pre>
 </div>
+
+<hr />
 
         </div>
 

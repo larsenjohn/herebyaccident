@@ -18,8 +18,9 @@ There are some paid for services and plugins, but for a smaller site you can rol
 
 Basic sample from siteground:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+```
+<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
       <url>
         <loc>http://www.domain.com/</loc>
@@ -50,12 +51,14 @@ Basic sample from siteground:
           <lastmod>2008-11-23</lastmod>
       </url>
 
-    </urlset>
+  </urlset>
+```
 
 From Google:
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+```
+<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
       xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
@@ -84,7 +87,8 @@ From Google:
         </video:video>
       </url>
 
-    </urlset>
+  </urlset>
+```
 
 ## About the attributes
 
@@ -137,8 +141,9 @@ Also, note that **assigning a high priority to all of the URLs on your site is n
 
 ## Basic url XML
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+```
+<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
       <url>
         <loc>http://fucktheweb.com/</loc>
@@ -159,7 +164,8 @@ Also, note that **assigning a high priority to all of the URLs on your site is n
         <loc>http://fucktheweb.com/some-page.html</loc>
       </url>
 
-    </urlset>
+  </urlset>
+```
 
 ***
 <hr class="rule">
@@ -168,7 +174,9 @@ Also, note that **assigning a high priority to all of the URLs on your site is n
 
 After your sitemap is built you need to show Google where it is. Drop this `robots.txt` file in the root to show the path.
 
-    Sitemap: http://fucktheweb.com/sitemap.xml
+```
+Sitemap: http://fucktheweb.com/sitemap.xml
+```
 
 ## Submit the sitemap
 

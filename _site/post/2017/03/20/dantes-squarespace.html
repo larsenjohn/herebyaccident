@@ -135,15 +135,15 @@
 <p><em>template.conf</em></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>"stylesheets": [
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  "sometemplate.less",
-  // add your css here asshole
-  "your.css"
-],
+    "sometemplate.less",
+    "sometemplate.less",
+    "sometemplate.less",
+    "sometemplate.less",
+    "sometemplate.less",
+    "sometemplate.less",
+    // add your css here asshole
+    "your.css"
+  ],
 </code></pre>
 </div>
 
@@ -156,13 +156,13 @@
 
 <p>The JS should all be put in the “scripts” folder in the directory. It also looks like it can compile and minify it just to make your life a whole lot worse when you want to debug. But - if you are an actual developer this is handy. Flag it with combo=”true” to fuck up the next person you hand this off to.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Plug me into a template part with combine
+<div class="highlighter-rouge"><pre class="highlight"><code>// Plug me into a template part to combine
 &lt;squarespace:script src="shitty.js" combo="true" /&gt;
 
 // What the Gods command for External libs
 &lt;script src="//code.jquery.com/jquery-2.2.1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
-  window.jQuery || document.write('&lt;script src="scripts/jquery-2.2.1.min.js"&gt;&lt;\/script&gt;')
+    window.jQuery || document.write('&lt;script src="scripts/jquery-2.2.1.min.js"&gt;&lt;\/script&gt;')
 &lt;/script&gt;
 </code></pre>
 </div>
@@ -184,6 +184,7 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>// Mind the id cowboy
 
 &lt;squarespace:block-field id="blockField1" columns="12"/&gt;
+
 </code></pre>
 </div>
 
@@ -196,19 +197,20 @@
 
 <p>Then go into the <strong>template.conf</strong> and string your template under the layouts. Just include all of the regions you want to deal with between the [] brackets.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>"name": "...",
-"author": "...",
-"layouts": {
-  // the layout that came out of the box
-  "default": {
-  "name": "Default",
-  "regions": ["site"]
+<div class="highlighter-rouge"><pre class="highlight"><code>  "name": "...",
+  "author": "...",
+  "layouts": {
+      // the layout that came out of the box
+      "default": {
+      "name": "Default",
+      "regions": ["site"]
+    },
+      // your cool layout that the designer will balk at
+      "custom" : {
+      "name" : "Custom",
+      "regions" : [ "header", "body", "footer" ]
+    }
 },
-  // your cool layout that the designer will balk at
-  "custom" : {
-  "name" : "Custom",
-  "regions" : [ "header", "body", "footer" ]
-}   },
 </code></pre>
 </div>
 

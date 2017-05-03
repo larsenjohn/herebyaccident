@@ -16,7 +16,7 @@ Also, none of this may *actually* work.
 
 ## Allow php formatting in content ##
 
-Go to **Modules** and check off **PHP filter**. Edit your content and select **Text format: PHP code**. Most of the crap that follows this will be in **php code** to leverage the Drupal core functions. 
+Go to **Modules** and check off **PHP filter**. Edit your content and select **Text format: PHP code**. Most of the crap that follows this will be in **php code** to leverage the Drupal core functions.
 
 ***
 
@@ -26,37 +26,45 @@ These next few snippets use the **drupal core** functions and should print in th
 
 For external JS libraries. (Mind the 'external')
 
-	<?php
-	drupal_add_js('https://link-to-external.js', 'external');
-	?>
-        
+```
+<?php
+drupal_add_js('https://link-to-external.js', 'external');
+?>
+```
+
 For inline JS functions. (Mind the 'inline')
 
-	<?php
-	drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
-	?>
-    
+```
+<?php
+drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+?>
+```
+
 **Watch out for the space** between the `drupal_add_js('https://link-to-external.js', 'external');`. Doesn't work so hot if you go: `drupal_add_js ('https://link-to-external.js', 'external');`.
-    
+
 ***
 
-## Link CSS to specific page content 
+## Link CSS to specific page content
 
-	<?php
-	drupal_add_css('https://link-to-external.css', 'external');
-	?>
-    
+```
+<?php
+drupal_add_css('https://link-to-external.css', 'external');
+?>
+```
+
 ## Example
 
 The whole shebang might go like this at the top of a page.
 
-	<?php
-	drupal_add_css('https://link-to-external.css', 'external');
+```
+<?php
+drupal_add_css('https://link-to-external.css', 'external');
 
-	drupal_add_js('https://link-to-external.js', 'external');
-	drupal_add_js('https://link-to-another-external.js', 'external');
-	drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
-	?>
+drupal_add_js('https://link-to-external.js', 'external');
+drupal_add_js('https://link-to-another-external.js', 'external');
+drupal_add_js('Whatever.init(function(){ Whatever.clearFieldOnHide="disable";	Whatever.onSubmissionError="jumpToFirstError"; });', 'inline');
+?>
+```
 
 ***
 <hr class="rule">
@@ -88,3 +96,4 @@ So far this is surpisingly difficult without actually altering the template. The
 
 There is also the [Open Graph Meta Tags](https://www.drupal.org/project/opengraph_meta) module, but for some reason won't let me actually select and og:img.
 
+***
