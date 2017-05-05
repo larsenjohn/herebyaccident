@@ -1,7 +1,7 @@
 ---
 layout: post
 category: post
-title: Jekyll github pages hosting
+title: Jekyll Crap
 published: true
 ---
 
@@ -69,9 +69,9 @@ In this case the canonical name will be fucktheweb.com. You can also use *www.fu
 ***
 <hr class="rule">
 
-## Using the the github.io domain
+## Using site.baseurl
 
-The links will bork out unless you utilize the liquid tag {{ "{{ site.baseurl " }}}} throughout. For instance:
+If you want to use github or push the site to a subfolder you will have to change the paths. The links will bork out unless you utilize the liquid tag {{ "{{ site.baseurl " }}}} throughout. For instance:
 
 ```
 <link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">
@@ -89,6 +89,8 @@ This will render the path to the github repository name. For example http://your
 Ala `<link href="{{ "{{ site.baseurl " }}}}/css/styles.css" rel="stylesheet">` compiles to `<link href="/repo-name/css/styles.css" rel="stylesheet">`.
 
 This will also clear up any links in the dev `jekyll serve` environment. This applies to all linked files like images as well.
+
+One other thing - watch out for the font paths in your CSS. You can take care of that like so:  ""../../fonts/fontawesome.woff".
 
 ```
 <img src="{{ "{{ site.baseurl " }}}}/images/lame-shit.jpg" alt="baseurl lame shit">

@@ -24,7 +24,7 @@
 
     <title>
       
-        Jekyll github pages hosting
+        Jekyll Crap
       
     </title>
 
@@ -154,9 +154,9 @@ $ git push origin gh-pages
 <hr />
 <hr class="rule" />
 
-<h2 id="using-the-the-githubio-domain">Using the the github.io domain</h2>
+<h2 id="using-sitebaseurl">Using site.baseurl</h2>
 
-<p>The links will bork out unless you utilize the liquid tag {{ site.baseurl }} throughout. For instance:</p>
+<p>If you want to use github or push the site to a subfolder you will have to change the paths. The links will bork out unless you utilize the liquid tag {{ site.baseurl }} throughout. For instance:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;
 </code></pre>
@@ -174,6 +174,8 @@ baseurl: "/repo-name"
 <p>Ala <code class="highlighter-rouge">&lt;link href="{{ site.baseurl }}/css/styles.css" rel="stylesheet"&gt;</code> compiles to <code class="highlighter-rouge">&lt;link href="/repo-name/css/styles.css" rel="stylesheet"&gt;</code>.</p>
 
 <p>This will also clear up any links in the dev <code class="highlighter-rouge">jekyll serve</code> environment. This applies to all linked files like images as well.</p>
+
+<p>One other thing - watch out for the font paths in your CSS. You can take care of that like so:  “”../../fonts/fontawesome.woff”.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;img src="{{ site.baseurl }}/images/lame-shit.jpg" alt="baseurl lame shit"&gt;
 </code></pre>
@@ -280,7 +282,7 @@ baseurl: "/repo-name"
             </li>
             
             <li>
-              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll github pages hosting</a>
+              <a href="/post/2016/04/20/jekyll-site-hosted-on-github.html">Jekyll Crap</a>
             </li>
             
             <li>
