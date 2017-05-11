@@ -12,7 +12,7 @@ Didn't think it would take me this long to make this page. I would think it woul
 <hr class="rule">
 ***
 
-## Bootstrap ease to anchor conflict with carousel ##
+## Bootstrap smooth scroll conflict ##
 
 This works great, that is unless you have to anchor somewhere other than your page.
 
