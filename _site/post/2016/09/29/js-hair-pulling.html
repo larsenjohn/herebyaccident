@@ -119,15 +119,21 @@
 </code></pre>
 </div>
 
-<p>Switch out the top line single out a specific ID. Look to the <code class="highlighter-rouge">:not([href=#])'</code></p>
+<p>Switch out the top line single out a <strong>specific ID</strong>. Look to the <code class="highlighter-rouge">:not([href=#])'</code></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$('a[href*=#]:not([href=#id-of-your-thing])').click(function() {
 </code></pre>
 </div>
 
-<p>Switch out the top line to allow multiple carousels or for other JS options.</p>
+<p>Switch out the top line to allow multiple <strong>bootstrap carousels</strong>.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>$('a[href*=#]:not([href=#]):not(.carousel-control)').click(function () {
+</code></pre>
+</div>
+
+<p>Switch out the top line to allow multiple <strong>bootstrap tabs</strong>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$('a[href*=#]:not([href=#]):not([data-toggle="tab"])').click(function () {
 </code></pre>
 </div>
 

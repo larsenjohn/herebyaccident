@@ -35,16 +35,22 @@ jQuery(document).ready(function($) {
 });
 ```
 
-Switch out the top line single out a specific ID. Look to the `:not([href=#])'`
+Switch out the top line single out a **specific ID**. Look to the `:not([href=#])'`
 
 ```
 $('a[href*=#]:not([href=#id-of-your-thing])').click(function() {
 ```
 
-Switch out the top line to allow multiple carousels or for other JS options.
+Switch out the top line to allow multiple **bootstrap carousels**.
 
 ```
 $('a[href*=#]:not([href=#]):not(.carousel-control)').click(function () {
+```
+
+Switch out the top line to allow multiple **bootstrap tabs**.
+
+```
+$('a[href*=#]:not([href=#]):not([data-toggle="tab"])').click(function () {
 ```
 
 ***
