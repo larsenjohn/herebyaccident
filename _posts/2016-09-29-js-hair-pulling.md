@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
 });
 ```
 
-Switch out the top line single out a **specific ID**. Look to the `:not([href=#])'`
+Switch out the top line to single out a **specific ID**. Look to the `:not([href=#])'`
 
 ```
 $('a[href*=#]:not([href=#id-of-your-thing])').click(function() {
