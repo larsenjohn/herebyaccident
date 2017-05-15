@@ -24,7 +24,7 @@
 
     <title>
       
-        Dante's Squarespace
+        Angular = Ulcers
       
     </title>
 
@@ -88,155 +88,88 @@
       <div class="row">
 
         <div class="col-sm-9">
-          <h1 id="dantes-squarespace">Dante’s Squarespace</h1>
+          <h1 id="angularjs-is-outdated-already">AngularJS is outdated already</h1>
 
-<p>So, your client wants a custom Squarespace site. Who boy. OK - where to begin.</p>
+<p>So, of course I have to know everything. It’s expected as such. So, I decided to start my whipping torture with AngularJS. <em>Note</em> I called it “AngularJS”, because this is already outdated apparently. The new version is just “Angular” I guess - and much harder.</p>
 
-<p>You can <a href="https://developers.squarespace.com/quick-start">read all about it here</a>, and I’m sure you will over and over as there is extremely little to go on. If you actually found this from the intertubes - good luck - as this is all conjecture.</p>
-
-<hr class="rule" />
-
-<hr />
-
-<h2 id="circle-one---setup">Circle one - setup</h2>
-
-<p>This is a git deploy, so this circle is actually quite a mild climate. Pleasant weather actually.</p>
-
-<p>In order to get at it though, you need to “Enable the Developer Mode”. This will relinquish it from it’s cold crypt.</p>
-
-<p><em>Out of the mouths of babes</em></p>
-
-<blockquote>
-  <p>Now that you’ve chosen your starting point, you need to enable Developer Mode in the site where you are working. In the Site Manager, navigate to Settings -&gt; Advanced -&gt; Developer Mode. At the top right corner of the settings panel, there is a toggle that is set to off. Click the toggle to turn on Developer Mode.</p>
-</blockquote>
-
-<p>I just started with one of their templates to see how much this will effect my mental health in the future. But - what they don’t mention in the quickstart immediately is that it’s a colossal pain in the ass to see your changes. So you will need to download the squarespace server from NPM.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install -g @squarespace/server
-</code></pre>
-</div>
-
-<p>Then cd into where your repo is. It will most likely have a folder name “template”. Then you will have to do a special special since you aren’t just going to pay them right away, so you have to flag your server with <code class="highlighter-rouge">--auth</code>.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ squarespace-server https://site-name.squarespace.com --auth
-</code></pre>
-</div>
-
-<p>At this point, you can just basically hack the thing open and push it. Which is nice. But also super duper not nice is all the commits <strong>go live out of the gate</strong>. So branch like a mofo or find some other way to develop if you ever have one of these fuckers living in the wild.</p>
+<p>Fuck it.</p>
 
 <hr class="rule" />
 
 <hr />
 
-<h2 id="circle-two---templating">Circle two - “templating”</h2>
+<h2 id="the-basic-nausea">The basic nausea</h2>
 
-<p>You will be spending a bit of time scratching your head at the JSON “template.conf”. But I’ll visit you from the future and tell you that this is important.</p>
+<p>Alright, if you are a real developer - you are making “apps”. I’m just making basic BS - so I’ll start here. Brute force, just load the library and get to bronze tacks. Looks like you can just drop the fucker in like JQuery.</p>
 
-<p><em>template.conf</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;body ng-app="" class="dev"&gt;
 
-<div class="highlighter-rouge"><pre class="highlight"><code>"stylesheets": [
-    "sometemplate.less",
-    "sometemplate.less",
-    "sometemplate.less",
-    "sometemplate.less",
-    "sometemplate.less",
-    "sometemplate.less",
-    // add your css here asshole
-    "your.css"
-  ],
+&lt;!-- Load Angular at the top --&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"&gt;&lt;/script&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"&gt;&lt;/script&gt;
+
+&lt;h1&gt;Angular! I'm so modern!&lt;/h1&gt;
+
+&lt;/body&gt;
 </code></pre>
 </div>
 
-<p>Now just put your.css in the “styles” folder and you are off and running.</p>
+<p>Don’t call me out on the <code class="highlighter-rouge">angular-route.min.js</code> cus I don’t even know if I need it now, but I guess it will help later with other shit.</p>
 
-<hr />
-<hr />
+<p>Now, the allmighty W3C says it’s best to load this in the ~ gasp ~ head. That, or right below the body. One special note - Angular is developed by Google. It will be interesting to see if Google actually <strong>knows it made this</strong> - because I’ll bet real money this won’t fly with their page speed “insights”… But, I’m tired today.</p>
 
-<h3 id="js">JS</h3>
+<p>They got a bunch of <strong>cool named shit to hook this up</strong>, but I guess all you have to do is drop <code class="highlighter-rouge">ng-app=""</code> in the wrapper and you have the “superhero” framework all ready to go.</p>
 
-<p>The JS should all be put in the “scripts” folder in the directory. It also looks like it can compile and minify it just to make your life a whole lot worse when you want to debug. But - if you are an actual developer this is handy. Flag it with combo=”true” to fuck up the next person you hand this off to.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>// Plug me into a template part to combine
-&lt;squarespace:script src="shitty.js" combo="true" /&gt;
-
-// What the Gods command for External libs
-&lt;script src="//code.jquery.com/jquery-2.2.1.min.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    window.jQuery || document.write('&lt;script src="scripts/jquery-2.2.1.min.js"&gt;&lt;\/script&gt;')
-&lt;/script&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- holy cow it's ng-app="" --&gt;
+&lt;body ng-app="" class="dev"&gt;
+  &lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"&gt;&lt;/script&gt;
+    &lt;p&gt;index me jerk&lt;/p&gt;
+&lt;/body&gt;
 </code></pre>
 </div>
 
-<hr />
-<hr />
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;body&gt;
+  &lt;script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"&gt;&lt;/script&gt;
 
-<h2 id="siteregion">site.region</h2>
-
-<p>Most of the templates have pretty much everything nailed down the “site.region” file. Which I might add has an annoying feature of confusing atom - so I’ll have to figure that out… But, nevertheless you will be in here crying in your soup. Yet, I have some good news from the tunnels as I suspect you will be using this…</p>
-
-<hr />
-<hr />
-
-<h2 id="open-block-field">Open block field</h2>
-
-<p>What does this all mean? I can’t tell you that, but one brute force way to “template” is to drop one of these bastards right in the middle. The “open block” field pretty much gives you the basics and can be edited right away.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>// Mind the id cowboy
-
-&lt;squarespace:block-field id="blockField1" columns="12"/&gt;
-
+  &lt;!-- nah, I'm in a div --&gt;
+  &lt;div ng-app=""&gt;
+    &lt;p&gt;I'm a real app yo&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
 </code></pre>
 </div>
 
 <hr />
 <hr />
 
-<h3 id="working-with-regions">Working with regions</h3>
+<h2 id="using-some-basic-js">Using some basic JS</h2>
 
-<p>You can also come up with <a href="https://developers.squarespace.com/layouts-regions/">your own custom layouts</a> by creating “regions”. It’s similar to using includes, but you will need to gang them together differently. First you will need to chop up your layout into various parts, for instance “header.region, “body.region”, “footer.region”.</p>
+<p>Now, all the docs go right for logical strings and shit I just don’t understand. The people I know just want shit the moves around and looks expensive.</p>
 
-<p>Then go into the <strong>template.conf</strong> and string your template under the layouts. Just include all of the regions you want to deal with between the [] brackets.</p>
+<p>I just want a click toggle. In fact, that’s hard for me alone - so super point for me not having to learn that.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  "name": "...",
-  "author": "...",
-  "layouts": {
-      // the layout that came out of the box
-      "default": {
-      "name": "Default",
-      "regions": ["site"]
-    },
-      // your cool layout that the designer will balk at
-      "custom" : {
-      "name" : "Custom",
-      "regions" : [ "header", "body", "footer" ]
-    }
-},
+<p>Angular’s special sauce starts with <code class="highlighter-rouge">ng-</code>, and you can click toggle like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ng-click="toggle= !toggle"
+ng-class="{'is-active': toggle}"
 </code></pre>
 </div>
 
-<hr />
-<hr />
+<p>So terms and idiot like me can understand:</p>
 
-<h2 id="fuck-the-user">Fuck the user</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;!-- I'm a fancy menu. my toggle class will be .is-active --&gt;
+&lt;button ng-click="toggle= !toggle" ng-class="{'is-active': toggle}" class="hamburger hamburger--collapse" type="button"&gt;
+  &lt;span class="hamburger-box"&gt;
+    &lt;span class="hamburger-inner"&gt;&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;
 
-<p>Now we are cooking with gas - you can bypass the whole shebang and make a custom page if you choose. But they say the user cannot edit with this method - which pretty much makes SP an expensive static host. To make the leap start by making a “pages” folder if there isn’t one there already. Then make a couple of files.</p>
-
-<p>Uno - custom.page<br />
-Duo - custom.page.conf</p>
-
-<p>You don’t have to put anything in the .conf for now, but I have seen this snippet. Too bad this doesn’t work either, but put it in so people <em>think</em> they have the feature. If you just <em>believe</em> it’s true it most certainly is - Just ask the president.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"supportsVideoBackgrounds"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+&lt;!-- I'm a fancy div. my toggle class will be .is-active too --&gt;
+&lt;div id="1" class="container" ng-class="{'is-active': toggle}"&gt;
+  &lt;p&gt;Actually, that was a box of Oscar's legally obtained medical marijuana. Primo bud. Real sticky weed.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
 </div>
-
-<p>So now you can plug in whatever horrible HTML you like in the custom.page file. I have even dropped an open block in there - which SP says you <strong>really can’t do</strong>. We will just have to wait I guess.</p>
-
-<hr class="rule" />
-
-<hr />
 
         </div>
 
